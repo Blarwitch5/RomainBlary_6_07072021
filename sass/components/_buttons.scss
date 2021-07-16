@@ -1,1 +1,42 @@
+.btn {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.125rem;
+  text-align: center;
+  line-height: 2.188rem;
+  //   max-height: 2.188rem;
+  border-radius: 5px;
+  padding: 0 1.25rem;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
 
+  @include breakpoint(laptop) {
+    font-size: 1.25rem;
+    line-height: 4.375rem;
+    // max-height: 4.375rem;
+  }
+
+  &-regular {
+    background-color: $primary;
+    color: $white;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $secondary;
+      color: $black;
+    }
+  }
+  &-reverse {
+    background-color: $secondary;
+    color: $black;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
