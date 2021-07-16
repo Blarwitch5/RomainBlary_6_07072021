@@ -1,0 +1,142 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+
+  display: none;
+
+  &__content {
+    box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
+    @include flexbox;
+    @include flex-direction(column);
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    background-color: $tertiary;
+    border-radius: 5px;
+    min-height: 100%;
+    animation-name: modalOpen;
+    animation-duration: $modal-duration;
+
+    padding: 1.25rem;
+
+    @include breakpoint(phablet) {
+      width: 80%;
+      height: unset;
+      top: 3.75rem;
+    }
+    @include breakpoint(laptop) {
+      padding: 2.188rem;
+      width: 41.875rem;
+      margin-bottom: 3.75rem;
+    }
+  }
+  &__header {
+    @include flexbox;
+    @include flex-flow(row nowrap);
+    @include justify-content(space-between);
+  }
+  &__title {
+    font-size: 2.25rem;
+    line-height: 2.938rem;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+
+    @include breakpoint(laptop) {
+      font-size: 4rem;
+      line-height: 5.25rem;
+    }
+  }
+  &__close-btn {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    width: 42px;
+    height: 42px;
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 1.875rem;
+      content: " ";
+      height: 1.65rem;
+      width: 3px;
+      background-color: $white;
+
+      @include breakpoint(laptop) {
+        height: 2.625rem;
+        width: 4px;
+      }
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+    cursor: pointer;
+  }
+  &__body {
+    .form {
+      &__label {
+        font-size: 1.5rem;
+        line-height: 2rem;
+
+        font-weight: 400;
+        color: $labels;
+        display: block;
+
+        @include breakpoint(laptop) {
+          font-size: 2.25rem;
+          line-height: 2.938rem;
+        }
+      }
+      &__input {
+        width: 100%;
+        height: 3.25rem;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 0.625rem;
+        text-indent: 0.25rem;
+        font-size: 1rem;
+
+        @include breakpoint(laptop) {
+          height: 4.25rem;
+          text-indent: 1.25rem;
+        }
+        &:is(textarea) {
+          height: 11.25rem;
+        }
+      }
+      &__btn {
+        margin-top: 1rem;
+
+        text-align: center;
+        @include breakpoint(laptop) {
+          text-align: left;
+        }
+
+        .btn {
+          padding-left: 3.125rem;
+          padding-right: 3.125rem;
+          &:hover,
+          &:focus,
+          &:active {
+            background-color: $secondary;
+          }
+        }
+      }
+    }
+  }
+}
