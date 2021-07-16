@@ -1,0 +1,70 @@
+
+// .photographer {
+//   &__banner {
+//     background-color: $bg-color;
+//     padding: 3.125rem;
+//     @include flexbox;
+//     @include flex-flow(row nowrap);
+//     @include justify-content(space-between);
+//   }
+//   &__name {
+//     @include photographer-name;
+//     position: unset;
+
+//     @include breakpoint(laptop) {
+//       font-size: 4rem;
+//       line-height: 5.313rem;
+//     }
+//   }
+//   &__location {
+//     font-size: 0.813rem;
+//     line-height: 1.063rem;
+//     color: $primary;
+//     padding-bottom: 0.188rem;
+
+//     @include breakpoint(laptop) {
+//       font-size: 1.5rem;
+//       line-height: 1.938rem;
+//       padding-bottom: 1.25rem;
+//     }
+//   }
+//   &__baseline {
+//     font-size: 0.813rem;
+//     line-height: 1.063rem;
+//     color: $txt;
+//     padding-bottom: 0.188rem;
+
+//     @include breakpoint(laptop) {
+//       font-size: 1.125rem;
+//       line-height: 1.5rem;
+//     }
+//   }
+//   &__informations {
+//     @include flexbox;
+//     @include flex-direction(column);
+//     @include justify-content(flex-start);
+
+//     .tags {
+//       @include flexbox;
+//       @include flex-flow(row nowrap);
+//     }
+//   }
+//   &__contact {
+//     position: absolute;
+//     bottom: 1.875rem;
+//     left: 0;
+//     right: 0;
+//     width: 10.625rem;
+//     margin-left: auto;
+//     margin-right: auto;
+
+//     @include breakpoint(laptop) {
+//       @include flex-grow(1);
+//     }
+//   }
+//   &__picture {
+//     img {
+//       @include rounded-profil-img;
+//     }
+//   }
+// }
