@@ -1,0 +1,63 @@
+.header {
+  @include flexbox;
+  @include flex-flow(row wrap);
+  @include align-items(center);
+  @include justify-content(space-between);
+  padding: 2.5rem 1.25rem 0;
+
+  @include breakpoint(laptop) {
+    @include flex-wrap(nowrap);
+  }
+
+  &__logo {
+    @include breakpoint(laptop) {
+      width: 30%;
+    }
+    img {
+      padding-right: 1.25rem;
+      width: 9.375rem;
+
+      @include breakpoint(laptop) {
+        width: 12.5rem;
+      }
+    }
+    @include breakpoint(laptop) {
+      order: 1;
+    }
+  }
+  .main-title {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    text-align: center;
+
+    color: $primary;
+
+    @include breakpoint(laptop) {
+      order: 3;
+      font-size: 1.8rem;
+      line-height: 2.938rem;
+      width: 30%;
+
+    }
+    @include breakpoint(l_desktop) {
+      font-size: 2.25rem;
+    }
+  }
+  &__nav {
+    margin: 2.5rem 2.5rem 0 2.5rem;
+    width: 100%;
+    @include breakpoint(laptop) {
+      order: 2;
+      width: 40%;
+      margin-bottom: 2.5rem;
+    }
+
+    .tags {
+      @include flexbox;
+      @include flex-flow(row wrap);
+      @include justify-content(center);
+      @include flex-grow(1);
+    }
+  }
+}
