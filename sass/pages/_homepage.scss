@@ -1,17 +1,8 @@
-.main-title {
-    position: absolute;
-    right: 6.5%;
-    top: 3.125rem;
-  
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    text-align: center;
-  
-    color: $primary;
-  
-    //   @include breakpoint(laptop){
-    //       font-size: 2.25rem;
-    //       line-height: 2.938rem;
-    //   }
-  }
+main {
+  margin-bottom: 3.125rem;
+}
+
+.photographers {
+  @include flexbox;
+  @include flex-flow(row wrap);
+}

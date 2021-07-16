@@ -1,70 +1,106 @@
+main {
+  padding: 1.25rem;
 
-// .photographer {
-//   &__banner {
-//     background-color: $bg-color;
-//     padding: 3.125rem;
-//     @include flexbox;
-//     @include flex-flow(row nowrap);
-//     @include justify-content(space-between);
-//   }
-//   &__name {
-//     @include photographer-name;
-//     position: unset;
+  @include breakpoint(laptop) {
+    padding: unset;
+  }
+}
+.photographer-profil {
+  &__banner {
+    @include flexbox;
+    @include flex-flow(row nowrap);
+    @include justify-content(space-between);
+    margin-bottom: 2.813rem;
+    margin-top: 1.25rem;
+    border-radius: 5px;
 
-//     @include breakpoint(laptop) {
-//       font-size: 4rem;
-//       line-height: 5.313rem;
-//     }
-//   }
-//   &__location {
-//     font-size: 0.813rem;
-//     line-height: 1.063rem;
-//     color: $primary;
-//     padding-bottom: 0.188rem;
+    @include breakpoint(laptop) {
+      padding: 3.125rem;
+      margin-top: 2.5rem;
+      background-color: $bg-color;
+    }
+  }
+  &__name {
+    @include photographer-name;
+    text-align: unset;
+    position: unset;
 
-//     @include breakpoint(laptop) {
-//       font-size: 1.5rem;
-//       line-height: 1.938rem;
-//       padding-bottom: 1.25rem;
-//     }
-//   }
-//   &__baseline {
-//     font-size: 0.813rem;
-//     line-height: 1.063rem;
-//     color: $txt;
-//     padding-bottom: 0.188rem;
+    @include breakpoint(laptop) {
+      font-size: 4rem;
+      line-height: 5.313rem;
+    }
+  }
+  &__location {
+    @include photographer-location;
+    
+    @include breakpoint(laptop) {
+      font-size: 1.5rem;
+      line-height: 1.938rem;
+      padding-bottom: 1.25rem;
+    }
+  }
+  &__baseline {
+    @include photographer-baseline;
+    color: $txt;
 
-//     @include breakpoint(laptop) {
-//       font-size: 1.125rem;
-//       line-height: 1.5rem;
-//     }
-//   }
-//   &__informations {
-//     @include flexbox;
-//     @include flex-direction(column);
-//     @include justify-content(flex-start);
+    @include breakpoint(laptop) {
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      padding-bottom: 1.25rem;
+    }
+  }
+  &__informations {
+    @include flexbox;
+    @include flex-direction(column);
+    @include justify-content(flex-start);
 
-//     .tags {
-//       @include flexbox;
-//       @include flex-flow(row nowrap);
-//     }
-//   }
-//   &__contact {
-//     position: absolute;
-//     bottom: 1.875rem;
-//     left: 0;
-//     right: 0;
-//     width: 10.625rem;
-//     margin-left: auto;
-//     margin-right: auto;
+    .tags {
+      @include flexbox;
+      @include flex-flow(row wrap);
 
-//     @include breakpoint(laptop) {
-//       @include flex-grow(1);
-//     }
-//   }
-//   &__picture {
-//     img {
-//       @include rounded-profil-img;
-//     }
-//   }
-// }
+      &__item {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__contact {
+    position: absolute;
+    bottom: 1.875rem;
+    left: 0;
+    right: 0;
+    width: 10.625rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(laptop) {
+      @include flex-grow(1);
+      position: unset;
+      margin-left: 1.25rem;
+    }
+  }
+  &__picture {
+    min-width: 35%;
+    @include flexbox;
+    @include justify-content(flex-end);
+
+    @include breakpoint(phablet) {
+      min-width: unset;
+    }
+
+    img {
+      @include rounded-profil-img;
+      @include breakpoint(mobileonly) {
+        height: 6.25rem;
+        width: 6.25rem;
+      }
+      @include breakpoint(phablet) {
+        height: 9.375rem;
+        width: 9.375rem;
+      }
+      @include breakpoint(tablet) {
+        height: 12.5rem;
+        width: 12.5rem;
+      }
+    }
+  }
+}
