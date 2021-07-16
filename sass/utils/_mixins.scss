@@ -1,0 +1,165 @@
+/*-----------------------------------------------------------*/
+/*----------------------- Breakpoints -----------------------*/
+/*-----------------------------------------------------------*/
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == xl_desktop {
+    // > 1400 px
+    @media (min-width: 87.5rem) {
+      @content;
+    }
+  } @else if $breakpoint == l_desktop {
+    // > 1200 px
+    @media (min-width: 75rem) {
+      @content;
+    }
+  } @else if $breakpoint == laptop {
+    // > 992 px
+    @media (min-width: 62rem) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    // > 768 px
+    @media (min-width: 48rem) {
+      @content;
+    }
+  } @else if $breakpoint == phablet {
+    // > 576 px
+    @media (min-width: 36rem) {
+      @content;
+    }
+  } @else if $breakpoint == mobileonly {
+    // < 576 px
+    @media (max-width: 36rem) {
+      @content;
+    }
+  }
+}
+
+/*-----------------------------------------------------------*/
+/*------------------------- Flexbox -------------------------*/
+/*-----------------------------------------------------------*/
+
+// Flexbox display
+@mixin flexbox {
+  display: flex;
+}
+
+// Inline flex display
+@mixin inline-flex {
+  display: inline-flex;
+}
+
+// The 'flex' shorthand
+@mixin flex($fgrow, $fshrink, $fbasis) {
+  // Set a variable to be used by box-flex properties
+  $fgrow-boxflex: $fgrow;
+
+  // Box-Flex only supports a flex-grow value so lets grab the
+  // first item in the list and just return that.
+  @if type-of($fgrow) == "list" {
+    $fgrow-boxflex: nth($fgrow, 1);
+  }
+
+  flex: $fgrow $fshrink $fbasis;
+}
+
+// Flex Flow Direction
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+}
+
+// Flex Line Wrapping
+@mixin flex-wrap($value) {
+  flex-wrap: $value;
+}
+
+// Flex Direction and Wrap
+@mixin flex-flow(
+  $values: (
+    row nowrap,
+  )
+) {
+  flex-flow: $values;
+}
+
+// Display Order
+@mixin order($int) {
+  order: $int;
+}
+
+// Flex grow factor
+@mixin flex-grow($int) {
+  flex-grow: $int;
+}
+
+// Flex shrink
+@mixin flex-shrink($int) {
+  flex-shrink: $int;
+}
+
+// Flex basis
+@mixin flex-basis($value) {
+  flex-basis: $value;
+}
+
+// Axis Alignment
+@mixin justify-content($value) {
+  justify-content: $value;
+}
+
+// Packing Flex Lines
+@mixin align-content($value) {
+  align-content: $value;
+}
+
+// Cross-axis Alignment
+@mixin align-items($value) {
+  align-items: $value;
+}
+
+// Cross-axis Alignment
+@mixin align-self($value) {
+  align-self: $value;
+}
+
+
+/*-----------------------------------------------------------*/
+/*-------------------- Photographer style -------------------*/
+/*-----------------------------------------------------------*/
+@mixin rounded-profil-img{
+    height: 12.5rem;
+    width: 12.5rem;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+}
+
+@mixin photographer-name{
+    font-weight: normal;
+    color: $secondary;
+    font-size: 2.25rem;
+    line-height: 2.938rem;
+    text-align: center;
+}
+@mixin photographer-location{
+    font-size: 0.813rem;
+    line-height: 1.063rem;
+    color: $primary;
+    margin-bottom: 0.188rem;
+    margin-top: 0;
+}
+@mixin photographer-baseline{
+    font-size: 0.813rem;
+    line-height: 1.063rem;
+    color: $black;
+    margin-bottom: 0.188rem;
+    margin-top: 0;
+}
+@mixin photographer-price{
+    font-size: 0.563rem;
+    line-height: 0.75rem;
+    color: $txt;
+    margin-bottom: 0.375rem;
+    margin-top: 0;
+}
