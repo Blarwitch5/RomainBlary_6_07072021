@@ -26,12 +26,12 @@
     </header>
     <main class="container">
       <!-- Photographer's informations-->
-      <section class="photographer">
-        <div class="photographer__banner">
-          <div class="photographer__informations">
-            <h1 class="photographer__name">Mimi Keel</h1>
-            <p class="photographer__location">London, UK</p>
-            <p class="photographer__baseline">Voir le beau dans le quotidien</p>
+      <section class="photographer-profil">
+        <div class="photographer-profil__banner">
+          <div class="photographer-profil__informations">
+            <h1 class="photographer-profil__name">Mimi Keel</h1>
+            <p class="photographer-profil__location">London, UK</p>
+            <p class="photographer-profil__baseline">Voir le beau dans le quotidien</p>
             <ul class="tags">
               <li class="tags__item">
                 <a href=""><span>tag</span>#portrait</a>
@@ -47,10 +47,10 @@
               </li>
             </ul>
           </div>
-          <div class="photographer__contact">
-            <button class="btn btn-regular" title="Contactez moi">Contactez-moi</button>
+          <div class="photographer-profil__contact">
+            <button class="btn btn-regular js-modal-btn-open" title="Contactez moi">Contactez-moi</button>
           </div>
-          <div class="photographer__picture">
+          <div class="photographer-profil__picture">
             <img src="../../public/img/photographers/MimiKeel/MimiKeel.jpg" alt="Mimi Keel portrait" />
           </div>
         </div>
@@ -59,7 +59,7 @@
       <!-- Photographer's work -->
       <section class="gallery">
         <div class="sorting">
-          <label class="sorting__label" for="sorting-options">Trier par</label>
+          <label class="form__label" class="sorting__label" for="sorting-options">Trier par</label>
           <select name="sorting__options" id="sorting-options">
             <option value="popularity">Popularité</option>
             <option value="date">Date</option>
@@ -110,16 +110,17 @@
       </div>
 
       <!-- Modal Window | Contact form -->
-      <div class="modal" aria-labelledby="form-title">
-        <div class="modal__content">
+      <div class="modal js-modal" aria-labelledby="form-title">
+        <div class="modal__content ">
           <div class="modal__header">
-            <h2 id="form-title">Contactez-moi<span id="js-photographer-name">Mimi Keel</span></h2>
-            <span class="modal__close-btn"></span>
+            <h2 id="form-title" class="modal__title">Contactez-moi<br><span id="js-photographer-name">Mimi Keel</span></h2>
+            <button class="modal__close-btn js-modal-btn-close" title="Fermer la fenêtre formulaire de contact">
+            </button>
           </div>
           <div class="modal__body">
-            <form id="contact-form" class="form" name="contact" action="index.html" method="get" onsubmit="return formValidation();">
+            <div id="contact-form" class="form" name="contact" action="index.html" method="get" onsubmit="return formValidation();">
               <div class="form__field">
-                <label for="first-name" id="label-first-name">Prénom</label>
+                <label class="form__label" for="first-name" id="label-first-name">Prénom</label>
                 <input
                   class="form__input"
                   type="text"
@@ -131,7 +132,7 @@
                 />
               </div>
               <div class="form__field">
-                <label for="last-name" id="label-last-name">Nom</label>
+                <label class="form__label" for="last-name" id="label-last-name">Nom</label>
                 <input
                   class="form__input"
                   type="text"
@@ -143,7 +144,7 @@
                 />
               </div>
               <div class="form__field">
-                <label for="email" id="label-email">E-mail</label>
+                <label class="form__label" for="email" id="label-email">E-mail</label>
                 <input
                   class="form__input"
                   type="email"
@@ -155,7 +156,7 @@
                 />
               </div>
               <div class="form__field">
-                <label for="message" id="label-message">Votre message</label>
+                <label class="form__label" for="message" id="label-message">Votre message</label>
                 <textarea
                   class="form__input"
                   type="text"
@@ -168,11 +169,14 @@
                   required
                 ></textarea>
               </div>
-              <input id="form-validation-btn" class="btn btn-regular" type="submit" value="Envoyer" />
+              <div class="form__btn">
+                <input id="form-validation-btn" class="btn btn-regular" type="submit" value="Envoyer" />
+              </div>
             </form>
           </div>
         </div>
       </div>
     </main>
+    <script type="" src="../../public/js/main.js"></script>
   </body>
 </html>
