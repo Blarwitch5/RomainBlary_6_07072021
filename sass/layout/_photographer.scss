@@ -1,46 +1,45 @@
-.photographers {
-  @include flexbox;
-  @include flex-flow(row wrap);
+.photographer {
+  padding: 0 0.625rem;
 
-  .photographer {
-    &:first-child {
-      &__link {
-        margin-top: 1.875rem;
-        @include breakpoint(laptop) {
-          margin-top: unset;
-        }
-      }
-    }
-    width: 100%;
-    @include flexbox;
-    @include flex-direction(column);
-    @include align-items(center);
-
+  &:first-child {
     &__link {
-      text-decoration: none;
       margin-top: 1.875rem;
 
-      .photographer__picture {
-        @include rounded-profil-img;
-        margin-bottom: 1.25rem;
+      @include breakpoint(laptop) {
+        margin-top: unset;
       }
     }
-    &__name {
-      @include photographer-name;
+  }
+  margin: auto;
+  min-width: 33%;
+  @include flexbox;
+  @include flex-direction(column);
+  @include align-items(center);
+
+  &__link {
+    text-decoration: none;
+    margin-top: 1.875rem;
+
+    .photographer__picture {
+      @include rounded-profil-img;
+      margin-bottom: 1.25rem;
     }
-    &__location {
-      @include photographer-location;
-    }
-    &__baseline {
-      @include photographer-baseline;
-    }
-    &__price {
-      @include photographer-price;
-    }
-    .tags {
-      @include flexbox;
-      @include flex-flow(row nowrap);
-      margin-bottom: 1.875rem;
-    }
+  }
+  &__name {
+    @include photographer-name;
+  }
+  &__location {
+    @include photographer-location;
+  }
+  &__baseline {
+    @include photographer-baseline;
+  }
+  &__price {
+    @include photographer-price;
+  }
+  .tags {
+    @include flexbox;
+    @include flex-flow(row nowrap);
+    margin-bottom: 1.875rem;
   }
 }
