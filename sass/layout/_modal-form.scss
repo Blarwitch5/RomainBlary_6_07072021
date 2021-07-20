@@ -89,6 +89,32 @@
   }
   &__body {
     .form {
+      &__field {
+        &[data-error] {
+          &::after {
+            content: attr(data-error);
+            position: absolute;
+            right: 5px;
+            display: block;
+            color: $error-color;
+            font-size: 1rem;
+            min-height: 15px;
+            font-weight: 400;
+            line-height: 15px;
+            visibility: hidden;
+            transition: $transition-duration;
+            min-height: 15px;
+          }
+        }
+        &[data-error-visible="true"] {
+          &::after {
+            visibility: visible;
+          }
+          & .form__input {
+            border: 2px solid $error-color;
+          }
+        }
+      }
       &__label {
         font-size: 1.5rem;
         line-height: 2rem;
@@ -106,10 +132,14 @@
         width: 100%;
         height: 3.25rem;
         border-radius: 5px;
-        border: none;
-        margin-bottom: 0.625rem;
+        border: 2px solid transparent;
+        margin-bottom: 1.625rem;
         text-indent: 0.25rem;
         font-size: 1rem;
+
+        &:focus {
+          outline: 2px solid $primary;
+        }
 
         @include breakpoint(laptop) {
           height: 4.25rem;
@@ -117,6 +147,53 @@
         }
         &:is(textarea) {
           height: 11.25rem;
+        }
+        &[type="checkbox"] {
+          display: none;
+
+          & + label {
+            display: block;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-bottom: 1.625rem;
+
+            @include breakpoint(laptop) {
+              font-size: 1.5rem;
+              line-height: 2rem;
+            }
+          }
+        }
+        &[type="checkbox"] + label:before {
+          content: "\2714";
+          border: 2px solid $primary;
+          border-radius: 5px;
+          display: inline-block;
+          width: 1.5rem;
+          height: 1.5rem;
+          padding-left: 0.2rem;
+          margin-right: 1rem;
+          vertical-align: bottom;
+          color: transparent;
+          transition: $transition-duration;
+
+          @include breakpoint(laptop) {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+        &[type="checkbox"]:checked + label:before {
+          background-color: $primary;
+          border-color: $primary;
+          color: $white;
+        }
+        &.invalid {
+          border: 2px solid $error-color;
+          box-shadow: inset 0px 0px 2px 2px transparent;
+        }
+        &.valid {
+          border: 2px solid $checked-color;
+          box-shadow: inset 0px 0px 2px 0px $checked-color;
         }
       }
       &__btn {
