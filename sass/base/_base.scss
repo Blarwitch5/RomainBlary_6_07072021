@@ -81,3 +81,13 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+.hidden {
+  display: none;
+}
+.unvisible {
+  visibility: hidden;
+}
+.visible{
+  visibility: visible !important;
+}
