@@ -4,7 +4,7 @@
   font-size: 1.125rem;
   text-align: center;
   line-height: 2.188rem;
-  border-radius: 5px;
+  @include border-radius;
   padding: 0 1.25rem;
   border: none;
   transition: 0.3s;
