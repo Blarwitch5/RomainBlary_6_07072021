@@ -1,0 +1,101 @@
+.gallery {
+  .sorting {
+    width: 100%;
+  }
+  &__list {
+    @include flexbox;
+    @include flex-flow(row wrap);
+    @include justify-content(center);
+
+    @include breakpoint(laptop) {
+      @include justify-content(space-around);
+    }
+    @include breakpoint(l_desktop) {
+      @include justify-content(space-between);
+    }
+
+    .item {
+      width: 100%;
+      margin-bottom: 0.625rem;
+
+      @include breakpoint(phablet) {
+        margin-bottom: 1.875rem;
+      }
+      @include breakpoint(tablet) {
+        //~350px
+        max-width: 21.875rem;
+      }
+      //item media
+      &__media {
+        width: 100%;
+        overflow: hidden;
+        object-fit: cover;
+        //~190px
+        height: 11.875rem;
+        border-radius: 5px;
+
+        @include breakpoint(phablet) {
+          //~300px
+          height: 18.75rem;
+        }
+      }
+      &__figure {
+        height: 100%;
+      }
+      &__image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      &__video {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      //item meta description
+      &__meta {
+        @include flexbox;
+        @include flex-flow(row nowrap);
+      }
+      &__title {
+        @include flex-grow(1);
+      }
+      &__title,
+      &__price,
+      .likes__counter {
+        color: $primary;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.125rem;
+
+        @include breakpoint(laptop) {
+          font-size: 1.125rem;
+          line-height: 1.5rem;
+        }
+      }
+      &__price {
+      }
+      .likes {
+        @include flexbox;
+        @include align-items(center);
+
+        &__icon {
+          width: 1rem;
+          height: 1rem;
+          cursor: pointer;
+          fill: $white;
+          transition: $transition-duration;
+
+          &:hover {
+            fill: $primary;
+          }
+
+          @include breakpoint(laptop) {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}

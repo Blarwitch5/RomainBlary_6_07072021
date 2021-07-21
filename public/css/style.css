@@ -286,6 +286,105 @@ select {
   flex-grow: 1;
 }
 
+.gallery .sorting {
+  width: 100%;
+}
+.gallery__list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+@media (min-width: 62rem) {
+  .gallery__list {
+    justify-content: space-around;
+  }
+}
+@media (min-width: 75rem) {
+  .gallery__list {
+    justify-content: space-between;
+  }
+}
+.gallery__list .item {
+  width: 100%;
+  margin-bottom: 0.625rem;
+}
+@media (min-width: 36rem) {
+  .gallery__list .item {
+    margin-bottom: 1.875rem;
+  }
+}
+@media (min-width: 48rem) {
+  .gallery__list .item {
+    max-width: 21.875rem;
+  }
+}
+.gallery__list .item__media {
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  height: 11.875rem;
+  border-radius: 5px;
+}
+@media (min-width: 36rem) {
+  .gallery__list .item__media {
+    height: 18.75rem;
+  }
+}
+.gallery__list .item__figure {
+  height: 100%;
+}
+.gallery__list .item__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.gallery__list .item__video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.gallery__list .item__meta {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.gallery__list .item__title {
+  flex-grow: 1;
+}
+.gallery__list .item__title, .gallery__list .item__price,
+.gallery__list .item .likes__counter {
+  color: #901C1C;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+@media (min-width: 62rem) {
+  .gallery__list .item__title, .gallery__list .item__price,
+.gallery__list .item .likes__counter {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+}
+.gallery__list .item .likes {
+  display: flex;
+  align-items: center;
+}
+.gallery__list .item .likes__icon {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  fill: #fff;
+  transition: 0.3s;
+}
+.gallery__list .item .likes__icon:hover {
+  fill: #901C1C;
+}
+@media (min-width: 62rem) {
+  .gallery__list .item .likes__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 @media (min-width: 36rem) {
   .container {
     max-width: 33.75rem;
@@ -682,7 +781,6 @@ select {
 .photographer__link .photographer__figure img {
   object-fit: cover;
   transform: scale(1.1);
-  overflow: hidden;
   height: 100%;
   width: 100%;
   transition: 0.3s ease-in-out;
@@ -862,6 +960,31 @@ main {
   .photographer-profil__picture img {
     height: 12.5rem;
     width: 12.5rem;
+  }
+}
+
+.likes-price {
+  position: fixed;
+  bottom: 0;
+  right: 2.25rem;
+  background-color: #DB8876;
+  max-width: 23.75rem;
+  border-radius: 5px;
+}
+.likes-price .likes__icon {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  fill: #fff;
+  transition: 0.3s;
+}
+.likes-price .likes__icon:hover {
+  fill: #901C1C;
+}
+@media (min-width: 62rem) {
+  .likes-price .likes__icon {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 
