@@ -312,6 +312,12 @@ function termsConditionsValidation() {
 /*----------                   form validation                ------------*/
 /*------------------------------------------------------------------------*/
 formValidationBtn.addEventListener("click", formValidation);
+let isValid =
+  firstnameValidation() === true &&
+  lastnameValidation() === true &&
+  emailValidation() === true &&
+  messageValidation() === true &&
+  termsConditionsValidation() === true;
 
 function formValidation(event) {
   let validForm = false;
@@ -322,13 +328,7 @@ function formValidation(event) {
   messageValidation();
   termsConditionsValidation();
 
-  if (
-    firstnameValidation() === true &&
-    lastnameValidation() === true &&
-    emailValidation() === true &&
-    messageValidation() === true &&
-    termsConditionsValidation() === true
-  ) {
+  if (isValid) {
     validForm = true;
     event.preventDefault();
     closeModal();
