@@ -52,16 +52,17 @@
     transform: translateY(-50%);
     margin: auto;
     height: auto;
-    width: 50%;
+    width: 90%;
     background-color: $tertiary;
     @include border-radius;
     animation-name: modalOpen;
     animation-duration: $modal-duration;
-    padding: 5rem;
+    padding: 5rem 2rem;
 
     @include breakpoint(phablet) {
       width: 80%;
       height: unset;
+      padding: 5rem;
     }
     @include breakpoint(laptop) {
       width: 41.875rem;
@@ -69,7 +70,7 @@
     }
   }
   &__message {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: center;
 
     @include breakpoint(laptop) {

@@ -1,4 +1,4 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -39,7 +39,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -88,6 +88,6 @@ select {
 .unvisible {
   visibility: hidden;
 }
-.visible{
+.visible {
   visibility: visible !important;
 }

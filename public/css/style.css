@@ -567,17 +567,18 @@ select {
   transform: translateY(-50%);
   margin: auto;
   height: auto;
-  width: 50%;
+  width: 90%;
   background-color: #DB8876;
   border-radius: 5px;
   animation-name: modalOpen;
   animation-duration: 0.5s;
-  padding: 5rem;
+  padding: 5rem 2rem;
 }
 @media (min-width: 36rem) {
   .modal-end__content {
     width: 80%;
     height: unset;
+    padding: 5rem;
   }
 }
 @media (min-width: 62rem) {
@@ -587,7 +588,7 @@ select {
   }
 }
 .modal-end__message {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 @media (min-width: 62rem) {
