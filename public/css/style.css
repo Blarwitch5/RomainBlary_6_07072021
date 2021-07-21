@@ -287,14 +287,91 @@ select {
 }
 
 .gallery .sorting {
-  width: 100%;
+  display: none;
+  position: relative;
+}
+@media (min-width: 62rem) {
+  .gallery .sorting {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3.75rem;
+  }
+  .gallery .sorting__label {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    margin-right: 1rem;
+  }
+  .gallery .sorting__list, .gallery .sorting__button {
+    background-color: #901C1C;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    border-radius: 5px;
+    padding: 0 3rem 0 0.625rem;
+  }
+  .gallery .sorting__button {
+    width: 10.625rem;
+    position: relative;
+    height: 3.75rem;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .gallery .sorting__button:active svg path, .gallery .sorting__button:focus svg path {
+    transform: rotate(-180deg);
+    transform-origin: 50% 50%;
+  }
+  .gallery .sorting__button svg {
+    position: absolute;
+    right: 1rem;
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(180deg);
+    transform-origin: 50% 50%;
+  }
+  .gallery .sorting__list {
+    display: none;
+    list-style: none;
+    width: 10.625rem;
+    position: absolute;
+    top: 0;
+  }
+  .gallery .sorting__option {
+    height: 3.75rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 3.75rem;
+    padding: 0 0.875rem;
+    position: relative;
+  }
+  .gallery .sorting__option:last-child::after {
+    content: none;
+  }
+  .gallery .sorting__option::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    width: 90%;
+    margin: auto;
+    background-color: #fff;
+  }
 }
 .gallery__list {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  gap: 1rem;
 }
-@media (min-width: 62rem) {
+@media (min-width: 48rem) {
   .gallery__list {
     justify-content: space-around;
   }
@@ -314,6 +391,11 @@ select {
   }
 }
 @media (min-width: 48rem) {
+  .gallery__list .item {
+    max-width: 19.875rem;
+  }
+}
+@media (min-width: 62rem) {
   .gallery__list .item {
     max-width: 21.875rem;
   }
@@ -364,15 +446,25 @@ select {
     line-height: 1.5rem;
   }
 }
+.gallery__list .item__price {
+  margin-right: 1rem;
+  font-weight: 500;
+}
 .gallery__list .item .likes {
   display: flex;
   align-items: center;
 }
+.gallery__list .item .likes__counter {
+  font-weight: 500;
+}
 .gallery__list .item .likes__icon {
-  width: 1rem;
-  height: 1rem;
+  margin-left: 0.438rem;
+  width: 0.875rem;
+  height: 0.875rem;
   cursor: pointer;
   fill: #fff;
+  stroke-width: 3px;
+  stroke: #901C1C;
   transition: 0.3s;
 }
 .gallery__list .item .likes__icon:hover {
@@ -380,8 +472,8 @@ select {
 }
 @media (min-width: 62rem) {
   .gallery__list .item .likes__icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.125rem;
+    height: 1.125rem;
   }
 }
 
@@ -912,7 +1004,7 @@ main {
   margin-bottom: 0;
 }
 .photographer-profil__contact {
-  position: absolute;
+  position: fixed;
   bottom: 1.875rem;
   left: 0;
   right: 0;
@@ -964,28 +1056,48 @@ main {
 }
 
 .likes-price {
+  display: none;
   position: fixed;
   bottom: 0;
   right: 2.25rem;
+  height: 4.375rem;
   background-color: #DB8876;
-  max-width: 23.75rem;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  align-items: center;
+  padding: 0 2rem;
+}
+@media (min-width: 62rem) {
+  .likes-price {
+    display: flex;
+  }
+}
+.likes-price .likes {
+  display: flex;
+  align-items: center;
+}
+.likes-price .likes__counter {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin-right: 0.438rem;
 }
 .likes-price .likes__icon {
   width: 1rem;
   height: 1rem;
-  cursor: pointer;
-  fill: #fff;
+  stroke: #000;
+  fill: #000;
   transition: 0.3s;
-}
-.likes-price .likes__icon:hover {
-  fill: #901C1C;
 }
 @media (min-width: 62rem) {
   .likes-price .likes__icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.125remrem;
+    height: 1.125remrem;
   }
+}
+.likes-price .price {
+  margin-left: 4.375rem;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

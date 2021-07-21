@@ -1,38 +1,37 @@
 @include breakpoint(phablet) {
-    .container {
-      max-width: 33.75rem;
-    }
-  }
-  @include breakpoint(tablet) {
-    .container {
-      max-width: 45rem;
-    }
-  }
-  @include breakpoint(laptop) {
-    .container {
-      max-width: 60rem;
-    }
-  }
-  @include breakpoint(l_desktop) {
-    .container {
-      max-width: 71.25rem;
-    }
-  }
-  @include breakpoint(xl_desktop) {
-    .container {
-      max-width: 77.5rem;
-    }
-  }
   .container {
+    max-width: 33.75rem;
+  }
+}
+@include breakpoint(tablet) {
+  .container {
+    max-width: 45rem;
+  }
+}
+@include breakpoint(laptop) {
+  .container {
+    max-width: 60rem;
+  }
+}
+@include breakpoint(l_desktop) {
+  .container {
+    max-width: 71.25rem;
+  }
+}
+@include breakpoint(xl_desktop) {
+  .container {
+    max-width: 77.5rem;
+  }
+}
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  &-fullwidth {
     width: 100%;
+    max-width: 100%;
     margin-right: auto;
     margin-left: auto;
-  
-    &-fullwidth {
-      width: 100%;
-      max-width: 100%;
-      margin-right: auto;
-      margin-left: auto;
-    }
   }
-  
+}
