@@ -16,6 +16,48 @@
     opacity: 1;
   }
 }
+@keyframes heart-stroke-animation {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  30% {
+    stroke-dashoffset: 1550;
+  }
+  60% {
+    stroke-dashoffset: 3100;
+    fill: transparent;
+    transform: scale(1);
+  }
+  80% {
+    fill: #901C1C;
+    transform: scale(1.1);
+  }
+  90% {
+    transform: scale(1);
+  }
+  100% {
+    stroke-dashoffset: 3100;
+    fill: #901C1C;
+  }
+}
+@keyframes heart-fade-animation {
+  70% {
+    fill: transparent;
+    transform: scale(1);
+  }
+  80% {
+    fill: #f1baba;
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
 html {
   scroll-behavior: smooth;
 }
@@ -458,23 +500,41 @@ select {
   font-weight: 500;
 }
 .gallery__list .item .likes__icon {
+  display: flex;
+  align-items: center;
   margin-left: 0.438rem;
-  width: 0.875rem;
-  height: 0.875rem;
-  cursor: pointer;
-  fill: #fff;
-  stroke-width: 3px;
+  fill: transparent;
   stroke: #901C1C;
-  transition: 0.3s;
-}
-.gallery__list .item .likes__icon:hover {
-  fill: #901C1C;
+  stroke-width: 3px;
+  cursor: pointer;
+  position: relative;
 }
 @media (min-width: 62rem) {
   .gallery__list .item .likes__icon {
     width: 1.125rem;
     height: 1.125rem;
   }
+}
+.gallery__list .item .likes__icon svg {
+  overflow: visible;
+}
+.gallery__list .item .likes__icon path {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 1550;
+  transform-origin: center;
+}
+.gallery__list .item .likes__icon .heart-background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  stroke: none;
+}
+.gallery__list .item .likes__icon:active .heart-main path, .gallery__list .item .likes__icon:focus .heart-main path, .gallery__list .item .likes__icon:hover .heart-main path {
+  animation: heart-stroke-animation 1.5s ease-in-out forwards;
+}
+.gallery__list .item .likes__icon:active .heart-main ~ .heart-background path, .gallery__list .item .likes__icon:focus .heart-main ~ .heart-background path, .gallery__list .item .likes__icon:hover .heart-main ~ .heart-background path {
+  animation: heart-fade-animation 1.5s ease-in-out forwards;
 }
 
 @media (min-width: 36rem) {
