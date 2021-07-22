@@ -183,29 +183,12 @@
         }
 
         &__icon {
-          //   margin-left: 0.438rem;
-          //   width: 0.875rem;
-          //   height: 0.875rem;
-          //   cursor: pointer;
-          //   fill: $white;
-          //   stroke-width: 3px;
-          //   stroke: $primary;
-          //   transition: $transition-duration;
-
-          //   &:hover {
-          //     fill: $primary;
-          //   }
-
-          //   @include breakpoint(laptop) {
-          //     width: 1.125rem;
-          //     height: 1.125rem;
-          //   }
           @include flexbox;
           @include align-items(center);
           margin-left: 0.438rem;
           fill: transparent;
           stroke: $primary;
-          stroke-width: 3px;
+          stroke-width: 2px;
           cursor: pointer;
           position: relative;
 
