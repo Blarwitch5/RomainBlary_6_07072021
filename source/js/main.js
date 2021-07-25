@@ -13,7 +13,7 @@ getFishEyeData()
 
       //select classes to build according to the page the user is in.
       if(homePage){
-        new HomePageBuilder();
+        new HomePageBuilder().displayPhotographersCards(data);
         new ScrollToMainButton().displayScrollToMainBtn();
       }else if(photographerPage){
         new PhotographerPageBuilder();

@@ -252,7 +252,7 @@ body {
   right: 0;
   left: 0;
   margin: auto;
-  top: 4rem;
+  top: 2rem;
   text-decoration: none;
   z-index: 9;
   width: 12.5rem;
@@ -948,6 +948,8 @@ body {
 }
 .photographer__link .photographer__figure {
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 1.25rem;
   height: 12.5rem;
   width: 12.5rem;

@@ -28,6 +28,8 @@
 
     .photographer__figure {
       overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
       margin-bottom: 1.25rem;
       @include rounded-profil-img;
 
