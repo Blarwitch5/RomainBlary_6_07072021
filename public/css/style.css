@@ -58,10 +58,6 @@
     opacity: 0;
   }
 }
-html {
-  scroll-behavior: smooth;
-}
-
 /* Box sizing rules */
 *,
 *::before,
@@ -99,7 +95,6 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: "DM Sans", sans-serif;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -141,6 +136,14 @@ select {
     scroll-behavior: auto !important;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 .hidden {
   display: none;
 }
@@ -151,6 +154,25 @@ select {
 
 .visible {
   visibility: visible !important;
+}
+
+.error-message {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.2rem;
+  color: #757575;
+}
+.error-message::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  background-image: url("../../public/img/o-warning.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2rem 2rem;
+  margin-right: 1rem;
 }
 
 /* dm-sans-regular - latin */
