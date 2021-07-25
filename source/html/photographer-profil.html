@@ -18,13 +18,13 @@
     <title>FishEye |</title>
   </head>
 
-  <body>
+  <body class="photographer-page">
     <header class="container header" role="banner">
       <a class="header__logo" href="../../index.html">
         <img src="../../public/img/logo.svg" alt="FishEye Home page" />
       </a>
     </header>
-    <main class="container">
+    <main class="container main-content">
       <!-- Photographer's informations-->
       <section class="photographer-profil">
         <div class="photographer-profil__banner">
@@ -334,7 +334,7 @@
                 <figure class="item__figure">
                   <img class="item__image" src="../../public/img/photographers/MimiKeel/media/Travel_HillsideColor.jpg" alt="">
                 </figure>
-              </div>            
+              </div>
             </a>
             <div class="item__meta">
               <h2 class="item__title">Arc-en-ciel</h2>
@@ -412,7 +412,7 @@
       </div>
 
       <!-- Modal Window | Contact form -->
-      <div class="modal js-modal" aria-labelledby="form-title">
+      <div class="modal contact-modal" aria-labelledby="form-title">
         <div class="modal__content ">
           <div class="modal__header">
             <h2 id="form-title" class="modal__title">Contactez-moi<br><span id="js-photographer-name">Mimi Keel</span></h2>
@@ -529,7 +529,7 @@
       </div>
       
       <!-- Modal | Form submitted message -->
-      <div id="js-modal-end" class="modal-end">
+      <div id="js-modal-end" class="modal contact-end-modal">
         <div class="modal-end__content ">
             <div class="modal-end__message">
               Merci ! <br />
@@ -540,7 +540,7 @@
         </div>
       </div>
     </main>
-    <script type="text/javascript" src="../../public/js/main.js"></script>
-    <script type="text/javascript" src="../../source/js/modules/photographer/modal.js"></script>
+    <script type="module" src="../../source/js/main.js"></script>
+    <script type="text/javascript" src="../../source/js/modules/photographer/contactForm.js"></script>
   </body>
 </html>
