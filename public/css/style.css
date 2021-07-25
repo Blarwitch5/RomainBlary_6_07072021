@@ -172,7 +172,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 2rem 2rem;
-  margin-right: 1rem;
+}
+
+#scroll-to-main {
+  display: none;
 }
 
 /* dm-sans-regular - latin */
@@ -249,12 +252,10 @@ body {
   right: 0;
   left: 0;
   margin: auto;
-  top: 1.875rem;
+  top: 4rem;
   text-decoration: none;
-  display: inline-block;
   z-index: 9;
   width: 12.5rem;
-  display: none;
 }
 
 .tags .tags__item {
