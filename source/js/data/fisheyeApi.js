@@ -1,5 +1,5 @@
 async function getFishEyeData() {
-  let requestURL = "/source/api/fisheye/fisheyeData.json";
+  let requestURL = "../../source/api/fisheye/fisheyeData.json";
   let response = await fetch(requestURL);
   let data = await response.json();
 
