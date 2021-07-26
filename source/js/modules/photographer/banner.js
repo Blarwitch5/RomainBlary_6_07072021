@@ -6,7 +6,7 @@ export default class ProfilBanner {
       //get the photographer ID
       let url = new URL(window.location.href);
       let id = url.searchParams.get("id");
-      let photographerId = parseInt(id);
+      let photographerId = parseInt(id); 
       //   console.log(url);
 
       let photographerProfilMarkup = `
