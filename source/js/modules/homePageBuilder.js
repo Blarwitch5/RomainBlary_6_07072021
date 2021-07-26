@@ -12,7 +12,7 @@ export default class HomePageBuilder {
       let photographerMarkup = `
         <a class="photographer__link" href="/source/html/photographer-profil?id=${photographer.id}" title="${photographer.name}">
             <figure class="photographer__figure">
-                <img class="photographer__image" src="/public/img/photographers/${photographer.id}/${photographer.portrait}" alt="Portrait de ${photographer.name}" />
+                <img class="photographer__image" src="public/img/photographers/${photographer.id}/${photographer.portrait}" alt="Portrait de ${photographer.name}" />
             </figure>
             <h2 class="photographer__name">${photographer.name}</h2>
         </a>
