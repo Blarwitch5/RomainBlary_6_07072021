@@ -4,7 +4,7 @@
   "description": "Photographer's portfolio",
   "main": "index.js",
   "scripts": {
-    "sass": "sass ./sass/main.scss:./public/css/style.css -w --style expanded",
+    "sass": "sass ./source/sass/main.scss:./public/css/style.css -w --style expanded",
     "prefix": "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
   },
   "author": "Romain Blary",

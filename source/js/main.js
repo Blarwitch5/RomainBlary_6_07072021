@@ -1,8 +1,8 @@
 // FISHEYE DATA
-import getFishEyeData from "./data/fisheyeApi.js";
+import getFishEyeData from "./utils/fisheyeApi.js";
 import HomePageBuilder from "./modules/homePageBuilder.js";
 import PhotographerPageBuilder from "./modules/photographerPageBuilder.js";
-import ScrollToMainButton from "./modules/scroll.js";
+import ScrollToMainButton from "./modules/components/scroll.js";
 
 getFishEyeData()
   // get the data and build pages and components
