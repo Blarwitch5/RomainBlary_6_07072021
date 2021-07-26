@@ -1,8 +1,8 @@
 // FISHEYE DATA
 import getFishEyeData from "./data/fisheyeApi.js";
-import HomePageBuilder from "./modules/home/homePageBuilder.js";
-import PhotographerPageBuilder from "./modules/photographer/photographerPageBuilder.js";
-import ScrollToMainButton from "./modules/home/scroll.js";
+import HomePageBuilder from "./modules/homePageBuilder.js";
+import PhotographerPageBuilder from "./modules/photographerPageBuilder.js";
+import ScrollToMainButton from "./modules/scroll.js";
 
 getFishEyeData()
   // get the data and build pages and components
@@ -11,13 +11,13 @@ getFishEyeData()
       const homePage = document.body.classList.contains('homepage');
       const photographerPage = document.body.classList.contains('photographer-page');
 
+      new ScrollToMainButton().displayScrollToMainBtn();
       //select classes to build according to the page the user is in.
       if(homePage){
         new HomePageBuilder().displayPhotographersCards(data);
-        new ScrollToMainButton().displayScrollToMainBtn();
       }else if(photographerPage){
-        new PhotographerPageBuilder();
-      }else{}
+        new PhotographerPageBuilder().displayPhotographerProfil(data);
+      }
 
   })
   //throw error if no data loaded
