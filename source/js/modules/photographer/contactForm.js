@@ -359,10 +359,5 @@ function formValidation(event) {
 }
 
 export default class FormValidator{
-    constructor(form, fields, formData){
-        //properties
-        this.form = form;
-        this.fields = fields;
-        this.formData = formData;
-    }
+
 }

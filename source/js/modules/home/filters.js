@@ -1,7 +1,5 @@
 export default class PhotographersTags {
-    constructor(){
-        
-    }
+
 }
 // let sortingContainer = document.querySelector(".sorting__options");
 

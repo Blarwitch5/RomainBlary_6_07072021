@@ -7,6 +7,13 @@
   height: 100%;
   width: 100%;
   overflow: auto;
+
+  // &[aria-hidden="true"]{
+  //   display: none;
+  // }
+  // &[aria-hidden="true"]{
+  //   display: block;
+  // }
   display: none;
 
   &__close-btn {
@@ -88,6 +95,12 @@
   width: 100%;
   overflow: auto;
 
+  // &[aria-hidden="true"]{
+  //   display: none;
+  // }
+  // &[aria-hidden="true"]{
+  //   display: block;
+  // }
   display: none;
 
   &__close-btn {
