@@ -282,6 +282,17 @@ body {
   background-color: #901C1C;
 }
 
+.photographer__tags .tags__item {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #901C1C;
+  border: 1px solid #c4c4c4;
+  border-radius: 12px;
+  transition: 0.3s;
+  text-decoration: none;
+  padding: 0 0.438rem;
+}
+
 .header {
   display: flex;
   flex-flow: row wrap;
