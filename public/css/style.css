@@ -691,6 +691,12 @@ body {
   overflow: auto;
   display: none;
 }
+.modal[aria-hidden=true] {
+  display: none;
+}
+.modal[aria-hidden=false] {
+  display: block;
+}
 .modal__close-btn {
   position: relative;
   background-color: transparent;
