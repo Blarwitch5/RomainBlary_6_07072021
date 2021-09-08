@@ -23,10 +23,14 @@ export default class HomePageBuilder {
         <p class="photographer__baseline">${photographer.tagline}</p>
         <p class="photographer__price">${photographer.price} € / jour</p>
         <ul class="tags">
-            <li class="tags__item"><a href="">#portrait</a></li>
-            <li class="tags__item"><a href="">#events</a></li>
-            <li class="tags__item"><a href="">#travel</a></li>
-            <li class="tags__item"><a href="">#animals</a></li>
+        ${photographer.tags
+          .map((tag) => {
+            return `
+            <li class="tags__item">
+              <a href="../index.html?tag=${tag}"><span>tag </span>${tag}</a>
+            </li>`;
+          })
+          .join("")}
         </ul>`;
 
       photographersContainer.appendChild(photographerCard);

@@ -31,7 +31,7 @@ class ProfilBanner {
                       .map((tag) => {
                         return `
                         <li class="tags__item">
-                          <a href="../source/>pages/photographer-profil.html?tag=${tag}&id=${id}"><span>tag </span>${tag}</a>
+                          <a href="../source/pages/photographer-profil.html?tag=${tag}&id=${id}"><span>tag </span>${tag}</a>
                         </li>`;
                       })
                       .join("")}

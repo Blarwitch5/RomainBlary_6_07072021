@@ -25,37 +25,11 @@
       </a>
     </header>
     <main class="container main-content" id="beginning-of-content">
-      <a id="scroll-to-main" class="btn btn-reverse btn-go-to" href="#beginning-of-content">Passer au contenu</a>
+      <a id="scroll-to-main" class="btn btn-reverse btn-go-to" href="#beginning-of-content">Revenir au début</a>
 
       <!-- Photographer's informations-->
       <section class="photographer-profil">
-        <div class="photographer-profil__banner">
-          <div class="photographer-profil__informations">
-            <h1 class="photographer-profil__name">Mimi Keel</h1>
-            <p class="photographer-profil__location">London, UK</p>
-            <p class="photographer-profil__baseline">Voir le beau dans le quotidien</p>
-            <ul class="tags">
-              <li class="tags__item">
-                <a href=""><span>tag</span>#portrait</a>
-              </li>
-              <li class="tags__item">
-                <a href=""><span>tag</span>#events</a>
-              </li>
-              <li class="tags__item">
-                <a href=""><span>tag</span>#travel</a>
-              </li>
-              <li class="tags__item">
-                <a href=""><span>tag</span>#animals</a>
-              </li>
-            </ul>
-          </div>
-          <div class="photographer-profil__contact">
-            <button class="btn btn-regular js-modal-btn-open" title="Contactez moi">Contactez-moi</button>
-          </div>
-          <div class="photographer-profil__picture">
-            <img src="../../public/img/photographers/243/MimiKeel.jpg" alt="Mimi Keel portrait" />
-          </div>
-        </div>
+        <!-- PHOTOGRAPHER BANNER INFOS -->
       </section>
 
       <!-- Photographer's media -->
@@ -413,16 +387,24 @@
         <span class="price"> 350€ / jour </span>
       </div>
 
+      <!-- Modals => Form Modal & Form Submitted Modal & Lightbox Modal -->
+      <!-- Modal | Lightbox -->
+      <div class="modal lightbox-modal" style="display: none;">
+        <div>hello</div>
+      </div>
       <!-- Modal Window | Contact form -->
       <div class="modal contact-modal" aria-labelledby="form-title">
         <div class="modal__content ">
           <div class="modal__header">
-            <h2 id="form-title" class="modal__title">Contactez-moi<br><span id="js-photographer-name">Mimi Keel</span></h2>
+            <h2 id="form-title" class="modal__title">Contactez-moi<br><span id="js-photographer-name"></span></h2>
             <button class="modal__close-btn js-modal-btn-close" title="Fermer la fenêtre formulaire de contact">
             </button>
           </div>
           <div class="modal__body">
-            <form id="contact-form" class="form" name="contact" action="index.html" method="get" onsubmit="return formValidation();">
+            <form id="contact-form" class="form" name="contact" action="submit" method="get">
+                        <!-- <form id="contact-form" class="form" name="contact" action="submit" method="get" 
+                        onsubmit="return formValidation();
+                        "> -->
               <div class="form__field">
                 <label class="form__label" for="first-name" id="label-first-name">Prénom</label>
                 <input
@@ -510,7 +492,7 @@
               </span>
               </div>
               <div class="form__field">
-                <input class="form__input" type="checkbox" id="terms-conditions" value="true"  aria-labelledby="label-terms-conditions" required />
+                <input class="form__input" type="checkbox" name="terms-conditions" id="terms-conditions" value="true"  aria-labelledby="label-terms-conditions" required />
                 <label class="form__label" for="terms-conditions" id="label-terms-conditions">En soumettant ce formulaire, j'accepte que les informations saisies dans ce formulaire soient utilisées pour permettre de me recontacter.</label>
                 <span class="modal__error-message"></span>
                 <span class="modal__icon modal__icon--success unvisible">
@@ -531,7 +513,7 @@
       </div>
       
       <!-- Modal | Form submitted message -->
-      <div id="js-modal-end" class="modal contact-end-modal">
+      <div id="js-modal-end" class="modal contact-end-modal" style="display:none;">
         <div class="modal-end__content ">
             <div class="modal-end__message">
               Merci ! <br />
@@ -542,6 +524,6 @@
         </div>
       </div>
     </main>
-    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="/source/js/main.js"></script>
   </body>
 </html>
