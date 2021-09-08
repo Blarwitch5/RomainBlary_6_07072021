@@ -542,12 +542,8 @@ body {
   stroke-width: 2px;
   cursor: pointer;
   position: relative;
-}
-@media (min-width: 62rem) {
-  .gallery__list .item .likes__icon {
-    width: 1.125rem;
-    height: 1.125rem;
-  }
+  width: 1.125rem;
+  height: 1.125rem;
 }
 .gallery__list .item .likes__icon svg {
   overflow: visible;
