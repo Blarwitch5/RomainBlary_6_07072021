@@ -11,14 +11,9 @@ class ProfilBanner {
       let photographerData = data.photographers;
 
       const photographer = !photographerId ? photographerData : photographerData.filter((photographer) => photographer.id == photographerId);
-      console.log(photographer[0].tags);
 
-      //photographer tags list function
-      //       photographer[0].tags.map(function (tag){
-      //         return `<li class="tags__item">
-      //         <a href="index.html"><span>tag</span>#${tag}</a>
-      //     </li>`;
-      // ;      });
+      //update the page title with the name of the photographer
+      document.title = `FishEye | ${photographer[0].name}`;
 
       let photographerProfilMarkup = `
               <div class="photographer-profil__banner">
@@ -31,7 +26,7 @@ class ProfilBanner {
                       .map((tag) => {
                         return `
                         <li class="tags__item">
-                          <a href="../source/pages/photographer-profil.html?tag=${tag}&id=${id}"><span>tag </span>${tag}</a>
+                          <a href="../source/pages/photographer-profil.html?tag=${tag}&id=${id}"><span>tag </span>#${tag}</a>
                         </li>`;
                       })
                       .join("")}
@@ -41,7 +36,9 @@ class ProfilBanner {
                     <button class="btn btn-regular js-modal-btn-open" title="Contactez moi">Contactez-moi</button>
                 </div>
                 <div class="photographer-profil__picture">
-                    <img src="../../public/img/photographers/${photographer[0].id}/${photographer[0].portrait}" alt="Portrait de ${photographer[0].name}" />
+                    <img src="../../public/img/photographers/${photographer[0].id}/${photographer[0].portrait}" alt="Portrait de ${
+        photographer[0].name
+      }" />
                 </div>
               </div>`;
 

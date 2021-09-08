@@ -25,14 +25,12 @@ new FisheyeApi()
     let errorMessageContainer = document.querySelector(".main-content").appendChild(document.createElement("div"));
     errorMessageContainer.classList.add("error-message");
     errorMessageContainer.innerHTML = errorMessage;
-    console.error(errorMessage);
   });
 
+const photographerProfilPage = document.body.classList.contains("photographer-page");
 
+if (photographerProfilPage) {
 
-const photographerProfilPage = document.body.classList.contains('photographer-page');
-
-if(photographerProfilPage){
   //Event listeners
   const photographerPage = new PhotographerPageBuilder();
 
@@ -41,21 +39,19 @@ if(photographerProfilPage){
 
     //le btn open est vide probablement parce qu'il est généré via js et ne fait pas parti encore parti du DOM
 
-
     photographerPage.closeBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener("click", () => {
-          photographerPage.contactModal.hideModal(photographerPage.contactModal.contactElement);
-          // photographerPage.lightboxModal.hideModal(photographerPage.lightboxModal.lightboxElement);
-        });
+      closeBtn.addEventListener("click", () => {
+        photographerPage.contactModal.hideModal(photographerPage.contactModal.contactElement);
+        // photographerPage.lightboxModal.hideModal(photographerPage.lightboxModal.lightboxElement);
       });
-      photographerPage.openBtns.forEach((openBtn) => {
-        openBtn.addEventListener("click", () => {
-          photographerPage.contactModal.launchModal(photographerPage.contactModal.contactElement);
-        });
+    });
+    photographerPage.openBtns.forEach((openBtn) => {
+      openBtn.addEventListener("click", () => {
+        photographerPage.contactModal.launchModal(photographerPage.contactModal.contactElement);
       });
-      photographerPage.submitBtn.addEventListener("click", () => {
-        photographerPage.contactModal.submitContactForm();
-      });
-  }
-
+    });
+    photographerPage.submitBtn.addEventListener("click", () => {
+      photographerPage.contactModal.submitContactForm();
+    });
+  };
 }
