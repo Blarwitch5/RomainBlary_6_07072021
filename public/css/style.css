@@ -223,7 +223,7 @@ body {
   transition: 0.3s;
   cursor: pointer;
 }
-@media (min-width: 62rem) {
+@media (min-width: 75rem) {
   .btn {
     font-size: 1.25rem;
     line-height: 4.375rem;
@@ -1111,7 +1111,7 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
-@media (min-width: 62rem) {
+@media (min-width: 75rem) {
   .photographer-profil__contact {
     flex-grow: 1;
     position: unset;

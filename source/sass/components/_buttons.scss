@@ -10,7 +10,7 @@
   transition: 0.3s;
   cursor: pointer;
 
-  @include breakpoint(laptop) {
+  @include breakpoint(l_desktop) {
     font-size: 1.25rem;
     line-height: 4.375rem;
   }
