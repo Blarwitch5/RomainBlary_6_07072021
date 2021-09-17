@@ -1,6 +1,5 @@
 import FisheyeApi from "./utils/fisheyeApi.js";
 import Homepage from "./modules/homePageBuilder.js";
-// import buildDataFecthingErrorMessage from "./utils/errorMessages.js";
 
 //get data
 new FisheyeApi()
@@ -8,16 +7,15 @@ new FisheyeApi()
   .then((data) => {
     if (window.location.href.indexOf("photographer-profil") > -1) {
       // const photographerPage = new photographerPage();
-      
     } else {
       const homepage = new Homepage();
       homepage.displayPhotographersList(data.photographers);
     }
   })
   //throw error if no data loaded
-  // .catch(() => {
-  //   buildDataFecthingErrorMessage();
-  // });
+  .catch((error) => {
+    console.log(error);
+  });
 /**
   //DOM element - Photographer Page
 const photographerProfilPage = document.body.classList.contains("photographer-page");
