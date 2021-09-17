@@ -1,5 +1,5 @@
 //object containing the list of error messages for each field
-let errorMessages = {
+export let errorMessages = {
     firstName: {
       specialChars: `Certains caractères spéciaux ou espaces ne sont pas admis`,
       empty: `Le champ prénom ne doit pas être vide`,
@@ -19,4 +19,10 @@ let errorMessages = {
     termsConditions: `Pour vous inscrire, vous devez accepter les termes et conditions`,
   };
 
-export default errorMessages;
+  //fetch data error message
+  export default function buildDataFecthingErrorMessage(){
+    let errorMessage = `Une erreur est survenue. \nAucune donnée provenant de l'API FishEye n'est disponible.`;
+    let errorMessageContainer = document.querySelector(".main-content").appendChild(document.createElement("div"));
+    errorMessageContainer.classList.add("error-message");
+    errorMessageContainer.innerHTML = errorMessage;
+  }

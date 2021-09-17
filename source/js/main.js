@@ -1,32 +1,25 @@
-// FISHEYE DATA
-import FisheyeApi from "/source/js/utils/fisheyeApi.js";
-// IMPORTS
-import HomePageBuilder from "/source/js/modules/homePageBuilder.js";
-import PhotographerPageBuilder from "/source/js/modules/photographerPageBuilder.js";
-import ScrollToMainButton from "/source/js/modules/components/scroll.js";
+import FisheyeApi from "./utils/fisheyeApi.js";
+import Homepage from "./modules/homePageBuilder.js";
+// import buildDataFecthingErrorMessage from "./utils/errorMessages.js";
 
+//get data
 new FisheyeApi()
   .getFishEyeData()
   .then((data) => {
-    //figure out if the user is one the homepage or a phtographer page
-    //select classes to build according to the page the user is in.
-
     if (window.location.href.indexOf("photographer-profil") > -1) {
-      new PhotographerPageBuilder().displayPhotographerProfil(data);
-      new PhotographerPageBuilder().displayPhotographerContactForm(data);
+      // const photographerPage = new photographerPage();
+      
     } else {
-      new HomePageBuilder().displayPhotographersCards(data);
+      const homepage = new Homepage();
+      homepage.displayPhotographersList(data.photographers);
     }
-    new ScrollToMainButton().displayScrollToMainBtn();
   })
   //throw error if no data loaded
-  .catch(() => {
-    let errorMessage = `Une erreur est survenue. \nAucune donnée provenant de l'API FishEye n'est disponible.`;
-    let errorMessageContainer = document.querySelector(".main-content").appendChild(document.createElement("div"));
-    errorMessageContainer.classList.add("error-message");
-    errorMessageContainer.innerHTML = errorMessage;
-  });
-
+  // .catch(() => {
+  //   buildDataFecthingErrorMessage();
+  // });
+/**
+  //DOM element - Photographer Page
 const photographerProfilPage = document.body.classList.contains("photographer-page");
 
 if (photographerProfilPage) {
@@ -55,3 +48,4 @@ if (photographerProfilPage) {
     });
   };
 }
+*/
