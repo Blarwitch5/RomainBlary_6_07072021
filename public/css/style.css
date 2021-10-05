@@ -163,6 +163,11 @@ body {
   flex-direction: column;
   font-size: 1.2rem;
   color: #757575;
+  width: 60%;
+  background-color: #fafafa;
+  border-radius: 25px;
+  padding: 5rem 2rem;
+  margin: 5rem auto;
 }
 .error-message::before {
   content: "";
@@ -305,6 +310,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 .lightbox button {
   opacity: 0.7;
@@ -312,6 +318,7 @@ body {
   transition: opacity 0.3s;
   text-indent: -3000px;
   border: none;
+  overflow: hidden;
 }
 .lightbox button:hover {
   opacity: 1;

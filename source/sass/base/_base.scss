@@ -20,6 +20,11 @@ body {
   @include flex-direction(column);
   font-size: 1.2rem;
   color: $txt;
+  width: 60%;
+  background-color: $bg-color;
+  border-radius: 25px;
+  padding: 5rem 2rem;
+  margin: 5rem auto;
 
   &::before {
     content: "";
@@ -31,6 +36,6 @@ body {
     background-size: 2rem 2rem;
   }
 }
-#scroll-to-main{
-    display: none;
-  }
+#scroll-to-main {
+  display: none;
+}
