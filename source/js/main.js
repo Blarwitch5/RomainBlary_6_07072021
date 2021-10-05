@@ -12,7 +12,7 @@ new FisheyeApi()
       photographerPage.getPhotographer(data);
     } else {
       const homepage = new Homepage();
-      homepage.displayPhotographersList(data.photographers);
+      homepage.displayFilteredPhotographersList(data.photographers);
     }
   })
   //throw error if no data loaded

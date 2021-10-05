@@ -5,4 +5,5 @@ main {
 .photographers {
   @include flexbox;
   @include flex-flow(row wrap);
+  animation: .6s zoom-in;
 }

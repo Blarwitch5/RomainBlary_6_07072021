@@ -6,6 +6,12 @@
     @include breakpoint(laptop) {
       margin-right: 0.313rem;
     }
+    &.active {
+      a {
+        color: $white;
+        background-color: $primary;
+      }
+    }
 
     a {
       font-size: 0.75rem;
@@ -26,15 +32,15 @@
     }
   }
 }
-.photographer__tags{
-  .tags__item{
+.photographer__tags {
+  .tags__item {
     font-size: 0.75rem;
-      line-height: 1rem;
-      color: $primary;
-      border: 1px solid $tag-border;
-      border-radius: 12px;
-      transition: 0.3s;
-      text-decoration: none;
-      padding: 0 0.438rem;
+    line-height: 1rem;
+    color: $primary;
+    border: 1px solid $tag-border;
+    border-radius: 12px;
+    transition: 0.3s;
+    text-decoration: none;
+    padding: 0 0.438rem;
   }
 }
