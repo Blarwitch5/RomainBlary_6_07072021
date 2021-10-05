@@ -1,12 +1,15 @@
 import FisheyeApi from "./utils/fisheyeApi.js";
 import Homepage from "./modules/homePageBuilder.js";
+import PhotographerPage from "./modules/photographerPageBuilder.js";
+
 
 //get data
 new FisheyeApi()
   .getFishEyeData()
   .then((data) => {
     if (window.location.href.indexOf("photographer-profil") > -1) {
-      // const photographerPage = new photographerPage();
+      const photographerPage = new PhotographerPage();
+      photographerPage.getPhotographer(data);
     } else {
       const homepage = new Homepage();
       homepage.displayPhotographersList(data.photographers);
