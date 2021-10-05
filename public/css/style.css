@@ -642,6 +642,7 @@ body {
 }
 .gallery__list .item__title {
   flex-grow: 1;
+  width: 50%;
 }
 .gallery__list .item__title, .gallery__list .item__price,
 .gallery__list .item .likes__counter {
@@ -663,7 +664,7 @@ body {
 }
 .gallery__list .item .likes {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .gallery__list .item .likes__counter {
   font-weight: 500;
@@ -679,6 +680,11 @@ body {
   position: relative;
   width: 1.125rem;
   height: 1.125rem;
+}
+@media (min-width: 62rem) {
+  .gallery__list .item .likes__icon {
+    margin-top: 3px;
+  }
 }
 .gallery__list .item .likes__icon svg {
   overflow: visible;

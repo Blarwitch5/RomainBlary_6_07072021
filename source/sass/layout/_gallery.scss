@@ -213,6 +213,7 @@
       }
       &__title {
         @include flex-grow(1);
+        width: 50%;
       }
       &__title,
       &__price,
@@ -233,7 +234,7 @@
       }
       .likes {
         @include flexbox;
-        @include align-items(center);
+        @include align-items(flex-start);
 
         &__counter {
           font-weight: 500;
@@ -250,6 +251,10 @@
           position: relative;
           width: 1.125rem;
           height: 1.125rem;
+          
+          @include breakpoint(laptop){
+            margin-top: 3px;
+          }
 
           svg {
             overflow: visible;
