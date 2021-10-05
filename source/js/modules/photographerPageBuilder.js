@@ -16,14 +16,14 @@ export default class PhotographerPage {
     this.photographerBanner = document.querySelector(".photographer-profil");
     this.photographerGallery = document.querySelector(".gallery__list");
   }
-  __getPhotographerId() {
+  getPhotographerId() {
     const url = new URL(window.location.href);
     let idValue = url.searchParams.get("id");
     let id = parseInt(idValue);
     return id;
   }
   getPhotographer(data) {
-    const id = this.__getPhotographerId();
+    const id = this.getPhotographerId();
 
     //gets all the current photographer's infos
     const filteredPhotographer = data.photographers.filter(function (element) {
@@ -32,7 +32,7 @@ export default class PhotographerPage {
       }
     });
     const currentPhotographer = filteredPhotographer[0];
-    this.__displayPhotographerInfo(currentPhotographer);
+    this.displayPhotographerInfo(currentPhotographer);
 
     //gets all the current photographer's media
     const filteredMedia = data.media.filter(function (element) {
@@ -40,10 +40,10 @@ export default class PhotographerPage {
         return element;
       }
     });
-    this.__displayMedia(filteredMedia);
+    this.displayMedia(filteredMedia);
   }
 
-  __displayPhotographerInfo({ id, name, city, country, tagline, tags, portrait, price }) {
+  displayPhotographerInfo({ id, name, city, country, tagline, tags, portrait, price }) {
     this.photographerBanner.innerHTML = "";
 
     const banner = this.elementFactory.createPhotographerBanner({
@@ -63,7 +63,7 @@ export default class PhotographerPage {
     //show price
     //display contact button
   }
-  __displayMedia(filteredMedia) {
+  displayMedia(filteredMedia) {
     this.photographerGallery.innerHTML = "";
 
     filteredMedia.map(({ photographerId, image, video, likes, title, id, price }) => {

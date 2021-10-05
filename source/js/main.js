@@ -1,6 +1,7 @@
 import FisheyeApi from "./utils/fisheyeApi.js";
 import Homepage from "./modules/homePageBuilder.js";
 import PhotographerPage from "./modules/photographerPageBuilder.js";
+import ScrollToMainButton from "./modules/components/scroll.js"
 
 
 //get data
@@ -14,6 +15,9 @@ new FisheyeApi()
       const homepage = new Homepage();
       homepage.displayFilteredPhotographersList(data.photographers);
     }
+    //display scroll btn
+    const scrollBtn = new ScrollToMainButton;
+    scrollBtn.displayScrollToMainBtn();
   })
   //throw error if no data loaded
   .catch((error) => {
