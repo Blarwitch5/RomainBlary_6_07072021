@@ -36,355 +36,58 @@
       <section class="gallery">
         <div class="sorting">
           <label class="sorting__label" for="sorting-options">Trier par</label>
-          <div class="sorting__options">
-            <button class="sorting__button" type="button" aria-haspopup="true">
-              fravrz
+          <div class="dropdown">
+            <button class="dropdown__toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span>Popularité</span>
               <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11">
                 <path d="M1.88 10.547L8 4.44l6.12 6.107L16 8.667l-8-8-8 8 1.88 1.88z" fill="#fff"/>
               </svg>
             </button>
+              <ul class="dropdown__menu" role="listbox" aria-expanded="false">
+                <li role="option" tabindex="0" id="filter-popularite" aria-label="Filtre popularité" data-name="Popularité">Popularité
+                  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11">
+                    <path d="M1.88 10.547L8 4.44l6.12 6.107L16 8.667l-8-8-8 8 1.88 1.88z" fill="#fff"/>
+                  </svg>
+                </li>
+                <li role="option" tabindex="0" id="filter-date" aria-label="Filtre date" data-name="Date">Date</li>
+                <li role="option" tabindex="0" id="filter-title" aria-label="Filtre titre" data-name="Titre">Titre</li>
+              </ul>
           </div>
-          <!-- <select class="sorting__options" name="sorting-options" id="sorting-options">
-            <option value="popularity">Popularité</option>
-            <option value="date">Date</option>
-            <option value="title">Titre</option>
-          </select> -->
         </div>
         <div class="gallery__list">
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Animals_Rainbow.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-                <div class="item__media">
-                  <video class="item__video" controls="controls" src="../../public/img/photographers/243/media/Animals_Wild_Horses_in_the_mountains.mp4" role="button"></video>
-                </div>
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Event_BenevidesWedding.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article><article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Event_PintoWedding.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Event_SeasideWedding.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Portrait_Background.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Portrait_Nora.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Portrait_Wednesday.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Travel_HillsideColor.jpg" alt="">
-                </figure>
-              </div>
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
-          <article class="item">
-            <a href="">
-              <div class="item__media">
-                <figure class="item__figure">
-                  <img class="item__image" src="../../public/img/photographers/243/media/Travel_Lonesome.jpg" alt="">
-                </figure>
-              </div>            
-            </a>
-            <div class="item__meta">
-              <h2 class="item__title">Arc-en-ciel</h2>
-              <span class="item__price"> 40 € </span>
-              <span class="likes item__likes">
-                <span class="likes__counter"> 90 </span>
-                <div class="likes__icon">
-                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                      stroke-linecap="square"
-                      stroke-miterlimit="10"
-                    />
-                  </svg>
-                </div>
-              </span>
-            </div>
-          </article>
+          <!-- PHOTOGRAPHER MEDIA GALLERY -->
         </div>
+        <aside class="lightbox">
+          <article class="lightbox__container">
+            <button class="lightbox__close">Fermer</button>
+            <button class="lightbox__next">Suivant</button>
+            <button class="lightbox__prev">Précédent</button>
+            <div class="lightbox__media-container">
+              <img class="photographer-media" src="https://picsum.photos/900/1800" alt="">
+            </div>
+            <div class="lightbox__media-title">
+              Random Image
+            </div>
+          </article>
+        </aside>
       </section>
       
       <!-- Photographer fee & total likes -->
       <div class="likes-price">
-        <span class="likes total-likes">
-          <span class="likes__counter"> 3000 </span>
-          <svg class="likes__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-              stroke-linecap="square"
-              stroke-width="2"
-              stroke-miterlimit="10"
-            />
-          </svg>
-        </span>
-        <span class="price"> 350€ / jour </span>
+        <div class="likes-price__wrapper">
+          <span class="likes total-likes">
+            <span class="likes__counter"> 3000 </span>
+            <svg class="likes__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
+                stroke-linecap="square"
+                stroke-width="2"
+                stroke-miterlimit="10"
+              />
+            </svg>
+          </span>
+          <span class="price"> 350€ / jour </span>
+        </div>
       </div>
 
       <!-- Modals => Form Modal & Form Submitted Modal & Lightbox Modal -->
@@ -401,10 +104,7 @@
             </button>
           </div>
           <div class="modal__body">
-            <form id="contact-form" class="form" name="contact" action="submit" method="get">
-                        <!-- <form id="contact-form" class="form" name="contact" action="submit" method="get" 
-                        onsubmit="return formValidation();
-                        "> -->
+            <form id="contact-form" class="form" name="contact" action="submit">
               <div class="form__field">
                 <label class="form__label" for="first-name" id="label-first-name">Prénom</label>
                 <input
@@ -509,18 +209,6 @@
               </div>
             </form>
           </div>
-        </div>
-      </div>
-      
-      <!-- Modal | Form submitted message -->
-      <div id="js-modal-end" class="modal contact-end-modal" style="display:none;">
-        <div class="modal-end__content ">
-            <div class="modal-end__message">
-              Merci ! <br />
-              Vos informations ont été transmises.
-            </div>
-            <button class="modal-end__close-btn js-modal-btn-close" title="Fermer la fenêtre">
-            </div>
         </div>
       </div>
     </main>

@@ -125,6 +125,10 @@ main {
     @include flexbox;
   }
 
+  &__wrapper{
+    @include flexbox;
+  }
+
   .likes {
     @include flexbox;
     @include align-items(center);
