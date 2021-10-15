@@ -1,81 +1,8 @@
-.modal-end {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  z-index: 9;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
+.validation {
+  background-color: rgba($white, 0.25);
+  padding: 2rem;
+  border-radius: 5px;
 
-  // &[aria-hidden="true"]{
-  //   display: none;
-  // }
-  // &[aria-hidden="true"]{
-  //   display: block;
-  // }
-  display: none;
-
-  &__close-btn {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    background-color: transparent;
-    border: none;
-    width: 42px;
-    height: 42px;
-    @include flexbox;
-    @include justify-content(center);
-    @include align-items(center);
-
-    &::before,
-    &::after {
-      position: absolute;
-      left: 1.875rem;
-      content: " ";
-      height: 1.65rem;
-      width: 3px;
-      background-color: $white;
-
-      @include breakpoint(laptop) {
-        height: 2.625rem;
-        width: 4px;
-      }
-    }
-    &::before {
-      transform: rotate(45deg);
-    }
-    &::after {
-      transform: rotate(-45deg);
-    }
-    cursor: pointer;
-  }
-  &__content {
-    box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.25);
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: auto;
-    height: auto;
-    width: 90%;
-    background-color: $tertiary;
-    @include border-radius;
-    animation-name: modalOpen;
-    animation-duration: $modal-duration;
-    padding: 5rem 2rem;
-
-    @include breakpoint(phablet) {
-      width: 80%;
-      height: unset;
-      padding: 5rem;
-    }
-    @include breakpoint(laptop) {
-      width: 41.875rem;
-      margin-bottom: 3.75rem;
-    }
-  }
   &__message {
     font-size: 1.2rem;
     text-align: center;
@@ -84,11 +11,30 @@
       font-size: 2rem;
     }
   }
+  &__icon {
+    margin-bottom: 2rem;
+    svg {
+      width: 50px;
+      display: block;
+      margin: 40px auto 0;
+    }
+    .path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 0;
+      &.circle {
+        animation: dash 0.9s ease-in-out;
+      }
+      &.check {
+        stroke-dashoffset: -100;
+        animation: dash-check 0.9s 0.35s ease-in-out forwards;
+      }
+    }
+  }
 }
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   left: 0;
   top: 0;
   height: 100%;
@@ -96,10 +42,10 @@
   overflow: auto;
   display: none;
 
-  &[aria-hidden="true"]{
+  &[aria-hidden="true"] {
     display: none;
   }
-  &[aria-hidden="false"]{
+  &[aria-hidden="false"] {
     display: block;
   }
   // display: none;
@@ -148,7 +94,7 @@
     margin: auto;
     background-color: $tertiary;
     @include border-radius;
-    min-height: 100%;
+    min-height: auto;
     animation-name: modalOpen;
     animation-duration: $modal-duration;
 
