@@ -787,6 +787,7 @@ body {
   background-color: rgba(255, 255, 255, 0.25);
   padding: 2rem;
   border-radius: 5px;
+  animation: fadeIn 0.3s ease-in;
 }
 .validation__message {
   font-size: 1.2rem;
@@ -816,6 +817,10 @@ body {
   stroke-dashoffset: -100;
   animation: dash-check 0.9s 0.35s ease-in-out forwards;
 }
+.validation__close-btn {
+  width: 100%;
+  margin-top: 2rem;
+}
 
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
@@ -832,7 +837,7 @@ body {
   display: none;
 }
 .modal[aria-hidden=false] {
-  display: block;
+  display: block !important;
 }
 .modal__close-btn {
   position: relative;

@@ -2,6 +2,7 @@
   background-color: rgba($white, 0.25);
   padding: 2rem;
   border-radius: 5px;
+  animation: fadeIn .3s ease-in;
 
   &__message {
     font-size: 1.2rem;
@@ -30,6 +31,10 @@
       }
     }
   }
+  &__close-btn{
+    width: 100%;
+    margin-top: 2rem;
+  }
 }
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
@@ -46,7 +51,7 @@
     display: none;
   }
   &[aria-hidden="false"] {
-    display: block;
+    display: block !important;
   }
   // display: none;
 
