@@ -111,7 +111,7 @@ export default class PhotographerPage {
     this.totalLikesNumber = document.querySelector(".total-likes-number");
     const tag = this.getTag();
 
-    if (tag === null) {
+    // if (tag === null) {
       allMedia.map(({ photographerId, image, video, likes, title, id, price }) => {
         let mediaList;
 
@@ -143,44 +143,47 @@ export default class PhotographerPage {
 
         this.photographerGallery.innerHTML += mediaList;
       });
-    } else {
-      let allFilteredMedia = allMedia.filter(function (filteredMedia) {
-        if(filteredMedia.tags.includes(tag)){
-          return filteredMedia;
-        }
-      });
 
-      allFilteredMedia.map(({ photographerId, image, video, likes, title, id, price }) => {
-        let mediaList;
+      //if tags in photographer bio are used to filter media by category
 
-        //add condition for img or video
-        if (!image) {
-          mediaList = this.elementFactory.createMediaGallery("video", {
-            price: price,
-            photographerId: photographerId,
-            video_url: video,
-            likes: likes,
-            title: title,
-            id: id,
-          });
+    // } else {
+    //   let allFilteredMedia = allMedia.filter(function (filteredMedia) {
+    //     if(filteredMedia.tags.includes(tag)){
+    //       return filteredMedia;
+    //     }
+    //   });
 
-          this.totalLikesCounter += likes;
-        } else {
-          mediaList = this.elementFactory.createMediaGallery("image", {
-            photographerId: photographerId,
-            price: price,
-            image_url: image,
-            likes: likes,
-            title: title,
-            id: id,
-          });
-          this.totalLikesCounter += likes;
-        }
-        this.totalLikesNumber.innerHTML = this.totalLikesCounter;
+    //   allFilteredMedia.map(({ photographerId, image, video, likes, title, id, price }) => {
+    //     let mediaList;
 
-        this.photographerGallery.innerHTML += mediaList;
-      });
-    }
+    //     //add condition for img or video
+    //     if (!image) {
+    //       mediaList = this.elementFactory.createMediaGallery("video", {
+    //         price: price,
+    //         photographerId: photographerId,
+    //         video_url: video,
+    //         likes: likes,
+    //         title: title,
+    //         id: id,
+    //       });
+
+    //       this.totalLikesCounter += likes;
+    //     } else {
+    //       mediaList = this.elementFactory.createMediaGallery("image", {
+    //         photographerId: photographerId,
+    //         price: price,
+    //         image_url: image,
+    //         likes: likes,
+    //         title: title,
+    //         id: id,
+    //       });
+    //       this.totalLikesCounter += likes;
+    //     }
+    //     this.totalLikesNumber.innerHTML = this.totalLikesCounter;
+
+    //     this.photographerGallery.innerHTML += mediaList;
+    //   });
+    // }
 
     // likes feature
     this.likeBtns = document.querySelectorAll(".btn-likes");

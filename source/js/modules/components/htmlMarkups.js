@@ -39,7 +39,9 @@ export default class HtmlMarkup {
                       .map((tag) => {
                         return `
                         <li class="tags__item">
-                          <a href="/source/pages/photographer-profil.html?id=${id}&tag=${tag}"><span>tag </span>#${tag}</a>
+                          <a href="/index.html?tag=${tag}"><span>tag </span>#${tag}</a>
+                          <!-- Link used if tags in photographer bio are used to filter media by category  -->
+                          <!--<a href="/source/pages/photographer-profil.html?id=${id}&tag=${tag}"><span>tag </span>#${tag}</a>-->
                         </li>`;
                       })
                       .join("")}
