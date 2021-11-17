@@ -37,21 +37,14 @@
         <div class="sorting">
           <label class="sorting__label" for="sorting-options">Trier par</label>
           <div class="dropdown">
-            <button class="dropdown__toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
-              <span>Popularité</span>
-              <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11">
-                <path d="M1.88 10.547L8 4.44l6.12 6.107L16 8.667l-8-8-8 8 1.88 1.88z" fill="#fff"/>
-              </svg>
+            <button class="dropdown__toggle" type="button"  aria-haspopup="true">
+              <span>Options</span>
             </button>
-              <ul class="dropdown__menu" role="listbox" aria-expanded="false">
-                <li role="option" tabindex="0" id="filter-popularite" aria-label="Filtre popularité" data-name="Popularité">Popularité
-                  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11">
-                    <path d="M1.88 10.547L8 4.44l6.12 6.107L16 8.667l-8-8-8 8 1.88 1.88z" fill="#fff"/>
-                  </svg>
-                </li>
-                <li role="option" tabindex="0" id="filter-date" aria-label="Filtre date" data-name="Date">Date</li>
-                <li role="option" tabindex="0" id="filter-title" aria-label="Filtre titre" data-name="Titre">Titre</li>
-              </ul>
+            <ul class="dropdown__menu" role="listbox" aria-expanded="false">
+              <li role="option" tabindex="0" id="filter-popularite" aria-label="Filtre popularité" data-name="Popularité">Popularité</li>
+              <li role="option" tabindex="0" id="filter-date" aria-label="Filtre date" data-name="Date">Date</li>
+              <li role="option" tabindex="0" id="filter-title" aria-label="Filtre titre" data-name="Titre">Titre</li>
+            </ul>
           </div>
         </div>
         <div class="gallery__list">
@@ -63,18 +56,16 @@
             <button class="lightbox__next">Suivant</button>
             <button class="lightbox__prev">Précédent</button>
             <div class="lightbox__media-container">
-              <img class="photographer-media" src="https://picsum.photos/900/1800" alt="">
+              <img class="photographer-media" src="https://picsum.photos/900/1800" alt="" />
             </div>
-            <div class="lightbox__media-title">
-              Random Image
-            </div>
+            <div class="lightbox__media-title">Random Image</div>
           </article>
         </aside>
       </section>
-      
+
       <!-- Photographer fee & total likes -->
       <div class="likes-price">
-        <div class="likes-price__wrapper">
+        <!-- <div class="likes-price__wrapper">
           <span class="likes total-likes">
             <span class="likes__counter"> 3000 </span>
             <svg class="likes__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -87,21 +78,20 @@
             </svg>
           </span>
           <span class="price"> 350€ / jour </span>
-        </div>
+        </div> -->
       </div>
 
       <!-- Modals => Form Modal & Form Submitted Modal & Lightbox Modal -->
       <!-- Modal | Lightbox -->
-      <div class="modal lightbox-modal" style="display: none;">
+      <div class="modal lightbox-modal" style="display: none">
         <div>hello</div>
       </div>
       <!-- Modal Window | Contact form -->
       <div class="modal contact-modal" aria-labelledby="form-title">
-        <div class="modal__content ">
+        <div class="modal__content">
           <div class="modal__header">
-            <h2 id="form-title" class="modal__title">Contactez-moi<br><span id="js-photographer-name"></span></h2>
-            <button class="modal__close-btn js-modal-btn-close" title="Fermer la fenêtre formulaire de contact">
-            </button>
+            <h2 id="form-title" class="modal__title">Contactez-moi<br /><span id="js-photographer-name"></span></h2>
+            <button class="modal__close-btn js-modal-btn-close" title="Fermer la fenêtre formulaire de contact"></button>
           </div>
           <div class="modal__body">
             <form id="contact-form" class="form" name="contact" action="submit">
@@ -119,12 +109,14 @@
                 <span class="modal__error-message"></span>
                 <span class="modal__icon modal__icon--success unvisible">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff"/>
-                </svg>
+                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff" />
+                  </svg>
                 </span>
                 <span class="modal__icon modal__icon--error unvisible">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff"/></svg>
-              </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff" />
+                  </svg>
+                </span>
               </div>
               <div class="form__field">
                 <label class="form__label" for="last-name" id="label-last-name">Nom</label>
@@ -140,12 +132,14 @@
                 <span class="modal__error-message"></span>
                 <span class="modal__icon modal__icon--success unvisible">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff"/>
-                </svg>
+                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff" />
+                  </svg>
                 </span>
                 <span class="modal__icon modal__icon--error unvisible">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff"/></svg>
-              </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff" />
+                  </svg>
+                </span>
               </div>
               <div class="form__field">
                 <label class="form__label" for="email" id="label-email">E-mail</label>
@@ -161,12 +155,14 @@
                 <span class="modal__error-message"></span>
                 <span class="modal__icon modal__icon--success unvisible">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff"/>
-                </svg>
+                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff" />
+                  </svg>
                 </span>
                 <span class="modal__icon modal__icon--error unvisible">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff"/></svg>
-              </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff" />
+                  </svg>
+                </span>
               </div>
               <div class="form__field">
                 <label class="form__label" for="message" id="label-message">Votre message</label>
@@ -184,25 +180,40 @@
                 <span class="modal__error-message"></span>
                 <span class="modal__icon modal__icon--success unvisible">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff"/>
-                </svg>
+                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff" />
+                  </svg>
                 </span>
                 <span class="modal__icon modal__icon--error unvisible">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff"/></svg>
-              </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff" />
+                  </svg>
+                </span>
               </div>
               <div class="form__field">
-                <input class="form__input" type="checkbox" name="terms-conditions" id="terms-conditions" value="true"  aria-labelledby="label-terms-conditions" required />
-                <label class="form__label" for="terms-conditions" id="label-terms-conditions">En soumettant ce formulaire, j'accepte que les informations saisies dans ce formulaire soient utilisées pour permettre de me recontacter.</label>
+                <input
+                  class="form__input"
+                  type="checkbox"
+                  name="terms-conditions"
+                  id="terms-conditions"
+                  value="true"
+                  aria-labelledby="label-terms-conditions"
+                  required
+                />
+                <label class="form__label" for="terms-conditions" id="label-terms-conditions"
+                  >En soumettant ce formulaire, j'accepte que les informations saisies dans ce formulaire soient utilisées pour permettre de me
+                  recontacter.</label
+                >
                 <span class="modal__error-message"></span>
                 <span class="modal__icon modal__icon--success unvisible">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff"/>
-                </svg>
+                    <path d="M0 12l2.4-2.5 4.8 3.6a32.9 32.9 0 0115.6-9.6L24 5.9S12.52 10.68 7 21z" fill="#fff" />
+                  </svg>
                 </span>
                 <span class="modal__icon modal__icon--error unvisible">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff"/></svg>
-              </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M23 3.1L20.8.9 12 9.6 3.2.9 1 3.1l8.8 8.8L1 20.6l2.2 2.2L12 14l8.8 8.8 2.2-2.2-8.8-8.8L23 3.1z" fill="#fff" />
+                  </svg>
+                </span>
               </div>
               <div class="form__btn">
                 <input id="form-validation-btn" class="btn btn-regular" type="submit" value="Envoyer" />

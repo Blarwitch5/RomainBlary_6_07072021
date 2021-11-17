@@ -422,6 +422,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 2.5rem 1.25rem 0;
+  animation: fadeIn 0.5s;
 }
 @media (min-width: 62rem) {
   .header {
@@ -542,6 +543,7 @@ body {
   }
   .gallery .sorting .dropdown {
     position: relative;
+    cursor: pointer;
   }
   .gallery .sorting .dropdown__toggle {
     cursor: pointer;
@@ -562,29 +564,52 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .gallery .sorting .dropdown__toggle svg {
+  .gallery .sorting .dropdown__toggle:hover {
+    color: #DB8876;
+  }
+  .gallery .sorting .dropdown__toggle::after {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 11'%3E%3Cpath d='M1.88 10.547L8 4.44l6.12 6.107L16 8.667l-8-8-8 8 1.88 1.88z' fill='%23fff' /%3E%3C/svg%3E");
     width: 1rem;
     position: absolute;
-    top: 40%;
+    top: 35%;
     transform: rotate(180deg);
     right: 0.8rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+  }
+  .gallery .sorting .dropdown__toggle.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .gallery .sorting .dropdown__toggle.active::after {
+    transform: rotate(0deg);
   }
   .gallery .sorting .dropdown__menu {
     position: absolute;
-    top: 0;
+    top: 60px;
     left: 0;
     right: 0;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     list-style: none;
     background-color: #901C1C;
+    visibility: hidden;
+    overflow: auto;
   }
-  .gallery .sorting .dropdown__menu svg {
-    z-index: 9;
-    width: 1rem;
+  .gallery .sorting .dropdown__menu[aria-expanded=true] {
+    visibility: visible;
+  }
+  .gallery .sorting .dropdown__menu::before {
+    content: "";
+    background-color: #fff;
+    height: 1px;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0.8rem;
+    top: 0;
+    right: 0.875rem;
+    left: 0.875rem;
   }
   .gallery .sorting .dropdown__menu li {
     color: #fff;
@@ -708,6 +733,9 @@ body {
   font-weight: 500;
 }
 .gallery__list .item .likes__icon {
+  background-color: transparent;
+  border: none;
+  padding: 0;
   display: flex;
   align-items: center;
   margin-left: 0.438rem;
@@ -744,6 +772,9 @@ body {
 }
 .gallery__list .item .likes__icon:active .heart-main ~ .heart-background path, .gallery__list .item .likes__icon:focus .heart-main ~ .heart-background path, .gallery__list .item .likes__icon:hover .heart-main ~ .heart-background path {
   animation: heart-fade-animation 1.5s ease-in-out forwards;
+}
+.gallery__list .item .likes__icon.hasBeenliked .heart-main path {
+  fill: #901C1C;
 }
 
 @media (min-width: 36rem) {
@@ -1168,6 +1199,7 @@ main {
 }
 
 .photographer-profil__banner {
+  animation: fadeIn 0.5s ease-in-out;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;

@@ -65,6 +65,7 @@
 
       .dropdown {
         position: relative;
+        cursor: pointer;
 
         &__toggle {
           cursor: pointer;
@@ -85,31 +86,57 @@
           text-overflow: ellipsis;
           white-space: nowrap;
 
-          svg {
+          &:hover {
+            color: $tertiary;
+          }
+          &::after {
+            content: "";
+            background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 11'%3E%3Cpath d='M1.88 10.547L8 4.44l6.12 6.107L16 8.667l-8-8-8 8 1.88 1.88z' fill='%23fff' /%3E%3C/svg%3E");
             width: 1rem;
             position: absolute;
-            top: 40%;
+            top: 35%;
             transform: rotate(180deg);
             right: 0.8rem;
+            height: 1rem;
+            background-repeat: no-repeat;
+          }
+
+          &.active {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+
+            &::after {
+              transform: rotate(0deg);
+            }
           }
         }
 
         &__menu {
           position: absolute;
-          top: 0;
+          top: 60px;
           left: 0;
           right: 0;
-          border-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
           list-style: none;
           background-color: $primary;
+          visibility: hidden;
+          overflow: auto;
 
-          svg {
-            z-index: 9;
-            width: 1rem;
+          &[aria-expanded="true"] {
+            visibility: visible;
+          }
+
+          &::before {
+            content: "";
+            background-color: $white;
+            height: 1px;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 0.8rem;
+            top: 0;
+            right: 0.875rem;
+            left: 0.875rem;
           }
 
           li {
@@ -167,6 +194,7 @@
     .item {
       width: 100%;
       margin-bottom: 0.625rem;
+      animation: 0.6s zoom-in;
 
       @include breakpoint(phablet) {
         margin-bottom: 1.875rem;
@@ -241,6 +269,11 @@
         }
 
         &__icon {
+          //btn reset
+          background-color: transparent;
+          border: none;
+          padding: 0;
+
           @include flexbox;
           @include align-items(center);
           margin-left: 0.438rem;
@@ -251,8 +284,8 @@
           position: relative;
           width: 1.125rem;
           height: 1.125rem;
-          
-          @include breakpoint(laptop){
+
+          @include breakpoint(laptop) {
             margin-top: 3px;
           }
 
@@ -284,6 +317,13 @@
                 path {
                   animation: heart-fade-animation 1.5s ease-in-out forwards;
                 }
+              }
+            }
+          }
+          &.hasBeenliked {
+            .heart-main {
+              path {
+                fill: $primary;
               }
             }
           }

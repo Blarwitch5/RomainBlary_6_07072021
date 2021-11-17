@@ -1,50 +1,72 @@
 /**
- *  - gallery creation (video and/or img)
- *  - lightbox creation
- *  - photographer list
- *  - photographer banner
+ *  1 - Photographers list
+ *  2 - photographer profil info
+ *  3 - Photographers price and likes
+ *  4 - photographer media list
+ *  5 - price and likes informations
+ *  6 - Lightbox
  * ...
  */
-import HtmlMarkup from './htmlMarkups.js';
+import HtmlMarkup from "./htmlMarkups.js";
+import DropDown from "./filters.js";
 
-export default class ElementsFactory{
-    constructor(){
-        //photographers list
-        this.createPhotographersList = (dataPhotographer) => {
 
-            const media = new HtmlMarkup();
-            const htmlMarkup = media.photographerCardHtmlMarkup(dataPhotographer);
+export default class ElementsFactory {
+  constructor() {
+    //photographers list
+    this.createPhotographersList = (dataPhotographer) => {
+      const media = new HtmlMarkup();
+      const PhotographerListHtmlMarkup = media.photographerCardHtmlMarkup(dataPhotographer);
 
-            return htmlMarkup;
-        }
-        //photographer profil info
-        this.createPhotographerBanner = (dataPhotographer) => {
+      return PhotographerListHtmlMarkup;
+    };
+    //photographer profil info
+    this.createPhotographerBanner = (dataPhotographer) => {
+      const media = new HtmlMarkup();
+      const PhotographerBannerHtmlMarkup = media.photographerBannerHtmlMarkup(dataPhotographer);
 
-            const media = new HtmlMarkup();
-            const htmlMarkup = media.photographerBannerHtmlMarkup(dataPhotographer);
+      return PhotographerBannerHtmlMarkup;
+    };
+    //photographer price and likes
+    this.createPhotographerPriceAndLikes = (dataPhotographer) => {
+      const markup = new HtmlMarkup();
+      const PhotographerPriceAndLikesHtmlMarkup = markup.photographerPriceAndLikes(dataPhotographer);
 
-            return htmlMarkup;
-        }
-        //media list 
-        this.createMediaGallery = (type, media) => {
-            let markup;
-            let video;
-            let image;
+      return PhotographerPriceAndLikesHtmlMarkup;
+    };
+    //media list
+    this.createMediaGallery = (type, media) => {
+      let markup;
+      let video;
+      let image;
 
-            if (type === 'video'){
-                markup = new HtmlMarkup();
-                video = markup.mediaVideoHtmlMarkup(media);
-                return video;
-            }
-            if (type === 'image'){
-                markup = new HtmlMarkup();
-                image = markup.mediaImageHtmlMarkup(media);
-                return image;
-            }
-        }
+      if (type === "video") {
+        markup = new HtmlMarkup();
+        video = markup.mediaVideoHtmlMarkup(media);
+        return video;
+      }
+      if (type === "image") {
+        markup = new HtmlMarkup();
+        image = markup.mediaImageHtmlMarkup(media);
+        return image;
+      }
+    };
+
+
+    //price informations
+    this.createLikesAndPriceInfo = () => {
+      const htmlMarkup = new HtmlMarkup();
+      const likesAndPriceInfo = htmlMarkup.photographerLikesAndPriceInfoHtmlMarkup();
+      return likesAndPriceInfo;
+    };
         //création de la lightbox
-        // this.createLightbox = function(){}
+    // this.createLightbox = function(){}
 
-        //etc
+    //dropdown
+    this.createDropdownFilterList = (dropdownElement) => {
+        //new dropdown
+        const filtersDropdown = new DropDown(dropdownElement);
+        return filtersDropdown;
     }
+  }
 }
