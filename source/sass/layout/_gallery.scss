@@ -306,9 +306,16 @@
             z-index: 1;
             stroke: none;
           }
+          // &:hover {
+          //   .heart-background {
+          //     path {
+          //       fill: $secondary;
+          //     }
+          //   }
+          // }
+          // &:focus,
           &:active,
-          &:focus,
-          &:hover {
+            &:hover {
             .heart-main {
               path {
                 animation: heart-stroke-animation 1.5s ease-in-out forwards;
@@ -320,6 +327,7 @@
               }
             }
           }
+
           &.hasBeenliked {
             .heart-main {
               path {

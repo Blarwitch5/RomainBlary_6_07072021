@@ -5,6 +5,8 @@ import ContactModal from "./components/contactModal.js";
 
 export default class PhotographerPage {
   constructor(data) {
+    this.elementFactory = new ElementsFactory();
+
     //Contact Form Selector
     this.submitBtn = document.querySelector("input[type=submit]");
     this.contactModal = new ContactModal(data);
@@ -12,23 +14,26 @@ export default class PhotographerPage {
     this.openBtns = document.querySelectorAll(".js-modal-btn-open");
     this.submitBtn = document.getElementById("form-validation-btn");
 
+    //lightbox selectors
     // this.lightbox = new Lightbox();
 
-    this.elementFactory = new ElementsFactory();
     this.photographerBanner = document.querySelector(".photographer-profil");
     this.photographerGallery = document.querySelector(".gallery__list");
 
-    //price selectors
-    this.likesCounter;
+    //likes feature selectors
     this.likePriceSection = document.querySelector(".likes-price");
-    this.likesBtn = document.querySelectorAll("btn-likes");
-
-    this.tag = this.getTag();
+    this.likeBtns = [];
+    this.likes = [];
+    this.totalLikesCounter = 0;
+    this.totalLikesNumber = document.querySelector(".total-likes-number");
+    this.likesIndex = new Set();
 
     //filter dropdown selectors
     this.dropdown = document.querySelector(".dropdown");
     this.dropdownBtn = document.querySelector(".dropdown__toggle");
     this.dropdownFilterList = document.querySelector(".dropdown__menu");
+
+    this.tag = this.getTag();
   }
   getId() {
     const url = new URL(window.location.href);
@@ -100,11 +105,14 @@ export default class PhotographerPage {
     });
   }
 
-  displayMedia(filteredMedia) {
+  displayMedia(allMedia) {
     this.photographerGallery.innerHTML = "";
-    this.likesCounter = 0;
+    this.totalLikesCounter = 0;
+    this.totalLikesNumber = document.querySelector(".total-likes-number");
+    const tag = this.getTag();
 
-      filteredMedia.map(({ photographerId, image, video, likes, title, id, price }) => {
+    if (tag === null) {
+      allMedia.map(({ photographerId, image, video, likes, title, id, price }) => {
         let mediaList;
 
         //add condition for img or video
@@ -118,6 +126,7 @@ export default class PhotographerPage {
             id: id,
           });
 
+          this.totalLikesCounter += likes;
         } else {
           mediaList = this.elementFactory.createMediaGallery("image", {
             photographerId: photographerId,
@@ -127,13 +136,86 @@ export default class PhotographerPage {
             title: title,
             id: id,
           });
+          this.totalLikesCounter += likes;
         }
 
-        //create price infos
+        this.totalLikesNumber.innerHTML = this.totalLikesCounter;
 
         this.photographerGallery.innerHTML += mediaList;
       });
-     
+    } else {
+      let allFilteredMedia = allMedia.filter(function (filteredMedia) {
+        if(filteredMedia.tags.includes(tag)){
+          return filteredMedia;
+        }
+      });
+
+      allFilteredMedia.map(({ photographerId, image, video, likes, title, id, price }) => {
+        let mediaList;
+
+        //add condition for img or video
+        if (!image) {
+          mediaList = this.elementFactory.createMediaGallery("video", {
+            price: price,
+            photographerId: photographerId,
+            video_url: video,
+            likes: likes,
+            title: title,
+            id: id,
+          });
+
+          this.totalLikesCounter += likes;
+        } else {
+          mediaList = this.elementFactory.createMediaGallery("image", {
+            photographerId: photographerId,
+            price: price,
+            image_url: image,
+            likes: likes,
+            title: title,
+            id: id,
+          });
+          this.totalLikesCounter += likes;
+        }
+        this.totalLikesNumber.innerHTML = this.totalLikesCounter;
+
+        this.photographerGallery.innerHTML += mediaList;
+      });
+    }
+
+    // likes feature
+    this.likeBtns = document.querySelectorAll(".btn-likes");
+
+    this.likeBtns.forEach((likeBtn) => {
+      if ([...this.likesIndex].includes(likeBtn.getAttribute("data-id"))) {
+        likeBtn.classList.add("hasBeenliked");
+        this.totalLikesCounter += 1;
+        document.querySelector(".total-likes-number").innerHTML = this.totalLikesCounter;
+      }
+      likeBtn.addEventListener("click", () => {
+        let totalLikesNumber = document.querySelector(".total-likes-number");
+
+        if (likeBtn.classList.contains("hasBeenliked")) {
+          let likesInteger = parseInt(likeBtn.previousElementSibling.innerHTML);
+          let updatedLikes = likesInteger - 1;
+          likeBtn.previousElementSibling.innerHTML = updatedLikes;
+          this.totalLikesCounter -= 1;
+          totalLikesNumber.innerHTML = this.totalLikesCounter;
+        } else {
+          let likedId = likeBtn.getAttribute("data-id");
+          this.likesIndex.add(likedId);
+          let likesInteger = parseInt(likeBtn.previousElementSibling.innerHTML);
+          let updatedLikes = likesInteger + 1;
+          likeBtn.previousElementSibling.innerHTML = updatedLikes;
+          this.totalLikesCounter += 1;
+          totalLikesNumber.innerHTML = this.totalLikesCounter;
+        }
+        if (likeBtn.classList.contains("hasBeenliked")) {
+          likeBtn.classList.remove("hasBeenliked");
+        } else {
+          likeBtn.classList.add("hasBeenliked");
+        }
+      });
+    });
   }
   sortMedia(medias, filterParam) {
     switch (filterParam) {
