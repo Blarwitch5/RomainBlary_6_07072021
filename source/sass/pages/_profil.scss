@@ -7,6 +7,7 @@ main {
 }
 .photographer-profil {
   &__banner {
+    animation: fadeIn .5s ease-in-out;
     @include flexbox;
     @include flex-flow(row nowrap);
     @include justify-content(space-between);
