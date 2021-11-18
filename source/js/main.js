@@ -33,7 +33,7 @@ new FisheyeApi()
           photographerPage.lightbox.hideModal(photographerPage.lightbox.lightboxElement);
           photographerPage.contactModal.hideModal(photographerPage.contactModal.contactElement);
         });
-      });
+      }); 
 
       //activate validation process on form submit button
       window.onload = () => {
