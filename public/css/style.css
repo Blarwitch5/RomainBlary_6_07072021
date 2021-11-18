@@ -346,7 +346,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
 }
 .lightbox button {
   opacity: 0.7;
@@ -361,18 +360,18 @@ body {
 }
 .lightbox__container {
   background-color: #fff;
-  height: 80%;
+  height: 100%;
   margin: 0 auto;
   position: fixed;
   text-align: center;
-  width: 85%;
+  width: 100%;
   animation: fadeIn 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .lightbox__next, .lightbox__prev {
-  background: url(../../../public/img/chevron-right.svg) center center/48px 30px no-repeat;
+  background: url("/public/img/chevron-right.svg") center center/48px 30px no-repeat;
   width: 50px;
   height: 100%;
   position: fixed;
@@ -389,27 +388,45 @@ body {
 .lightbox__close {
   width: 25px;
   height: 25px;
-  background: url(../../../public/img/lightbox-cross.svg) center center/25px 25px no-repeat transparent;
+  background: url("/public/img/lightbox-cross.svg") center center/25px 25px no-repeat transparent;
   position: fixed;
   top: 10%;
   right: 8.5%;
   z-index: 12;
 }
+.lightbox__content {
+  max-height: 80%;
+  margin: 0 auto;
+  text-align: center;
+  width: auto;
+  max-width: 80%;
+  animation: fadeIn 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .lightbox__media-container {
   margin: 0 50px;
-  width: 100%;
-  height: 100%;
+  height: auto;
 }
-.lightbox__media-container img {
-  width: 100%;
+@media (min-width: 62rem) {
+  .lightbox__media-container {
+    height: 80vh;
+  }
+}
+.lightbox__media-container img,
+.lightbox__media-container video {
+  width: auto;
   height: 100%;
   object-fit: cover;
+  border-radius: 5px;
+}
+.lightbox__media-container video {
+  width: 100%;
 }
 .lightbox__media-title {
-  position: absolute;
-  bottom: -7%;
   z-index: 12;
-  left: 50px;
+  text-align: left;
   color: #901C1C;
   font-size: 1.5rem;
   line-height: 1.875rem;
@@ -679,7 +696,6 @@ body {
   overflow: hidden;
   object-fit: cover;
   height: 11.875rem;
-  border-radius: 5px;
 }
 @media (min-width: 36rem) {
   .gallery__list .item__media {
@@ -688,24 +704,34 @@ body {
 }
 .gallery__list .item__figure {
   height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
 .gallery__list .item__image {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 .gallery__list .item__video {
   object-fit: cover;
   height: 100%;
   width: 100%;
+  border-radius: 5px;
 }
 .gallery__list .item__meta {
   display: flex;
   flex-flow: row nowrap;
+  padding-top: 10px;
 }
 .gallery__list .item__title {
   flex-grow: 1;
   width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
 }
 .gallery__list .item__title, .gallery__list .item__price,
 .gallery__list .item .likes__counter {
@@ -767,10 +793,10 @@ body {
   z-index: 1;
   stroke: none;
 }
-.gallery__list .item .likes__icon:active .heart-main path, .gallery__list .item .likes__icon:focus .heart-main path, .gallery__list .item .likes__icon:hover .heart-main path {
+.gallery__list .item .likes__icon:active .heart-main path, .gallery__list .item .likes__icon:hover .heart-main path {
   animation: heart-stroke-animation 1.5s ease-in-out forwards;
 }
-.gallery__list .item .likes__icon:active .heart-main ~ .heart-background path, .gallery__list .item .likes__icon:focus .heart-main ~ .heart-background path, .gallery__list .item .likes__icon:hover .heart-main ~ .heart-background path {
+.gallery__list .item .likes__icon:active .heart-main ~ .heart-background path, .gallery__list .item .likes__icon:hover .heart-main ~ .heart-background path {
   animation: heart-fade-animation 1.5s ease-in-out forwards;
 }
 .gallery__list .item .likes__icon.hasBeenliked .heart-main path {
@@ -1331,6 +1357,7 @@ main {
   right: 2.25rem;
   height: 4.375rem;
   background-color: #DB8876;
+  min-width: 20.5rem;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   align-items: center;
@@ -1339,6 +1366,7 @@ main {
 @media (min-width: 62rem) {
   .likes-price {
     display: flex;
+    justify-content: space-around;
   }
 }
 .likes-price__wrapper {

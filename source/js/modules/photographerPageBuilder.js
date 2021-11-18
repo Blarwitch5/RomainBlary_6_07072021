@@ -35,6 +35,7 @@ export default class PhotographerPage {
     this.dropdownFilterList = document.querySelector(".dropdown__menu");
 
     this.tag = this.getTag();
+    this.title = document.title;
   }
   /**
    *
@@ -99,6 +100,9 @@ export default class PhotographerPage {
       tags: tags,
       image_url: portrait,
     });
+
+    //SEO - Adds the name of the photographe in page title
+    document.title = `FishEye | Profil du photographe : ${name}`;
 
     //create price infos
     const photographerPriceAndLikes = this.elementFactory.createPhotographerPriceAndLikes({
