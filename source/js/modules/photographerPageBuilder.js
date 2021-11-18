@@ -247,7 +247,6 @@ export default class PhotographerPage {
     allMediaElements.forEach((mediaElement) => {
       mediaElement.addEventListener("click", (event) => {
         const mediaId = event.target.getAttribute('data-id');
-        console.log(mediaId)
         this.lightbox.launchModal(this.lightbox.lightboxElement);
         this.lightbox.displayLightbox(mediaId, allMedia);
       });

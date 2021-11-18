@@ -1,8 +1,5 @@
-// import FisheyeApi from "./../../utils/fisheyeApi.js";
-
 import Modal from "./modal.js";
 import FormValidator from "./contactFormValidator.js";
-// import PhotographerPage from "../photographerPageBuilder.js";
 
 export default class ContactModal extends Modal {
   constructor(data) {
@@ -11,12 +8,10 @@ export default class ContactModal extends Modal {
     this.contactModal = document.querySelector(".modal__body");
     this.form = document.getElementById("contact-form");
     this.formFields = document.querySelectorAll(".form__field");
+    this.formInputs = document.querySelectorAll(".form__input");
     this.fields = ["first-name", "last-name", "email", "message", "terms-conditions"];
     this.modal = new Modal();
     this.validator = new FormValidator(this.form, this.fields);
-  }
-  initializeForm() {
-    this.validator.initialize();
   }
 
   getCurrentPhotographerName(appData) {
@@ -69,7 +64,7 @@ export default class ContactModal extends Modal {
     let termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).value;
 
     if (firstnameFieldValue || lastnameFieldValue || emailFieldValue || messageFieldValue || termsFieldValue !== "") {
-      const error = this.isNotValid(this.formFields);
+      const error = this.isNotValid(this.formInputs);
       if (!error) {
         firstnameFieldValue = document.querySelector(`input[name=${this.fields[0]}]`).value;
         lastnameFieldValue = document.querySelector(`input[name=${this.fields[1]}]`).value;
@@ -97,18 +92,21 @@ export default class ContactModal extends Modal {
           "color: #079992; font-style: italic;"
         );
         console.groupEnd();
+        this.displayValidationMessage();
       }
-      this.displayValidationMessage();
     }
   }
-  isNotValid(fields) {
+  isNotValid(inputs) {
     let error = [];
-    fields.forEach((field) => {
-      error = [field.classList, ...error];
+    inputs.forEach((input) => {
+      error = [...error, input.classList];
     });
-    if (error.includes("input-error")) {
-      return true;
+    for (let i = 0; i < inputs.length; i++) {
+      if (error[i].contains("input-error")) {
+        return true;
+      } else {
+        return false;
+      }
     }
-    return false;
   }
 }
