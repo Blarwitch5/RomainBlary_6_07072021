@@ -30,7 +30,7 @@ new FisheyeApi()
       //activate close buttons on click
       photographerPage.closeBtns.forEach((closeBtn) => {
         closeBtn.addEventListener("click", () => {
-          // photographerPage.lightbox.hideModal(photographerPage.lightbox.lightboxElement);
+          photographerPage.lightbox.hideModal(photographerPage.lightbox.lightboxElement);
           photographerPage.contactModal.hideModal(photographerPage.contactModal.contactElement);
         });
       });

@@ -62,32 +62,32 @@ export default class HtmlMarkup {
             <article class="item">
                 <div class="item__media">
                     <figure class="item__figure">
-                        <img loading="lazy" class="item__image" src="../../public/img/photographers/${photographerId}/media/${image_url}" alt="${title}">
+                        <img data-id="${id}" loading="lazy" class="item__image" src="../../public/img/photographers/${photographerId}/media/${image_url}" alt="${title}">
+                        <figcaption class="item__meta">
+                            <h2 class="item__title">${title}</h2>
+                            <span class="item__price"> ${price} € </span>
+                            <span class="likes item__likes">
+                              <span class="likes__counter"> ${likes} </span>
+                              <button role="button" aria-label="Cliquez pour aimer la photo" class="likes__icon btn-likes" data-id=${id}>
+                                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                      <path
+                                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
+                                      stroke-linecap="square"
+                                      stroke-miterlimit="10"
+                                  />
+                                  </svg>
+                                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                      <path
+                                      d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
+                                      stroke-linecap="square"
+                                      stroke-miterlimit="10"
+                                  />
+                                  </svg>
+                              </button>
+                          </span>
+                      </figcaption>
                     </figure>
-                </div>            
-                <figcaption class="item__meta">
-                    <h2 class="item__title">${title}</h2>
-                    <span class="item__price"> ${price} € </span>
-                    <span class="likes item__likes">
-                      <span class="likes__counter"> ${likes} </span>
-                      <button role="button" aria-label="Cliquez pour aimer la photo" class="likes__icon btn-likes" data-id=${id}>
-                          <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path
-                              d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                              stroke-linecap="square"
-                              stroke-miterlimit="10"
-                          />
-                          </svg>
-                          <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <path
-                              d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                              stroke-linecap="square"
-                              stroke-miterlimit="10"
-                          />
-                          </svg>
-                      </button>
-                  </span>
-              </figcaption>
+                </div>
           </article>
     `;
   }
@@ -97,34 +97,35 @@ export default class HtmlMarkup {
             <article class="item">
                 <div class="item__media">
                     <figure class="item__figure">
-                        <video loading="lazy" class="item__video" controls="controls" role="button" alt="${title}">
+                        <video data-id="${id}" loading="lazy" class="item__video" controls="controls" role="button" alt="${title}">
                             <source src="/public/img/photographers/${photographerId}/media/${video_url}" type="video/mp4">
                         </video>
+                        <figcaption class="item__meta">
+                          <h2 class="item__title">${title}</h2>
+                          <span class="item__price"> ${price} € </span>
+                          <span class="likes item__likes">
+                              <span class="likes__counter"> ${likes} </span>
+                              <button role="button" aria-label="Cliquez pour aimer la vidéo" class="likes__icon btn-likes" data-id=${id}>
+                                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                      <path
+                                  d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
+                                  stroke-linecap="square"
+                                  stroke-miterlimit="10"
+                                  />
+                                  </svg>
+                                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                      <path
+                                  d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
+                                  stroke-linecap="square"
+                                  stroke-miterlimit="10"
+                                  />
+                                  </svg>
+                              </button>
+                          </span>
+                      </figcaption>
                     </figure>
                 </div>
-                <figcaption class="item__meta">
-                    <h2 class="item__title">${title}</h2>
-                    <span class="item__price"> ${price} € </span>
-                    <span class="likes item__likes">
-                        <span class="likes__counter"> ${likes} </span>
-                        <button role="button" aria-label="Cliquez pour aimer la vidéo" class="likes__icon btn-likes" data-id=${id}>
-                            <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path
-                            d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                            stroke-linecap="square"
-                            stroke-miterlimit="10"
-                            />
-                            </svg>
-                            <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path
-                            d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                            stroke-linecap="square"
-                            stroke-miterlimit="10"
-                            />
-                            </svg>
-                        </button>
-                    </span>
-                </figcaption>
+                
             </article>`;
   }
   photographerPriceAndLikes({ price, totalLikes }) {
@@ -132,7 +133,7 @@ export default class HtmlMarkup {
       <div class="likes-price__wrapper">
           <span class="likes total-likes">
             <span class="likes__counter total-likes-number"> ${totalLikes} </span>
-            <svg class="likes__icon" aria-label='likes' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg class="likes__icon" aria-label="likes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
                 d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
                 stroke-linecap="square"
@@ -146,6 +147,24 @@ export default class HtmlMarkup {
   }
 
   // lightbox
+  lightboxImageHtmlMarkup({ photographerId, image_url, id, title }) {
+    return `
+    <figure class="lightbox__media-container" id=${id}>
+      <img id=${id} class="photographer-media" src="/public/img/photographers/${photographerId}/media/${image_url}" alt="${title}" />
+      <figcaption class="lightbox__media-title">${title}</figcaption>
+    </figure>
+    `;
+  }
 
-  //etc
+  lightboxVideoHtmlMarkup({ photographerId, video_url, id, title }) {
+    return `
+    <figure class="lightbox__media-container" id=${id}>
+      <video preload="metadata" id=${id} title="${title}" class="photographer-media" controls>
+        <source src="/public/img/photographers/${photographerId}/media/${video_url}" type="video/mp4">
+      </video>
+      <figcaption class="lightbox__media-title">${title}</figcaption>
+    </figure>
+    `;
+    //etc
+  }
 }

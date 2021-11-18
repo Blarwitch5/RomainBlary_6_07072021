@@ -29,29 +29,28 @@ export default class ElementsFactory {
     };
     //photographer price and likes
     this.createPhotographerPriceAndLikes = (dataPhotographer) => {
-      const markup = new HtmlMarkup();
-      const PhotographerPriceAndLikesHtmlMarkup = markup.photographerPriceAndLikes(dataPhotographer);
+      const htmlMarkup = new HtmlMarkup();
+      const PhotographerPriceAndLikesHtmlMarkup = htmlMarkup.photographerPriceAndLikes(dataPhotographer);
 
       return PhotographerPriceAndLikesHtmlMarkup;
     };
     //media list
     this.createMediaGallery = (type, media) => {
-      let markup;
+      let htmlMarkup;
       let video;
       let image;
 
       if (type === "video") {
-        markup = new HtmlMarkup();
-        video = markup.mediaVideoHtmlMarkup(media);
+        htmlMarkup = new HtmlMarkup();
+        video = htmlMarkup.mediaVideoHtmlMarkup(media);
         return video;
       }
       if (type === "image") {
-        markup = new HtmlMarkup();
-        image = markup.mediaImageHtmlMarkup(media);
+        htmlMarkup = new HtmlMarkup();
+        image = htmlMarkup.mediaImageHtmlMarkup(media);
         return image;
       }
     };
-
 
     //price informations
     this.createLikesAndPriceInfo = () => {
@@ -59,12 +58,27 @@ export default class ElementsFactory {
       const likesAndPriceInfo = htmlMarkup.photographerLikesAndPriceInfoHtmlMarkup();
       return likesAndPriceInfo;
     };
-        //création de la lightbox
-    // this.createLightbox = function(){}
+    
+    this.createLightbox = (type, media) => {
+        let htmlMarkup;
+      let video;
+      let image;
+
+      if (type === "video") {
+        htmlMarkup = new HtmlMarkup();
+        video = htmlMarkup.lightboxVideoHtmlMarkup(media);
+        return video;
+      }
+      if (type === "image") {
+        htmlMarkup = new HtmlMarkup();
+        image = htmlMarkup.lightboxImageHtmlMarkup(media);
+        return image;
+      }
+
+    }
 
     //dropdown
     this.createDropdownFilterList = (dropdownElement) => {
-        //new dropdown
         const filtersDropdown = new DropDown(dropdownElement);
         return filtersDropdown;
     }

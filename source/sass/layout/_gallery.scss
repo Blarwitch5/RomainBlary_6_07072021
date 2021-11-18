@@ -214,7 +214,6 @@
         object-fit: cover;
         //~190px
         height: 11.875rem;
-        @include border-radius;
 
         @include breakpoint(phablet) {
           //~300px
@@ -223,25 +222,35 @@
       }
       &__figure {
         height: 100%;
+        @include flexbox;
+        @include flex-flow(column nowrap);
+        @include justify-content(space-between);
       }
       &__image {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        @include border-radius;
       }
       &__video {
         object-fit: cover;
         height: 100%;
         width: 100%;
+        @include border-radius;
       }
       //item meta description
       &__meta {
         @include flexbox;
         @include flex-flow(row nowrap);
+        padding-top: 10px;
       }
       &__title {
         @include flex-grow(1);
         width: 50%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 10px;
       }
       &__title,
       &__price,
@@ -315,7 +324,7 @@
           // }
           // &:focus,
           &:active,
-            &:hover {
+          &:hover {
             .heart-main {
               path {
                 animation: heart-stroke-animation 1.5s ease-in-out forwards;
