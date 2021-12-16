@@ -93,6 +93,8 @@ main {
     img {
       @include rounded-profil-img;
       object-fit: cover;
+      background-color: $tertiary;
+      
       @include breakpoint(mobileonly) {
         height: 6.25rem;
         width: 6.25rem;
@@ -149,8 +151,8 @@ min-width: 20.5rem;
       transition: $transition-duration;
 
       @include breakpoint(laptop) {
-        width: 1.125remrem;
-        height: 1.125remrem;
+        width: 1.125rem;
+        height: 1.125rem;
       }
     }
   }

@@ -9,7 +9,7 @@ export default class HtmlMarkup {
           .join(" ")}'>
             <a class="photographer__link" href="/source/pages/photographer-profil.html?id=${id}" title="${name}">
                 <figure class="photographer__figure">
-                    <img loading="lazy" class="photographer__image" src="public/img/photographers/${id}/${image_url}" alt="Portrait de ${name}" />
+                    <img class="photographer__image" src="public/img/photographers/${id}/${image_url}" alt="Portrait de ${name}" />
                 </figure>
                 <h2 class="photographer__name">${name}</h2>
             </a>
@@ -51,7 +51,7 @@ export default class HtmlMarkup {
                     <button class="btn btn-regular js-modal-btn-open" title="Contactez moi">Contactez-moi</button>
                 </div>
                 <div class="photographer-profil__picture">
-                    <img loading="lazy" src="/public/img/photographers/${id}/${image_url}" alt="Portrait de ${name}" />
+                    <img src="/public/img/photographers/${id}/${image_url}" alt="Portrait de ${name}" />
                 </div>
             </div>
 `;

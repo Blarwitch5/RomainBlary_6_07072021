@@ -148,6 +148,7 @@
             text-align: left;
             height: 3.75rem;
             position: relative;
+            z-index: 1;
 
             &:hover {
               cursor: pointer;
@@ -231,6 +232,8 @@
         width: 100%;
         object-fit: cover;
         @include border-radius;
+        overflow: hidden;
+        background-color: $tertiary;
       }
       &__video {
         object-fit: cover;
