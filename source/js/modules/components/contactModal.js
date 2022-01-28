@@ -1,12 +1,12 @@
 import Modal from "./modal.js";
-import FormValidator from "./contactFormValidator.js";
+import FormValidator from "./formValidator.js";
 
 export default class ContactModal extends Modal {
   constructor(data) {
     super();
     this.appData = data;
     this.contactModal = document.querySelector(".modal__body");
-    this.form = document.getElementById("contact-form");
+    this.form = document.querySelector("#contact-form");
     this.formFields = document.querySelectorAll(".form__field");
     this.formInputs = document.querySelectorAll(".form__input");
     this.fields = ["first-name", "last-name", "email", "message", "terms-conditions"];
@@ -57,11 +57,11 @@ export default class ContactModal extends Modal {
   }
   //submit (log) form if all values are true
   submitContactForm() {
-    let firstnameFieldValue = document.querySelector(`input[name=${this.fields[0]}]`).value;
-    let lastnameFieldValue = document.querySelector(`input[name=${this.fields[1]}]`).value;
-    let emailFieldValue = document.querySelector(`input[name=${this.fields[2]}]`).value;
-    let messageFieldValue = document.querySelector(`textarea[name=${this.fields[3]}]`).value;
-    let termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).value;
+    let firstnameFieldValue = document.querySelector(`input[name=${this.fields[0]}]`).value,
+      lastnameFieldValue = document.querySelector(`input[name=${this.fields[1]}]`).value,
+      emailFieldValue = document.querySelector(`input[name=${this.fields[2]}]`).value,
+      messageFieldValue = document.querySelector(`textarea[name=${this.fields[3]}]`).value,
+      termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).value;
 
     if (firstnameFieldValue || lastnameFieldValue || emailFieldValue || messageFieldValue || termsFieldValue !== "") {
       const error = this.isNotValid(this.formInputs);
@@ -101,12 +101,14 @@ export default class ContactModal extends Modal {
     inputs.forEach((input) => {
       error = [...error, input.classList];
     });
+    let checker;
     for (let i = 0; i < inputs.length; i++) {
-      if (error[i].contains("input-error")) {
-        return true;
-      } else {
-        return false;
-      }
+      checker = () => error[i].contains("input-error");
+    }
+    if (error.every(checker)) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
