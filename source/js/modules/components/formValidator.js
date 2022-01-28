@@ -4,15 +4,17 @@ export default class FormValidator {
   constructor(form, fields) {
     this.form = form;
     this.fields = fields;
+    this.inputs = document.querySelectorAll(".form__input");
+    this.submitBtn = form.querySelector("#form-validation-btn");
   }
 
   initialize() {
     //intialize the validator if form exists
-    if(this.form){
+    if (this.form) {
       this.removeDefaultBrowserBehavior();
       this.validateOnEntry();
       this.validateOnSubmit();
-    }else{
+    } else {
       return;
     }
   }
@@ -21,7 +23,9 @@ export default class FormValidator {
     this.fields.forEach((field) => {
       const input = document.querySelector(`#${field}`);
       // prevent the browser from showing default error bubble / hint
-      input.addEventListener('invalid', (event) => {
+      input.addEventListener(
+        "invalid",
+        (event) => {
           event.preventDefault();
         },
         true
@@ -29,20 +33,16 @@ export default class FormValidator {
     });
   }
 
-  //cette fonction est ignorée, 
+  //l'event de cette fonction est ignoré,
   //avec l'event click les champs sont vérifiés lors du click dans le formulaire.
   // avec l'event submit rien ne se passe.
   validateOnSubmit() {
-    const self = this;
-    //validation of the input when the user clicks on the submit btn
-    this.form.addEventListener('submit', (event) => {
-      console.log('hello')
-      //prevents page refresh
+    this.submitBtn.addEventListener("click", (event) => {
       event.preventDefault();
 
-      self.fields.forEach((field) => {
+      this.fields.forEach((field) => {
         const input = document.querySelector(`#${field}`);
-        self.validateFields(input);
+        this.validateFields(input);
       });
     });
   }
@@ -51,7 +51,7 @@ export default class FormValidator {
       const input = document.querySelector(`#${field}`);
 
       //validation of the input when the user leaves the input field
-      input.addEventListener('input', () => {
+      input.addEventListener("input", () => {
         this.validateFields(input);
       });
     });
@@ -64,7 +64,7 @@ export default class FormValidator {
 
     //regex
     const emailRegex = /\S+@\S+\.\S+/;
-      // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    // /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
     const firstnameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ-]{2,50}$/;
     const lastnameRegex = /^(([A-Za-zÀ-ÖØ-öø-ÿ]\s)*[A-Za-zÀ-ÖØ-öø-ÿ'-]){2,50}$/;
     const messageRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ- !'",;.:@()%€?]{2,500}$/;
@@ -146,7 +146,7 @@ export default class FormValidator {
           error: "error",
         };
     }
-    return '';
+    return "";
   }
   // displays the error/valid message and the error/valid icon
   setInputStatus(input, message, status) {
