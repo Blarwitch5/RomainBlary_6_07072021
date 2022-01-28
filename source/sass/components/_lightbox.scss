@@ -105,4 +105,10 @@
     line-height: 1.875rem;
     font-weight: 400;
   }
+  &__loader{
+    width: 2rem;
+    height: 2rem;
+    opacity: 1;
+    background: url("/public/img/loader.svg");
+  }
 }

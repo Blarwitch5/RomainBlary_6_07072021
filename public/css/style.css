@@ -220,7 +220,7 @@ body {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 400;
-  display: swap;
+  font-display: swap;
   src: url("../fonts/dm-sans-v6-latin-regular.eot");
   /* IE9 Compat Modes */
   src: local(""), url("../fonts/dm-sans-v6-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/dm-sans-v6-latin-regular.woff2") format("woff2"), url("../fonts/dm-sans-v6-latin-regular.woff") format("woff"), url("../fonts/dm-sans-v6-latin-regular.ttf") format("truetype"), url("../fonts/dm-sans-v6-latin-regular.svg#DMSans") format("svg");
@@ -231,7 +231,7 @@ body {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 500;
-  display: swap;
+  font-display: swap;
   src: url("../fonts/dm-sans-v6-latin-500.eot");
   /* IE9 Compat Modes */
   src: local(""), url("../fonts/dm-sans-v6-latin-500.eot?#iefix") format("embedded-opentype"), url("../fonts/dm-sans-v6-latin-500.woff2") format("woff2"), url("../fonts/dm-sans-v6-latin-500.woff") format("woff"), url("../fonts/dm-sans-v6-latin-500.ttf") format("truetype"), url("../fonts/dm-sans-v6-latin-500.svg#DMSans") format("svg");
@@ -242,7 +242,7 @@ body {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 700;
-  display: swap;
+  font-display: swap;
   src: url("../fonts/dm-sans-v6-latin-700.eot");
   /* IE9 Compat Modes */
   src: local(""), url("../fonts/dm-sans-v6-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/dm-sans-v6-latin-700.woff2") format("woff2"), url("../fonts/dm-sans-v6-latin-700.woff") format("woff"), url("../fonts/dm-sans-v6-latin-700.ttf") format("truetype"), url("../fonts/dm-sans-v6-latin-700.svg#DMSans") format("svg");
@@ -598,6 +598,7 @@ body {
   .gallery .sorting .dropdown__toggle.active {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    color: rgba(255, 255, 255, 0.3);
   }
   .gallery .sorting .dropdown__toggle.active::after {
     transform: rotate(0deg);
@@ -637,6 +638,7 @@ body {
     text-align: left;
     height: 3.75rem;
     position: relative;
+    z-index: 1;
   }
   .gallery .sorting .dropdown__menu li:hover {
     cursor: pointer;
@@ -713,6 +715,8 @@ body {
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
+  overflow: hidden;
+  background-color: #DB8876;
 }
 .gallery__list .item__video {
   object-fit: cover;
@@ -955,7 +959,7 @@ body {
   .modal__content {
     padding: 2.188rem;
     width: 41.875rem;
-    margin-bottom: 3.75rem;
+    margin-bottom: 6.75rem;
   }
 }
 .modal__header {
@@ -1136,14 +1140,11 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.photographer:hover__link {
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
-}
-.photographer:first-child__link {
+.photographer:first-child .photographer__link {
   margin-top: 1.875rem;
 }
 @media (min-width: 62rem) {
-  .photographer:first-child__link {
+  .photographer:first-child .photographer__link {
     margin-top: unset;
   }
 }
@@ -1170,6 +1171,9 @@ body {
 }
 .photographer__link:hover .photographer__figure img {
   transform: scale(1);
+}
+.photographer__image {
+  background-color: #DB8876;
 }
 .photographer__name {
   font-weight: normal;
@@ -1330,6 +1334,7 @@ main {
   border-radius: 50%;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.25);
   object-fit: cover;
+  background-color: #DB8876;
 }
 @media (max-width: 36rem) {
   .photographer-profil__picture img {
@@ -1390,8 +1395,8 @@ main {
 }
 @media (min-width: 62rem) {
   .likes-price .likes__icon {
-    width: 1.125remrem;
-    height: 1.125remrem;
+    width: 1.125rem;
+    height: 1.125rem;
   }
 }
 .likes-price .price {
