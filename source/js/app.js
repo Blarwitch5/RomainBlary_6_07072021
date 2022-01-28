@@ -10,19 +10,17 @@ new FisheyeApi()
   .then((data) => {
     //if photographer page
     if (window.location.href.indexOf("photographer-profil") > -1) {
-      const photographerPage = new PhotographerPage(data);
-      const contactModal = new ContactModal(data);
-      const dropdownElement = document.querySelector(".dropdown");
-      const dropdownFilterList = document.querySelector(".dropdown__menu");
+      const photographerPage = new PhotographerPage(data),
+        contactModal = new ContactModal(data),
+        dropdownElement = document.querySelector(".dropdown"),
+        dropdownFilterList = document.querySelector(".dropdown__menu");
 
       contactModal.getCurrentPhotographerName(data);
       photographerPage.getPhotographer(data);
-      photographerPage.submitBtn.addEventListener("click", () => {
-        photographerPage.contactModal.submitContactForm();
-      });
-      photographerPage.dropdownBtn.addEventListener("click", () => {
-        photographerPage.showFilters(dropdownElement);
-      });
+      photographerPage.contactModal.validator.initialize();
+
+      photographerPage.showFilters(dropdownElement);
+
       photographerPage.dropdownFilterList.querySelectorAll("li").forEach((li) => {
         photographerPage.sortOnFilterClick(data, li);
       });
@@ -33,14 +31,11 @@ new FisheyeApi()
           photographerPage.lightbox.hideModal(photographerPage.lightbox.lightboxElement);
           photographerPage.contactModal.hideModal(photographerPage.contactModal.contactElement);
         });
-      }); 
-
-      //activate validation process on form submit button
-      window.onload = () => {
-        photographerPage.submitBtn.addEventListener("click", () => {
-          photographerPage.contactModal.initializeForm();
-        });
-      };
+      });
+      photographerPage.submitBtn.addEventListener("click", (event) => {
+        photographerPage.contactModal.submitContactForm();
+      });
+      return;
     } else {
       //else it is homepage
       const homepage = new Homepage();

@@ -20,7 +20,7 @@ export let errorMessages = {
 };
 
 //fetch data error message
-export default function buildDataFecthingErrorMessage() {
+export default function showFetchErrorMessage() {
   let errorMessage = `Une erreur est survenue. \nAucune donnée provenant de l'API FishEye n'est disponible.`;
   let errorMessageContainer = document.querySelector(".main-content").appendChild(document.createElement("div"));
   errorMessageContainer.classList.add("error-message");

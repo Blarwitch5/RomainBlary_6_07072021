@@ -1,7 +1,7 @@
 /**
  * BUILD A GRID CONTAINING ALL THE PHOTOGRAPHERS BY DEFAULT
  */
-import ElementsFactory from "./components/factory.js";
+import ElementsFactory from "./components/factories.js";
 
 export default class Homepage {
   constructor() {

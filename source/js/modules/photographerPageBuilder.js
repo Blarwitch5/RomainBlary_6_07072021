@@ -1,4 +1,4 @@
-import ElementsFactory from "./components/factory.js";
+import ElementsFactory from "./components/factories.js";
 import ContactModal from "./components/contactModal.js";
 import Lightbox from "./components/lightbox.js";
 
@@ -87,7 +87,7 @@ export default class PhotographerPage {
    * Displays the photographer infos in a banner
    * @param {object} photographer = photographer object containing all photographer's data
    */
-  displayPhotographerInfo({ id, name, city, country, tagline, tags, portrait, price }) {
+  displayPhotographerInfo({ id, name, city, country, tagline, tags, portrait, price, altText }) {
     this.photographerBanner.innerHTML = "";
 
     const banner = this.elementFactory.createPhotographerBanner({
@@ -99,6 +99,7 @@ export default class PhotographerPage {
       price: price,
       tags: tags,
       image_url: portrait,
+      altText: altText
     });
 
     //SEO - Adds the name of the photographe in page title
@@ -135,7 +136,7 @@ export default class PhotographerPage {
     // const tag = this.getTag();
 
     // if (tag === null) {
-    allMedia.map(({ photographerId, image, video, likes, title, id, price }) => {
+    allMedia.map(({ photographerId, image, video, likes, title, id, price, altText }) => {
       let mediaList;
 
       //add condition for img or video
@@ -147,6 +148,7 @@ export default class PhotographerPage {
           likes: likes,
           title: title,
           id: id,
+          altText: altText
         });
 
         this.totalLikesCounter += likes;
@@ -158,6 +160,7 @@ export default class PhotographerPage {
           likes: likes,
           title: title,
           id: id,
+          altText: altText
         });
         this.totalLikesCounter += likes;
       }
@@ -188,6 +191,7 @@ export default class PhotographerPage {
     //         likes: likes,
     //         title: title,
     //         id: id,
+    //         altText: altText
     //       });
 
     //       this.totalLikesCounter += likes;
@@ -199,6 +203,7 @@ export default class PhotographerPage {
     //         likes: likes,
     //         title: title,
     //         id: id,
+    //         altText: altText
     //       });
     //       this.totalLikesCounter += likes;
     //     }
@@ -242,13 +247,15 @@ export default class PhotographerPage {
         }
       });
     });
-    let allMediaElements = document.querySelectorAll(".item__image");
+
+    //open the media lightbox on click
+    let allMediaElements = document.querySelectorAll(".media");
 
     allMediaElements.forEach((mediaElement) => {
       mediaElement.addEventListener("click", (event) => {
-        const mediaId = event.target.getAttribute('data-id');
+        const mediaId = event.target.getAttribute("data-id");
         this.lightbox.launchModal(this.lightbox.lightboxElement);
-        this.lightbox.displayLightbox(mediaId, allMedia);
+        this.lightbox.initializeLightbox(mediaId, allMedia);
       });
     });
     //go to previous Media
@@ -262,32 +269,32 @@ export default class PhotographerPage {
   }
   /**
    * Sorts media by popularity, date or title
-   * @param {object} medias = media list
+   * @param {object} allMedia = media list
    * @param {string} filterParam  = filter parameter selected by the user
    * @returns
    */
-  sortMedia(medias, filterParam) {
+  sortMedia(allMedia, filterParam) {
     switch (filterParam) {
-      case "Options":
-        return medias;
-        break;
       case "Date":
-        return medias.sort((a, b) => {
+        return allMedia.sort((a, b) => {
           return new Date(a.date) - new Date(b.date);
         });
         break;
       case "Titre":
-        return medias.sort((a, b) => {
+        return allMedia.sort((a, b) => {
           return a.title.localeCompare(b.title);
         });
         break;
       case "Popularité":
-        return medias.sort((a, b) => {
+        return allMedia.sort((a, b) => {
           return b.likes - a.likes;
         });
         break;
+        //by default, alphabetic order
       default:
-        return medias;
+        return allMedia.sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        });
         break;
     }
   }
@@ -302,7 +309,7 @@ export default class PhotographerPage {
     });
   }
   /**
-   * Displays the dorpdown filter list
+   * Displays the dropdown filter list
    * @param {*} dropdownElement
    */
   showFilters(dropdownElement) {

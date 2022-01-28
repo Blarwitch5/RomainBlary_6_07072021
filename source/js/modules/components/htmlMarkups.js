@@ -1,6 +1,6 @@
 // creation of the html markup
 export default class HtmlMarkup {
-  photographerCardHtmlMarkup({ id, name, city, country, tagline, price, tags, image_url }) {
+  photographerCardHtmlMarkup({ id, name, city, country, tagline, price, tags, image_url, altText }) {
     return `
         <article class='photographer ${tags
           .map((tag) => {
@@ -9,7 +9,7 @@ export default class HtmlMarkup {
           .join(" ")}'>
             <a class="photographer__link" href="/source/pages/photographer-profil.html?id=${id}" title="${name}">
                 <figure class="photographer__figure">
-                    <img class="photographer__image" src="public/img/photographers/${id}/${image_url}" alt="Portrait de ${name}" />
+                    <img class="photographer__image" src="public/img/photographers/${id}/${image_url}" alt="${altText}" />
                 </figure>
                 <h2 class="photographer__name">${name}</h2>
             </a>
@@ -27,7 +27,7 @@ export default class HtmlMarkup {
         </article>
         `;
   }
-  photographerBannerHtmlMarkup({ id, name, city, country, tagline, tags, image_url, price }) {
+  photographerBannerHtmlMarkup({ id, name, city, country, tagline, tags, image_url, price, altText }) {
     return `
             <div class="photographer-profil__banner">
                 <div class="photographer-profil__informations">
@@ -51,18 +51,18 @@ export default class HtmlMarkup {
                     <button class="btn btn-regular js-modal-btn-open" title="Contactez moi">Contactez-moi</button>
                 </div>
                 <div class="photographer-profil__picture">
-                    <img src="/public/img/photographers/${id}/${image_url}" alt="Portrait de ${name}" />
+                    <img src="/public/img/photographers/${id}/${image_url}" alt="${altText}" />
                 </div>
             </div>
 `;
   }
   //image media markup
-  mediaImageHtmlMarkup({ photographerId, image_url, likes, title, price, id }) {
+  mediaImageHtmlMarkup({ photographerId, image_url, likes, title, price, id, altText }) {
     return `
             <article class="item">
                 <div class="item__media">
                     <figure class="item__figure">
-                        <img data-id="${id}" loading="lazy" class="item__image" src="../../public/img/photographers/${photographerId}/media/${image_url}" alt="${title}">
+                        <img data-id="${id}" loading="lazy" class="item__image media" src="../../public/img/photographers/${photographerId}/media/${image_url}" alt="${altText}">
                         <figcaption class="item__meta">
                             <h2 class="item__title">${title}</h2>
                             <span class="item__price"> ${price} € </span>
@@ -92,12 +92,12 @@ export default class HtmlMarkup {
     `;
   }
   //video media markup
-  mediaVideoHtmlMarkup({ photographerId, video_url, likes, title, price, id }) {
+  mediaVideoHtmlMarkup({ photographerId, video_url, likes, title, price, id, altText }) {
     return `
             <article class="item">
                 <div class="item__media">
                     <figure class="item__figure">
-                        <video data-id="${id}" loading="lazy" class="item__video" controls="controls" role="button" alt="${title}">
+                        <video data-id="${id}" loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}">
                             <source src="/public/img/photographers/${photographerId}/media/${video_url}" type="video/mp4">
                         </video>
                         <figcaption class="item__meta">
@@ -147,19 +147,19 @@ export default class HtmlMarkup {
   }
 
   // lightbox
-  lightboxImageHtmlMarkup({ photographerId, image_url, id, title }) {
+  lightboxImageHtmlMarkup({ photographerId, image_url, id, title, altText }) {
     return `
     <figure class="lightbox__media-container" id=${id}>
-      <img id=${id} class="photographer-media" src="/public/img/photographers/${photographerId}/media/${image_url}" alt="${title}" />
+      <img id=${id} class="photographer-media" src="/public/img/photographers/${photographerId}/media/${image_url}" alt="${altText}" />
       <figcaption class="lightbox__media-title">${title}</figcaption>
     </figure>
     `;
   }
 
-  lightboxVideoHtmlMarkup({ photographerId, video_url, id, title }) {
+  lightboxVideoHtmlMarkup({ photographerId, video_url, id, title, altText }) {
     return `
     <figure class="lightbox__media-container" id=${id}>
-      <video preload="metadata" id=${id} title="${title}" class="photographer-media" controls>
+      <video preload="metadata" id=${id} title="${altText}" class="photographer-media" controls>
         <source src="/public/img/photographers/${photographerId}/media/${video_url}" type="video/mp4">
       </video>
       <figcaption class="lightbox__media-title">${title}</figcaption>
