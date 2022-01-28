@@ -13,8 +13,8 @@ export default class ContactModal extends Modal {
     this.modal = new Modal();
     this.validator = new FormValidator(this.form, this.fields);
   }
-
-  getCurrentPhotographerName(appData) {
+//update current ph name
+  updateCurrentPhotographerName(appData) {
     const url = new URL(window.location.href);
     let idValue = url.searchParams.get("id");
     let id = parseInt(idValue);
@@ -64,7 +64,7 @@ export default class ContactModal extends Modal {
       termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).value;
 
     if (firstnameFieldValue || lastnameFieldValue || emailFieldValue || messageFieldValue || termsFieldValue !== "") {
-      const error = this.isNotValid(this.formInputs);
+      const error = this.validator.isNotValid(this.formInputs)
       if (!error) {
         firstnameFieldValue = document.querySelector(`input[name=${this.fields[0]}]`).value;
         lastnameFieldValue = document.querySelector(`input[name=${this.fields[1]}]`).value;
@@ -94,21 +94,6 @@ export default class ContactModal extends Modal {
         console.groupEnd();
         this.displayValidationMessage();
       }
-    }
-  }
-  isNotValid(inputs) {
-    let error = [];
-    inputs.forEach((input) => {
-      error = [...error, input.classList];
-    });
-    let checker;
-    for (let i = 0; i < inputs.length; i++) {
-      checker = () => error[i].contains("input-error");
-    }
-    if (error.every(checker)) {
-      return true;
-    } else {
-      return false;
     }
   }
 }

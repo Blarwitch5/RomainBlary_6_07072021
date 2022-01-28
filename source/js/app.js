@@ -15,7 +15,7 @@ new FisheyeApi()
         dropdownElement = document.querySelector(".dropdown"),
         dropdownFilterList = document.querySelector(".dropdown__menu");
 
-      contactModal.getCurrentPhotographerName(data);
+      contactModal.updateCurrentPhotographerName(data);
       photographerPage.getPhotographer(data);
       photographerPage.contactModal.validator.initialize();
 

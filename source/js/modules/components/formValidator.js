@@ -205,4 +205,19 @@ export default class FormValidator {
       }
     }
   }
+  isNotValid(inputs) {
+    let error = [];
+    inputs.forEach((input) => {
+      error = [...error, input.classList];
+    });
+    let checker;
+    for (let i = 0; i < inputs.length; i++) {
+      checker = () => error[i].contains("input-error");
+    }
+    if (error.every(checker)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
