@@ -5,7 +5,7 @@ export default class ScrollToMainButton {
       const scrollToMainBtn = document.querySelector("#scroll-to-main");
       let y = window.scrollY;
 
-      if (y <= 200) {
+      if (y <= 50) {
         scrollToMainBtn.style.display = "none";
       } else {
         scrollToMainBtn.style.display = "block";
