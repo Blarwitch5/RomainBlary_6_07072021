@@ -1,4 +1,4 @@
-import showFetchErrorMessage from "./errorMessages.js";
+import {showFetchErrorMessage} from "../utils/messages.js";
 
 export default class FisheyeApi {
   async getFishEyeData() {

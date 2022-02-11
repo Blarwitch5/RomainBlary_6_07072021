@@ -1,8 +1,16 @@
+// imports the app data
 import FisheyeApi from "./utils/fisheyeApi.js";
-import Homepage from "./modules/homePageBuilder.js";
-import PhotographerPage from "./modules/photographerPageBuilder.js";
-import ScrollToMainButton from "./modules/components/scroll.js";
-import ContactModal from "./modules/components/contactModal.js";
+
+// homepage
+import Homepage from "./modules/components/home/homepage.js";
+
+// Photographers pages
+import PhotographerProfil from "./modules/components/photographers/photographerProfil.js";
+// import Dropdown from "./modules/photographers/dropdown.js";
+import MediaGrid from "./modules/components/photographers/mediaGrid.js";
+
+//accessibility
+import Scroll from "./utils/scroll.js";
 
 //get data
 new FisheyeApi()
@@ -10,41 +18,21 @@ new FisheyeApi()
   .then((data) => {
     //if photographer page
     if (window.location.href.indexOf("photographer-profil") > -1) {
-      const photographerPage = new PhotographerPage(data),
-        contactModal = new ContactModal(data),
-        dropdownElement = document.querySelector(".dropdown"),
-        dropdownFilterList = document.querySelector(".dropdown__menu");
+      //show photographer bio
+      new PhotographerProfil(data).displayPhotographerProfil(data);
 
-      contactModal.updateCurrentPhotographerName(data);
-      photographerPage.getPhotographer(data);
-      photographerPage.contactModal.validator.initialize();
+      // show dropdown filters menu
 
-      photographerPage.showFilters(dropdownElement);
+      // show photographers gallery with likes
+      new MediaGrid().displayPhotographersMedias(data);
 
-      photographerPage.dropdownFilterList.querySelectorAll("li").forEach((li) => {
-        photographerPage.sortOnFilterClick(data, li);
-      });
-
-      //activate close buttons on click
-      photographerPage.closeBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener("click", () => {
-          photographerPage.lightbox.hideModal(photographerPage.lightbox.lightboxElement);
-          photographerPage.contactModal.hideModal(photographerPage.contactModal.contactElement);
-        });
-      });
-      photographerPage.submitBtn.addEventListener("click", (event) => {
-        photographerPage.contactModal.submitContactForm();
-      });
       return;
     } else {
-      //else it is homepage
-      const homepage = new Homepage();
-      homepage.displayFilteredPhotographersList(data.photographers);
+      //or it is homepage, then show lis
+      new Homepage(data).displayListOfPhotographers(data);
     }
-
-    //display scroll btn
-    const scrollBtn = new ScrollToMainButton();
-    scrollBtn.displayScrollToMainBtn();
+    //displays the go to content button, for accessibility, on all pages
+    new Scroll().displayScrollToMainBtn();
   })
   //throw error if no data loaded
   .catch((error) => {

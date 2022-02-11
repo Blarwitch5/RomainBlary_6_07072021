@@ -19,10 +19,22 @@ export let errorMessages = {
   termsConditions: `Pour vous inscrire, vous devez accepter les termes et conditions`,
 };
 
+//build message dom
+function buildMessageDom(message){
+  // let errorMessage = `Une erreur est survenue. \nAucune donnée provenant de l'API FishEye n'est disponible.`;
+  let messageContainer = document.querySelector(".main-content").appendChild(document.createElement("div"));
+  messageContainer.classList.add("error-message");
+  messageContainer.innerHTML = message;
+};
+
 //fetch data error message
-export default function showFetchErrorMessage() {
+export function showFetchErrorMessage() {
   let errorMessage = `Une erreur est survenue. \nAucune donnée provenant de l'API FishEye n'est disponible.`;
-  let errorMessageContainer = document.querySelector(".main-content").appendChild(document.createElement("div"));
-  errorMessageContainer.classList.add("error-message");
-  errorMessageContainer.innerHTML = errorMessage;
+  buildMessageDom(errorMessage);
+}
+
+//show no items selected message
+export function showFilterMessage() {
+  let message = `Aucun photographe ne correspond au(x) filtre(s) selectionné(s)`;
+  buildMessageDom(message);
 }

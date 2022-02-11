@@ -1,15 +1,21 @@
-// creation of the html markup
+/**
+ *  1 - Photographers card
+ *  2 - photographer profil
+ *  3 - Media image
+ *  4 - Media video
+ *  5 - price and likes
+ *  6 - Lightbox Image
+ *  7 - Lightbox Video
+ *  8 - Contact Validation Message
+ * ...
+ */
+
 export default class HtmlMarkup {
-  photographerCardHtmlMarkup({ id, name, city, country, tagline, price, tags, image_url, altText }) {
+  photographerCardHtmlMarkup({ name, id, city, country, tags, tagline, price, portrait, altText }) {
     return `
-        <article class='photographer ${tags
-          .map((tag) => {
-            return `${tag}`;
-          })
-          .join(" ")}'>
             <a class="photographer__link" href="/source/pages/photographer-profil.html?id=${id}" title="${name}">
                 <figure class="photographer__figure">
-                    <img class="photographer__image" src="public/img/photographers/${id}/${image_url}" alt="${altText}" />
+                    <img class="photographer__image" src="public/img/photographers/${id}/${portrait}" alt="${altText}" />
                 </figure>
                 <h2 class="photographer__name">${name}</h2>
             </a>
@@ -24,10 +30,9 @@ export default class HtmlMarkup {
               })
               .join("")}
             </ul>
-        </article>
         `;
   }
-  photographerBannerHtmlMarkup({ id, name, city, country, tagline, tags, image_url, price, altText }) {
+  photographerBannerHtmlMarkup({ id, name, city, country, tagline, tags, portrait, altText }) {
     return `
             <div class="photographer-profil__banner">
                 <div class="photographer-profil__informations">
@@ -51,18 +56,17 @@ export default class HtmlMarkup {
                     <button class="btn btn-regular js-modal-btn-open" title="Contactez moi">Contactez-moi</button>
                 </div>
                 <div class="photographer-profil__picture">
-                    <img src="/public/img/photographers/${id}/${image_url}" alt="${altText}" />
+                    <img src="/public/img/photographers/${id}/${portrait}" alt="${altText}" />
                 </div>
             </div>
 `;
   }
-  //image media markup
-  mediaImageHtmlMarkup({ photographerId, image_url, likes, title, price, id, altText }) {
+  //media markup
+  mediaHtmlMarkup({ photographerId, likes, title, price, id, altText }) {
     return `
-            <article class="item">
                 <div class="item__media">
                     <figure class="item__figure">
-                        <img data-id="${id}" loading="lazy" class="item__image media" src="../../public/img/photographers/${photographerId}/media/${image_url}" alt="${altText}">
+                    <!-- Image or video media -->
                         <figcaption class="item__meta">
                             <h2 class="item__title">${title}</h2>
                             <span class="item__price"> ${price} € </span>
@@ -88,47 +92,17 @@ export default class HtmlMarkup {
                       </figcaption>
                     </figure>
                 </div>
-          </article>
     `;
   }
-  //video media markup
-  mediaVideoHtmlMarkup({ photographerId, video_url, likes, title, price, id, altText }) {
-    return `
-            <article class="item">
-                <div class="item__media">
-                    <figure class="item__figure">
-                        <video data-id="${id}" loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}">
-                            <source src="/public/img/photographers/${photographerId}/media/${video_url}" type="video/mp4">
-                        </video>
-                        <figcaption class="item__meta">
-                          <h2 class="item__title">${title}</h2>
-                          <span class="item__price"> ${price} € </span>
-                          <span class="likes item__likes">
-                              <span class="likes__counter"> ${likes} </span>
-                              <button role="button" aria-label="Cliquez pour aimer la vidéo" class="likes__icon btn-likes" data-id=${id}>
-                                  <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                      <path
-                                  d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                                  stroke-linecap="square"
-                                  stroke-miterlimit="10"
-                                  />
-                                  </svg>
-                                  <svg class="heart-background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                      <path
-                                  d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
-                                  stroke-linecap="square"
-                                  stroke-miterlimit="10"
-                                  />
-                                  </svg>
-                              </button>
-                          </span>
-                      </figcaption>
-                    </figure>
-                </div>
-                
-            </article>`;
+  //image media markup
+  mediaImageHtmlMarkup({ photographerId, image, id, altText }) {
+    return `<img data-id="${id}" loading="lazy" class="item__image media" src="../../public/img/photographers/${photographerId}/media/${image}" alt="${altText}">`;
   }
-  photographerPriceAndLikes({ price, totalLikes }) {
+  //video media markup
+  mediaVideoHtmlMarkup({ photographerId, video, id, altText }) {
+    return `<video data-id="${id}" loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}"><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>`;
+  }
+  photographerPriceAndLikes(price, totalLikes) {
     return `
       <div class="likes-price__wrapper">
           <span class="likes total-likes">
@@ -147,24 +121,41 @@ export default class HtmlMarkup {
   }
 
   // lightbox
-  lightboxImageHtmlMarkup({ photographerId, image_url, id, title, altText }) {
-    return `
-    <figure class="lightbox__media-container" id=${id}>
-      <img id=${id} class="photographer-media" src="/public/img/photographers/${photographerId}/media/${image_url}" alt="${altText}" />
-      <figcaption class="lightbox__media-title">${title}</figcaption>
-    </figure>
-    `;
+  lightboxImageHtmlMarkup({ photographerId, image, id, title, altText }) {
+    return `<img id=${id} class="photographer-media" src="/public/img/photographers/${photographerId}/media/${image}" alt="${altText}" />`;
   }
 
-  lightboxVideoHtmlMarkup({ photographerId, video_url, id, title, altText }) {
-    return `
-    <figure class="lightbox__media-container" id=${id}>
-      <video preload="metadata" id=${id} title="${altText}" class="photographer-media" controls>
-        <source src="/public/img/photographers/${photographerId}/media/${video_url}" type="video/mp4">
-      </video>
-      <figcaption class="lightbox__media-title">${title}</figcaption>
-    </figure>
-    `;
-    //etc
+  lightboxVideoHtmlMarkup({ photographerId, video, id, title, altText }) {
+    return `<video preload="metadata" id=${id} title="${altText}" class="photographer-media" controls><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>`;
   }
+  lightbox() {
+    return `
+    <article class="lightbox__container">
+      <button class="lightbox__close js-modal-btn-close">Fermer</button>
+      <button class="lightbox__next next">Suivant</button>
+      <button class="lightbox__prev previous">Précédent</button>
+        <div class="lightbox__content">
+          <!-- Lightbox Media -->
+          <figure class="lightbox__media-container">
+          </figure>
+        </div>
+      </article>`;
+  }
+  contactValidationMessage() {
+    return `
+    <!-- Form submitted message -->
+    <div class="validation">
+      <div class="validation__message">
+        <div class="validation__icon">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+            <circle class="path circle" fill="none" stroke="#079992" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+            <polyline class="path check" fill="none" stroke="#079992" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+          </svg>
+        </div>
+        Merci ! <br />
+        Vos informations ont été transmises.
+      </div>
+    </div>`;
+  }
+  //etc
 }

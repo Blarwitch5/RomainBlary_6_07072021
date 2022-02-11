@@ -1,13 +1,27 @@
-import { errorMessages } from "/source/js/utils/errorMessages.js";
+import { errorMessages } from "../../../utils/messages.js";
+import HtmlMarkup from "../../factory/htmlMarkups.js";
 
-export default class FormValidator {
+export default class Form {
   constructor(form, fields) {
     this.form = form;
     this.fields = fields;
     this.inputs = document.querySelectorAll(".form__input");
     this.submitBtn = form.querySelector("#form-validation-btn");
-  }
 
+    this.modal = document.querySelector(".contact-modal");
+    this.modalBody = document.querySelector(".modal__body");
+
+    this.contactForm = document.querySelector("#contact-form");
+    this.formFields = document.querySelectorAll(".form__field");
+    this.formInputs = document.querySelectorAll(".form__input");
+
+    this.closeBtns = document.querySelectorAll(".js-modal-btn-close");
+    this.validationMessage = new HtmlMarkup().contactValidationMessage();
+  }
+  /**
+   *
+   * @returns the contact form
+   */
   initialize() {
     //intialize the validator if form exists
     if (this.form) {
@@ -18,7 +32,9 @@ export default class FormValidator {
       return;
     }
   }
-
+  /**
+   * Removes the validation default behavior of the browser
+   */
   removeDefaultBrowserBehavior() {
     this.fields.forEach((field) => {
       const input = document.querySelector(`#${field}`);
@@ -32,10 +48,9 @@ export default class FormValidator {
       );
     });
   }
-
-  //l'event de cette fonction est ignoré,
-  //avec l'event click les champs sont vérifiés lors du click dans le formulaire.
-  // avec l'event submit rien ne se passe.
+  /**
+   * Validates the form fields when the user sends the form
+   */
   validateOnSubmit() {
     this.submitBtn.addEventListener("click", (event) => {
       event.preventDefault();
@@ -44,8 +59,14 @@ export default class FormValidator {
         const input = document.querySelector(`#${field}`);
         this.validateFields(input);
       });
+      if (this.isValid) {
+        this.submitContactForm();
+      }
     });
   }
+  /**
+   * Vzalidates the form fields when the user is typing
+   */
   validateOnEntry() {
     this.fields.forEach((field) => {
       const input = document.querySelector(`#${field}`);
@@ -56,7 +77,11 @@ export default class FormValidator {
       });
     });
   }
-
+  /**
+   *
+   * @param {*} field
+   * Check if the fields input are correct and displays the style accordingly
+   */
   validateFields(field) {
     const input = field;
     const inputName = field.name;
@@ -148,7 +173,12 @@ export default class FormValidator {
     }
     return "";
   }
-  // displays the error/valid message and the error/valid icon
+  /**
+   * displays the error/valid message and the error/valid icon
+   * @param {*} input
+   * @param {*} message
+   * @param {*} status
+   */
   setInputStatus(input, message, status) {
     const successIcon = input.parentNode.querySelector(".modal__icon--success");
     const errorIcon = input.parentNode.querySelector(".modal__icon--error");
@@ -205,7 +235,12 @@ export default class FormValidator {
       }
     }
   }
-  isNotValid(inputs) {
+  /**
+   *
+   * @param {*} inputs
+   * @returns a boolean value, true is all fields or ready to be submited
+   */
+  isValid(inputs) {
     let error = [];
     inputs.forEach((input) => {
       error = [...error, input.classList];
@@ -215,9 +250,60 @@ export default class FormValidator {
       checker = () => error[i].contains("input-error");
     }
     if (error.every(checker)) {
-      return true;
-    } else {
       return false;
+    } else {
+      return true;
+    }
+  }
+  /**
+   * Creates and adds the success validation message
+   */
+  displayValidationMessage() {
+    this.modalBody.insertAdjacentHTML("afterbegin", this.validationMessage);
+    this.contactForm.style.display = "none";
+  }
+  //
+  /**
+   * submit (log) form if all values are true
+   */
+  submitContactForm() {
+    let firstnameFieldValue = document.querySelector(`input[name=${this.fields[0]}]`).value,
+      lastnameFieldValue = document.querySelector(`input[name=${this.fields[1]}]`).value,
+      emailFieldValue = document.querySelector(`input[name=${this.fields[2]}]`).value,
+      messageFieldValue = document.querySelector(`textarea[name=${this.fields[3]}]`).value,
+      termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).value;
+
+    if (firstnameFieldValue || lastnameFieldValue || emailFieldValue || messageFieldValue || termsFieldValue !== "") {
+      const valid = this.isValid(this.formInputs);
+      if (valid) {
+        firstnameFieldValue = document.querySelector(`input[name=${this.fields[0]}]`).value;
+        lastnameFieldValue = document.querySelector(`input[name=${this.fields[1]}]`).value;
+        emailFieldValue = document.querySelector(`input[name=${this.fields[2]}]`).value;
+        messageFieldValue = document.querySelector(`textarea[name=${this.fields[3]}]`).value;
+        termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).checked;
+
+        //   show all inputs value in console
+        console.group(`FishEye - Contact Message from ${firstnameFieldValue} ${lastnameFieldValue}`);
+        console.log(
+          "%cPrénom : " +
+            firstnameFieldValue +
+            "\n" +
+            "Nom : " +
+            lastnameFieldValue +
+            "\n" +
+            "Email : " +
+            emailFieldValue +
+            "\n" +
+            "Message : " +
+            messageFieldValue +
+            "\n" +
+            "Conditions d'utilisation : " +
+            termsFieldValue,
+          "color: #079992; font-style: italic;"
+        );
+        console.groupEnd();
+        this.displayValidationMessage();
+      }
     }
   }
 }

@@ -16,17 +16,18 @@
   </head>
 
   <body class="photographer-page">
+    <!-- btn go straight to content for accessibility -->
+    <button id="scroll-to-main" class="btn btn-reverse btn-go-to" href="/#beginning-of-content">Passer au contenu</button>
+
     <header class="container header" role="banner">
       <a class="header__logo" href="/index.html">
         <img src="/public/img/logo.svg" height="50px" width="200px" alt="Logo FishEye, Retour à la page d'accueil" />
       </a>
     </header>
     <main class="container main-content" id="beginning-of-content">
-      <a id="scroll-to-main" class="btn btn-reverse btn-go-to" href="#beginning-of-content">Revenir au début</a>
-
       <!-- Photographer's informations-->
       <section class="photographer-profil">
-        <!-- PHOTOGRAPHER BANNER INFOS -->
+        <!-- Photographer banner infos -->
       </section>
 
       <!-- Photographer's media -->
@@ -44,27 +45,15 @@
             </ul>
           </div>
         </div>
-        <div class="gallery__list">
-          <!-- PHOTOGRAPHER MEDIA GALLERY -->
-        </div>
-        <!-- Modal | Lightbox -->
-        <aside class="modal lightbox">
-          <article class="lightbox__container">
-            <button class="lightbox__close js-modal-btn-close">Fermer</button>
-            <button class="lightbox__next next">Suivant</button>
-            <button class="lightbox__prev previous">Précédent</button>
-            <div class="lightbox__content">
-              <!-- Lightbox Media -->
-            </div>
-          </article>
-        </aside>
+        <!-- Photographer media gallery -->
+        <div class="gallery__list"></div>
+        <!-- Lightbox -->
+        <aside class="lightbox" aria-hidden="true"></aside>
       </section>
-
       <!-- Photographer fee & total likes -->
       <div class="likes-price"></div>
 
-      <!-- Modals => Form Modal & Form Submitted Modal -->
-      <!-- Modal Window | Contact form -->
+      <!-- Contact form -->
       <div class="modal contact-modal" aria-labelledby="form-title">
         <div class="modal__content">
           <div class="modal__header">

@@ -6,14 +6,7 @@
     @include breakpoint(laptop) {
       margin-right: 0.313rem;
     }
-    &.active {
-      a {
-        color: $white;
-        background-color: $primary;
-      }
-    }
-
-    a {
+    a:not(.selected) {
       font-size: 0.75rem;
       line-height: 1rem;
       color: $primary;
@@ -22,14 +15,26 @@
       transition: 0.3s;
       text-decoration: none;
       padding: 0 0.438rem;
-
-      &:hover,
-      &:focus,
-      &:active {
+      a {
+        &:hover,
+        &:focus,
+        &:active {
+          color: $white;
+          background-color: $primary;
+        }
+      }
+    }
+    &.selected {
+      a,
+      a:hover,
+      a:focus,
+      a:active {
         color: $white;
         background-color: $primary;
       }
     }
+
+    
   }
 }
 .photographer__tags {

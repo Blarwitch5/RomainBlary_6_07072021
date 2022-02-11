@@ -9,34 +9,35 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/svg+xml" href="/public/img/favicon/favicon.svg" />
     <link rel="icon" type="image/png" href="/public/img/favicon/favicon.png" />
-    
+
     <!-- SEO -->
     <meta name="description" content="Application FishEye..." />
     <title>FishEye | Nos photographes</title>
   </head>
 
   <body class="homepage">
+    <!-- btn go straight to content for accessibility -->
+    <button id="scroll-to-main" class="btn btn-reverse btn-go-to" href="/#beginning-of-content">Passer au contenu</button>
+    
     <header class="container header" role="banner">
       <a class="header__logo" href="/index.html">
         <img src="/public/img/logo.svg" height="50px" width="200px" alt="Logo FishEye, Retour à la page d'accueil" />
       </a>
       <h1 class="main-title">Nos photographes</h1>
-      <nav class="header__nav">
+      <nav class="header__nav" role="navigation">
         <ul class="tags">
-          <!-- <li class="tags__item active"  data-filter="All"><a href="/index.html">#All</a></li> -->
-          <li class="tags__item" id="portrait" data-filter="Portrait"><a href="/index.html?tag=portrait">#Portrait</a></li>
-          <li class="tags__item" id="art" data-filter="Art"><a href="/index.html?tag=art">#Art</a></li>
-          <li class="tags__item" id="fashion" data-filter="Fashion"><a href="/index.html?tag=fashion">#Fashion</a></li>
-          <li class="tags__item" id="architecture" data-filter="Architecture"><a href="/index.html?tag=architecture">#Architecture</a></li>
-          <li class="tags__item" id="travel" data-filter="Travel"><a href="/index.html?tag=travel">#Travel</a></li>
-          <li class="tags__item" id="sport" data-filter="Sport"><a href="/index.html?tag=sport">#Sport</a></li>
-          <li class="tags__item" id="animals" data-filter="Animals"><a href="/index.html?tag=animals">#Animals</a></li>
-          <li class="tags__item" id="events" data-filter="Events"><a href="/index.html?tag=events">#Events</a></li>
+          <li class="tags__item" id="portrait" data-filter="portrait"><a href="#">#Portrait</a></li>
+          <li class="tags__item" id="art" data-filter="art"><a href="#">#Art</a></li>
+          <li class="tags__item" id="fashion" data-filter="fashion"><a href="#">#Fashion</a></li>
+          <li class="tags__item" id="architecture" data-filter="architecture"><a href="#">#Architecture</a></li>
+          <li class="tags__item" id="travel" data-filter="travel"><a href="#">#Travel</a></li>
+          <li class="tags__item" id="sport" data-filter="sport"><a href="#">#Sport</a></li>
+          <li class="tags__item" id="animals" data-filter="animals"><a href="#">#Animals</a></li>
+          <li class="tags__item" id="events" data-filter="events"><a href="#">#Events</a></li>
         </ul>
       </nav>
     </header>
     <main class="container main-content" id="beginning-of-content">
-      <a id="scroll-to-main" class="btn btn-reverse btn-go-to" href="/#beginning-of-content">Revenir au début</a>
       <section id="photographers" class="photographers" aria-label="photographers">
         <!-- Photographers List -->
       </section>
