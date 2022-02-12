@@ -1,6 +1,5 @@
 export default class Likes {
   constructor() {
-    this.likeBtns = [];
     this.likes = [];
     this.likePriceSection = document.querySelector(".likes-price");
     this.totalLikesNumberContainer = document.querySelector(".total-likes-number");
@@ -42,7 +41,3 @@ export default class Likes {
     });
   }
 }
-
-/**
- * le clic fonctionne mais reset le compteur total
- */
