@@ -21,7 +21,11 @@ export default class Filter {
 
         //if no photographers match the selected filters, a message is displayed
         if (this.getNumberOfSelectedPhotographers() === 0) {
-          showFilterMessage();
+          if (!document.querySelector(".error-message")) {
+            showFilterMessage();
+          }
+        } else if (this.getNumberOfSelectedPhotographers() !== 0 || document.querySelector(".error-message")) {
+          document.querySelector(".error-message").remove();
         }
       });
     });
@@ -54,10 +58,10 @@ export default class Filter {
 
     return filters.length === match.length;
   }
-/**
- * show/hide photographers according to selected filters by user
- * @param {*} photographers 
- */
+  /**
+   * show/hide photographers according to selected filters by user
+   * @param {*} photographers
+   */
   sortPhotographers(photographers) {
     photographers.forEach((photographer) => {
       if (this.compareFilters(photographer)) {
