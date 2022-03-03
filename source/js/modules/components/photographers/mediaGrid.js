@@ -3,13 +3,14 @@ import Likes from "../photographers/likes.js";
 import HtmlMarkup from "../../factory/htmlMarkups.js";
 
 export default class MediaGrid {
-  constructor() {
+  constructor(data) {
+    this.photographers = data.photographers;
+    this.medias = data.media;
     this.gallery = new Gallery();
   }
-  displayPhotographersMedias(data) {
-    let mediaData = data.media;
-    this.gallery.builder(mediaData);
-    this.displayLikesAndPrice(this.gallery.totalLikes, data.photographers);
+  displayPhotographersMedias() {
+    this.gallery.builder(this.medias);
+    this.displayLikesAndPrice(this.gallery.totalLikes, this.photographers);
     new Likes();
   }
 

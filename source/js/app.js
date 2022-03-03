@@ -10,7 +10,7 @@ import Dropdown from "./modules/components/photographers/dropdown.js";
 import MediaGrid from "./modules/components/photographers/mediaGrid.js";
 
 //accessibility
-import Scroll from "./utils/scroll.js";
+// import Scroll from "./utils/scroll.js";
 
 //get data
 new FisheyeApi()
@@ -23,16 +23,17 @@ new FisheyeApi()
 
       // show dropdown filters menu
       new Dropdown(data).initialize();
+
       // show photographers gallery with likes
-      new MediaGrid().displayPhotographersMedias(data);
+      new MediaGrid(data).displayPhotographersMedias();
 
       return;
     } else {
       //or it is homepage, then show lis
       new Homepage(data).displayListOfPhotographers();
     }
-    //displays the go to content button, for accessibility, on all pages
-    new Scroll().displayScrollToMainBtn();
+    //displays the 'go to content' button, for accessibility, on all pages
+    // new Scroll().displayScrollToMainBtn();
   })
   //throw error if no data loaded
   .catch((error) => {

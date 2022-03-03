@@ -26,6 +26,7 @@ export default class Gallery {
         galleryItem.innerHTML = galleryItemTemplate;
         let domGalleryItem = this.photographerGallery.appendChild(galleryItem);
         galleryItem.classList.add("item");
+        galleryItem.setAttribute('aria-label', "Cliquez pour visionner l'image dans la liseuse")
         let mediaHtml = this.mediaFactory.renderMedia(media);
 
         let mediaHtmlLocations = domGalleryItem.querySelector(".item__meta");

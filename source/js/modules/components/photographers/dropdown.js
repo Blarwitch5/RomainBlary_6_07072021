@@ -28,24 +28,24 @@ export default class Dropdown {
       this.toggler.focus();
     };
 
-    const handleItemKeyDown = (event) => {
-      event.preventDefault();
+    // const handleItemKeyDown = (event) => {
+    //   event.preventDefault();
 
-      if (event.key === "ArrowUp" && event.target.previousElementSibling) {
-        // up
-        event.target.previousElementSibling.focus();
-      } else if (event.key === "ArrowDown" && event.target.nextElementSibling) {
-        // down
-        event.target.nextElementSibling.focus();
-      } else if (event.key === "Escape") {
-        // escape key
-        this.toggle(false);
-      } else if (event.key === "Enter" || event.key === 32) {
-        // enter or spacebar key
-        setValue(event.target);
-        this.sortMedia;
-      }
-    };
+    //   if (event.key === "ArrowUp" && event.target.previousElementSibling) {
+    //     // up
+    //     event.target.previousElementSibling.focus();
+    //   } else if (event.key === "ArrowDown" && event.target.nextElementSibling) {
+    //     // down
+    //     event.target.nextElementSibling.focus();
+    //   } else if (event.key === "Escape") {
+    //     // escape key
+    //     this.toggle(false);
+    //   } else if (event.key === "Enter" || event.key === 32) {
+    //     // enter or spacebar key
+    //     setValue(event.target);
+    //     this.sortMedia;
+    //   }
+    // };
 
     const handleToggleKeyPress = (event) => {
       event.preventDefault();
@@ -62,10 +62,27 @@ export default class Dropdown {
     this.toggler.addEventListener("keydown", handleToggleKeyPress);
     this.toggler.addEventListener("click", () => this.toggle());
     [...this.menu.children].forEach((item) => {
-      item.addEventListener("keydown", handleItemKeyDown);
-      item.addEventListener("click", function () {
+      item.addEventListener("keydown", (event) => {
+        event.preventDefault();
+
+        if (event.key === "ArrowUp" && event.target.previousElementSibling) {
+          // up
+          event.target.previousElementSibling.focus();
+        } else if (event.key === "ArrowDown" && event.target.nextElementSibling) {
+          // down
+          event.target.nextElementSibling.focus();
+        } else if (event.key === "Escape") {
+          // escape key
+          this.toggle(false);
+        } else if (event.key === "Enter" || event.key === 32) {
+          // enter or spacebar key
+          setValue(event.target);
+          this.sortMedias();
+        }
+      });
+      item.addEventListener("click", () => {
         setValue(item);
-        this.sortMedia;
+        this.sortMedias();
       });
     });
 
@@ -90,10 +107,12 @@ export default class Dropdown {
       }
     };
   }
+
   sortMedias() {
     let sortedMediasArray = [];
     let sortBtns = [...this.menu.children];
-    sortBtns.forEach((btn, index) =>
+
+    sortBtns.forEach((btn, index) => {
       btn.addEventListener("click", () => {
         switch (index) {
           case 0:
@@ -123,8 +142,40 @@ export default class Dropdown {
             this.displaySortedMedias(sortedMediasArray);
             break;
         }
-      })
-    );
+      });
+      btn.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === 32) {
+          switch (index) {
+            case 0:
+              sortedMediasArray = this.medias.sort((a, b) => {
+                return b.likes - a.likes;
+              });
+              this.displaySortedMedias(sortedMediasArray);
+              break;
+            case 1:
+              sortedMediasArray = this.medias.sort((a, b) => {
+                return new Date(a.date) - new Date(b.date);
+              });
+              this.displaySortedMedias(sortedMediasArray);
+              break;
+            case 2:
+              sortedMediasArray = this.medias.sort((a, b) => {
+                return a.title.localeCompare(b.title);
+              });
+              this.displaySortedMedias(sortedMediasArray);
+              break;
+
+            //by default, alphabetic order
+            default:
+              sortedMediasArray = this.medias.sort((a, b) => {
+                return a.title.localeCompare(b.title);
+              });
+              this.displaySortedMedias(sortedMediasArray);
+              break;
+          }
+        }
+      });
+    });
   }
   displaySortedMedias(sortedMediasArray) {
     document.querySelector(".gallery__list").innerHTML = "";

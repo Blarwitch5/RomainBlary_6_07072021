@@ -14,19 +14,19 @@ export default class HtmlMarkup {
   photographerCardHtmlMarkup({ name, id, city, country, tags, tagline, price, portrait, altText }) {
     return `
             <a class="photographer__link" href="/source/pages/photographer-profil.html?id=${id}" title="${name}">
-                <figure class="photographer__figure">
+                <figure class="photographer__figure" role="img" aria-label="Photo de profil du photographe qui se nomme ${name}">
                     <img class="photographer__image" src="public/img/photographers/${id}/${portrait}" alt="${altText}" />
                 </figure>
                 <h2 class="photographer__name">${name}</h2>
             </a>
             <p class="photographer__location">${city}, ${country}</p>
             <p class="photographer__baseline">${tagline}</p>
-            <p class="photographer__price">${price} € / jour</p>
-            <ul class="photographer__tags tags">
+            <p class="photographer__price" aria-label="Les services de ce photographe coûtent ${price} par jour">${price} € / jour</p>
+            <ul class="photographer__tags tags" aria-label="Liste des étiquettes associées à ce photographe">
             ${tags
               .map((tag) => {
                 return `
-                <li class="tags__item" data-filter="${tag}"><span>tag </span>#${tag}</li>`;
+                <li class="tags__item" data-filter="${tag}"><span class="sr-only">Étiquette</span>#${tag}</li>`;
               })
               .join("")}
             </ul>
@@ -43,10 +43,10 @@ export default class HtmlMarkup {
                     ${tags
                       .map((tag) => {
                         return `
-                        <li class="tags__item">
-                          <a href="/index.html?tag=${tag}"><span>tag </span>#${tag}</a>
+                        <li class="tags__item" aria-label="Liste des étiquettes associées à ce photographe">
+                          <a href="/index.html?tag=${tag}"><span class="sr-only">Étiquette </span>#${tag}</a>
                           <!-- Link used if tags in photographer bio are used to filter media by category  -->
-                          <!--<a href="/source/pages/photographer-profil.html?id=${id}&tag=${tag}"><span>tag </span>#${tag}</a>-->
+                          <!--<a href="/source/pages/photographer-profil.html?id=${id}&tag=${tag}"><span class="sr-only">Étiquette</span>#${tag}</a>-->
                         </li>`;
                       })
                       .join("")}
@@ -55,24 +55,24 @@ export default class HtmlMarkup {
                 <div class="photographer-profil__contact">
                     <button class="btn btn-regular js-modal-btn-open" title="Contactez moi">Contactez-moi</button>
                 </div>
-                <div class="photographer-profil__picture">
+                <div class="photographer-profil__picture" role="img" aria-label="Photo de profil du photographe qui se nomme ${name}">
                     <img src="/public/img/photographers/${id}/${portrait}" alt="${altText}" />
                 </div>
             </div>
 `;
   }
   //media markup
-  mediaHtmlMarkup({ photographerId, likes, title, price, id, altText }) {
+  mediaHtmlMarkup({ likes, title, price }) {
     return `
                 <div class="item__media">
                     <figure class="item__figure">
                     <!-- Image or video media -->
                         <figcaption class="item__meta">
-                            <h2 class="item__title">${title}</h2>
+                            <h2 class="item__title" lang="en">${title}</h2>
                             <span class="item__price"> ${price} € </span>
                             <span class="likes item__likes">
                               <span class="likes__counter"> ${likes} </span>
-                              <button role="button" aria-label="Cliquez pour aimer la photo" class="likes__icon btn-likes" data-id=${id}>
+                              <button role="button" aria-label="Cliquez pour aimer la photo dont le titre est ${title}" class="likes__icon btn-likes">
                                   <svg class="heart-main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                       <path
                                       d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
@@ -95,19 +95,19 @@ export default class HtmlMarkup {
     `;
   }
   //image media markup
-  mediaImageHtmlMarkup({ photographerId, image, id, altText }) {
-    return `<img data-id="${id}" loading="lazy" class="item__image media" src="../../public/img/photographers/${photographerId}/media/${image}" alt="${altText}">`;
+  mediaImageHtmlMarkup({ photographerId, image, altText }) {
+    return `<img loading="lazy" class="item__image media" src="../../public/img/photographers/${photographerId}/media/${image}" alt="${altText}">`;
   }
   //video media markup
-  mediaVideoHtmlMarkup({ photographerId, video, id, altText }) {
-    return `<video data-id="${id}" loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}"><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>`;
+  mediaVideoHtmlMarkup({ photographerId, video, altText }) {
+    return `<video loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}"><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>`;
   }
   photographerPriceAndLikes(price, totalLikes) {
     return `
       <div class="likes-price__wrapper">
           <span class="likes total-likes">
             <span class="likes__counter total-likes-number"> ${totalLikes} </span>
-            <svg class="likes__icon" aria-label="likes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <svg class="likes__icon" aria-label="Ce photographe a un totel de ${totalLikes} j'aime" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path
                 d="M17 1c-2.1 0-3.9 1.1-5 2.7C10.9 2.1 9.1 1 7 1 3.7 1 1 3.7 1 7c0 6 11 15 11 15s11-9 11-15c0-3.3-2.7-6-6-6z"
                 stroke-linecap="square"
@@ -116,12 +116,12 @@ export default class HtmlMarkup {
               />
             </svg>
           </span>
-          <span class="price" aria-label="${price} par jour"> ${price}€ / jour </span>
+          <span class="price" aria-label="Les services de ce photographe coûtent ${price} par jour"> ${price}€ / jour </span>
       </div>`;
   }
 
   // lightbox
-  lightboxImageHtmlMarkup({ photographerId, image, id, title, altText }) {
+  lightboxImageHtmlMarkup({ photographerId, image, id, altText }) {
     return `<img id=${id} class="photographer-media" src="/public/img/photographers/${photographerId}/media/${image}" alt="${altText}" />`;
   }
 

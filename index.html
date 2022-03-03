@@ -17,8 +17,8 @@
 
   <body class="homepage">
     <!-- btn go straight to content for accessibility -->
-    <button id="scroll-to-main" class="btn btn-reverse btn-go-to" href="/#beginning-of-content">Passer au contenu</button>
-    
+    <a id="skip-to-content" class="btn btn-reverse btn-go-to" href="#content">Passer au contenu</a>
+
     <header class="container header" role="banner">
       <a class="header__logo" href="/index.html">
         <img src="/public/img/logo.svg" height="50px" width="200px" alt="Logo FishEye, Retour à la page d'accueil" />
@@ -26,19 +26,35 @@
       <h1 class="main-title">Nos photographes</h1>
       <nav class="header__nav" role="navigation">
         <ul class="tags">
-          <li class="tags__item" id="portrait" data-filter="portrait"><a href="#">#Portrait</a></li>
-          <li class="tags__item" id="art" data-filter="art"><a href="#">#Art</a></li>
-          <li class="tags__item" id="fashion" data-filter="fashion"><a href="#">#Fashion</a></li>
-          <li class="tags__item" id="architecture" data-filter="architecture"><a href="#">#Architecture</a></li>
-          <li class="tags__item" id="travel" data-filter="travel"><a href="#">#Travel</a></li>
-          <li class="tags__item" id="sport" data-filter="sport"><a href="#">#Sport</a></li>
-          <li class="tags__item" id="animals" data-filter="animals"><a href="#">#Animals</a></li>
-          <li class="tags__item" id="events" data-filter="events"><a href="#">#Events</a></li>
+          <li class="tags__item" id="portrait" data-filter="portrait">
+            <a href="#"><span class="sr-only">Étiquette </span>#Portrait</a>
+          </li>
+          <li class="tags__item" id="art" data-filter="art">
+            <a href="#"><span class="sr-only">Étiquette </span>#Art</a>
+          </li>
+          <li class="tags__item" id="fashion" data-filter="fashion">
+            <a href="#"><span class="sr-only">Étiquette </span>#Mode</a>
+          </li>
+          <li class="tags__item" id="architecture" data-filter="architecture">
+            <a href="#"><span class="sr-only">Étiquette </span>#Architecture</a>
+          </li>
+          <li class="tags__item" id="travel" data-filter="travel">
+            <a href="#"><span class="sr-only">Étiquette </span>#Voyage</a>
+          </li>
+          <li class="tags__item" id="sport" data-filter="sport">
+            <a href="#"><span class="sr-only">Étiquette </span>#Sport</a>
+          </li>
+          <li class="tags__item" id="animals" data-filter="animals">
+            <a href="#"><span class="sr-only">Étiquette </span>#Animaux</a>
+          </li>
+          <li class="tags__item" id="events" data-filter="events">
+            <a href="#"><span class="sr-only">Étiquette </span>#Événements</a>
+          </li>
         </ul>
       </nav>
     </header>
-    <main class="container main-content" id="beginning-of-content">
-      <section id="photographers" class="photographers" aria-label="photographers">
+    <main class="container main-content" id="content">
+      <section id="photographers" class="photographers" aria-label="Liste des photographes de FisheEye">
         <!-- Photographers List -->
       </section>
     </main>

@@ -249,6 +249,7 @@ export default class Form {
     for (let i = 0; i < inputs.length; i++) {
       checker = () => error[i].contains("input-error");
     }
+
     if (error.every(checker)) {
       return false;
     } else {
@@ -271,9 +272,9 @@ export default class Form {
       lastnameFieldValue = document.querySelector(`input[name=${this.fields[1]}]`).value,
       emailFieldValue = document.querySelector(`input[name=${this.fields[2]}]`).value,
       messageFieldValue = document.querySelector(`textarea[name=${this.fields[3]}]`).value,
-      termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).value;
+      termsFieldValue = document.querySelector(`input[name=${this.fields[4]}]`).checked;
 
-    if (firstnameFieldValue || lastnameFieldValue || emailFieldValue || messageFieldValue || termsFieldValue !== "") {
+    if (firstnameFieldValue || lastnameFieldValue || emailFieldValue || messageFieldValue !== "" || !termsFieldValue) {
       const valid = this.isValid(this.formInputs);
       if (valid) {
         firstnameFieldValue = document.querySelector(`input[name=${this.fields[0]}]`).value;

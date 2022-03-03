@@ -48,5 +48,12 @@
     text-decoration: none;
     z-index: 9;
     width: 12.5rem;
+    opacity: 0;
+
+    &:focus,
+    &:active,
+    &:hover {
+      opacity: 1;
+    }
   }
 }

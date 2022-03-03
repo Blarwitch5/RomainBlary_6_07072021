@@ -17,14 +17,14 @@
 
   <body class="photographer-page">
     <!-- btn go straight to content for accessibility -->
-    <button id="scroll-to-main" class="btn btn-reverse btn-go-to" href="/#beginning-of-content">Passer au contenu</button>
+    <a id="skip-to-content" class="btn btn-reverse btn-go-to" href="#content">Passer au contenu</a>
 
     <header class="container header" role="banner">
       <a class="header__logo" href="/index.html">
         <img src="/public/img/logo.svg" height="50px" width="200px" alt="Logo FishEye, Retour à la page d'accueil" />
       </a>
     </header>
-    <main class="container main-content" id="beginning-of-content">
+    <main class="container main-content" id="content">
       <!-- Photographer's informations-->
       <section class="photographer-profil">
         <!-- Photographer banner infos -->
@@ -46,9 +46,9 @@
           </div>
         </div>
         <!-- Photographer media gallery -->
-        <div class="gallery__list"></div>
+        <div class="gallery__list" aria-label="Galerie photos"></div>
         <!-- Lightbox -->
-        <aside class="lightbox" aria-hidden="true"></aside>
+        <aside class="lightbox" aria-hidden="true" aria-label="Visionneuse d'image"></aside>
       </section>
       <!-- Photographer fee & total likes -->
       <div class="likes-price"></div>
@@ -162,8 +162,7 @@
                   type="checkbox"
                   name="terms-conditions"
                   id="terms-conditions"
-                  value="true"
-                  aria-labelledby="label-terms-conditions"
+                    aria-labelledby="label-terms-conditions"
                   required
                 />
                 <label class="form__label" for="terms-conditions" id="label-terms-conditions"

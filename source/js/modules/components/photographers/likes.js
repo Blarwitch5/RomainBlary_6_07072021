@@ -1,43 +1,52 @@
 export default class Likes {
+  // increment or decrement the counter when clicking on the 'like' icon
   constructor() {
-    this.likes = [];
-    this.likePriceSection = document.querySelector(".likes-price");
-    this.totalLikesNumberContainer = document.querySelector(".total-likes-number");
-    this.totalLikesNumber = parseInt(document.querySelector(".total-likes-number").innerHTML);
-    this.likesIndex = new Set();
+    this.media = document.querySelector(".gallery__list");
+    this.totalLikesNumber = document.querySelector(".total-likes-number");
 
-    this.likeBtns = document.querySelectorAll(".btn-likes");
+    this.media.addEventListener("click", (event) => {
+      let currentLikeBtn = event.target.parentNode.parentNode;
+      let currentBtnClassList = typeof currentLikeBtn.classList === "undefined" ? [] : currentLikeBtn.classList.value.split(" ");
+      let hasBtnClass = currentBtnClassList.indexOf("btn-likes") != -1;
 
-    this.likeBtns.forEach((likeBtn) => {
-      if ([...this.likesIndex].includes(likeBtn.getAttribute("data-id"))) {
-        likeBtn.classList.add("hasBeenliked");
-        this.totalLikesNumber += 1;
-        this.totalLikesNumberContainer.innerHTML = this.totalLikesNumber;
+      if (hasBtnClass) {
+        let totalLikes = parseInt(this.totalLikesNumber.innerHTML);
+        let likeCounter = currentLikeBtn.parentNode.firstElementChild;
+        let likeValue = parseInt(likeCounter.innerHTML);
+        let hasBeenliked = currentBtnClassList.indexOf("hasBeenliked") != -1;
+
+        this.totalLikesNumber.innerHTML = hasBeenliked ? --totalLikes : ++totalLikes;
+        likeCounter.innerHTML = hasBeenliked ? --likeValue : ++likeValue;
+
+        if (hasBeenliked) {
+          currentLikeBtn.classList.remove("hasBeenliked");
+        } else {
+          currentLikeBtn.classList.add("hasBeenliked");
+        }
       }
-      likeBtn.addEventListener("click", () => {
-        let totalLikesNumber = document.querySelector(".total-likes-number");
+    });
+    this.media.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === 32) {
+        let currentLikeBtn = event.target.parentNode.parentNode;
+        let currentBtnClassList = typeof currentLikeBtn.classList === "undefined" ? [] : currentLikeBtn.classList.value.split(" ");
+        let hasBtnClass = currentBtnClassList.indexOf("btn-likes") != -1;
 
-        if (likeBtn.classList.contains("hasBeenliked")) {
-          let likesInteger = parseInt(likeBtn.previousElementSibling.innerHTML);
-          let updatedLikes = likesInteger - 1;
-          likeBtn.previousElementSibling.innerHTML = updatedLikes;
-          this.totalLikesNumber -= 1;
-          totalLikesNumber.innerHTML = this.totalLikesNumber;
-        } else {
-          let likedId = likeBtn.getAttribute("data-id");
-          this.likesIndex.add(likedId);
-          let likesInteger = parseInt(likeBtn.previousElementSibling.innerHTML);
-          let updatedLikes = likesInteger + 1;
-          likeBtn.previousElementSibling.innerHTML = updatedLikes;
-          this.totalLikesNumber += 1;
-          totalLikesNumber.innerHTML = this.totalLikesNumber;
+        if (hasBtnClass) {
+          let totalLikes = parseInt(this.totalLikesNumber.innerHTML);
+          let likeCounter = currentLikeBtn.parentNode.firstElementChild;
+          let likeValue = parseInt(likeCounter.innerHTML);
+          let hasBeenliked = currentBtnClassList.indexOf("hasBeenliked") != -1;
+
+          this.totalLikesNumber.innerHTML = hasBeenliked ? --totalLikes : ++totalLikes;
+          likeCounter.innerHTML = hasBeenliked ? --likeValue : ++likeValue;
+
+          if (hasBeenliked) {
+            currentLikeBtn.classList.remove("hasBeenliked");
+          } else {
+            currentLikeBtn.classList.add("hasBeenliked");
+          }
         }
-        if (likeBtn.classList.contains("hasBeenliked")) {
-          likeBtn.classList.remove("hasBeenliked");
-        } else {
-          likeBtn.classList.add("hasBeenliked");
-        }
-      });
+      }
     });
   }
 }
