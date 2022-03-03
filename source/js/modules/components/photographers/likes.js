@@ -26,10 +26,10 @@ export default class Likes {
       }
     });
     this.media.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === 32) {
-        let currentLikeBtn = event.target.parentNode.parentNode;
+      if (event.key === "Enter" || event.key === "Space") {
+        let currentLikeBtn = event.target       ;
         let currentBtnClassList = typeof currentLikeBtn.classList === "undefined" ? [] : currentLikeBtn.classList.value.split(" ");
-        let hasBtnClass = currentBtnClassList.indexOf("btn-likes") != -1;
+        let hasBtnClass = currentBtnClassList.indexOf("btn-likes") != -1;   
 
         if (hasBtnClass) {
           let totalLikes = parseInt(this.totalLikesNumber.innerHTML);
