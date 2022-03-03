@@ -21,17 +21,11 @@ export default class Filter {
 
         //if no photographers match the selected filters, a message is displayed
         if (this.getNumberOfSelectedPhotographers() === 0) {
-<<<<<<< HEAD
           if (!document.querySelector(".error-message")) {
             showFilterMessage();
           }
-        } else if (this.getNumberOfSelectedPhotographers() !== 0 || document.querySelector(".error-message")) {
-          document.querySelector(".error-message").remove();
-=======
-          if(!document.querySelector('.error-message')){
-            showFilterMessage();
-          }
->>>>>>> e126df883ce57aa310de2b97cf7128defc4e8473
+        } else if (this.getNumberOfSelectedPhotographers() !== 0 && document.querySelector(".error-message")) {
+            document.querySelector(".error-message").remove();
         }
       });
     });
