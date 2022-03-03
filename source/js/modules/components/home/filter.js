@@ -21,7 +21,9 @@ export default class Filter {
 
         //if no photographers match the selected filters, a message is displayed
         if (this.getNumberOfSelectedPhotographers() === 0) {
-          showFilterMessage();
+          if(!document.querySelector('.error-message')){
+            showFilterMessage();
+          }
         }
       });
     });
