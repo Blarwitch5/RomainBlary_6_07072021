@@ -96,11 +96,15 @@ export default class HtmlMarkup {
   }
   //image media markup
   mediaImageHtmlMarkup({ photographerId, image, altText }) {
-    return `<img loading="lazy" class="item__image media" src="../../public/img/photographers/${photographerId}/media/${image}" alt="${altText}">`;
+    return `<a href="#" class="media">
+              <img loading="lazy" class="item__image" src="../../public/img/photographers/${photographerId}/media/${image}" alt="${altText}">
+            </a>`;
   }
   //video media markup
   mediaVideoHtmlMarkup({ photographerId, video, altText }) {
-    return `<video loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}"><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>`;
+    return `<a href="#" class="media">
+              <video loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}"><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>
+            </a>`;
   }
   photographerPriceAndLikes(price, totalLikes) {
     return `

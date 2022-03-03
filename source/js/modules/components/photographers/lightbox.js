@@ -31,6 +31,24 @@ export default class Lightbox {
         mediaContainer.innerHTML = `${source} ${sourceTitle}`;
       })
     );
+    mediasArray.forEach((mediaItem, index) =>
+      mediaItem.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === "Space") {
+          console.log('hello')
+          let mediaContainer = document.querySelector(".lightbox__media-container");
+          let source = currentMedia[index];
+          let sourceTitle = `<figcaption class="lightbox__media-title">${currentMediaTitle[index]}</figcaption>`;
+          this.currentMediaIndex = index;
+
+          this.lightbox.style.position = "fixed";
+          this.lightbox.setAttribute("aria-hidden", "false");
+          this.mainContent.setAttribute("aria-hidden", "true");
+          this.body.style.overflow = "hidden";
+
+          mediaContainer.innerHTML = `${source} ${sourceTitle}`;
+        }
+      })
+    );
     this.goToPrevious(document.querySelector(".previous"), currentMedia, currentMediaTitle);
     this.goToNext(document.querySelector(".next"), currentMedia, currentMediaTitle);
     this.closeLightbox();
