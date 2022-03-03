@@ -212,8 +212,15 @@ body {
   margin-bottom: 1rem;
 }
 
-#scroll-to-main {
-  display: none;
+.sr-only {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
 }
 
 /* dm-sans-regular - latin */
@@ -294,6 +301,10 @@ body {
   text-decoration: none;
   z-index: 9;
   width: 12.5rem;
+  opacity: 0;
+}
+.btn-go-to:focus, .btn-go-to:active, .btn-go-to:hover {
+  opacity: 1;
 }
 
 .tags .tags__item {
@@ -316,6 +327,10 @@ body {
   padding: 0 0.438rem;
 }
 .tags .tags__item a:not(.selected) a:hover, .tags .tags__item a:not(.selected) a:focus, .tags .tags__item a:not(.selected) a:active {
+  color: #fff;
+  background-color: #901C1C;
+}
+.tags .tags__item a:hover, .tags .tags__item a:focus, .tags .tags__item a:active {
   color: #fff;
   background-color: #901C1C;
 }

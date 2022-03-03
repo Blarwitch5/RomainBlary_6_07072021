@@ -24,6 +24,15 @@
         }
       }
     }
+    a {
+      &:hover,
+      &:focus,
+      &:active {
+        color: $white;
+        background-color: $primary;
+      }
+    }
+    
     &.selected {
       a,
       a:hover,
