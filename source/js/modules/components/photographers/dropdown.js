@@ -48,7 +48,7 @@ export default class Dropdown {
     // };
 
     const handleToggleKeyPress = (event) => {
-      event.preventDefault();
+      // event.preventDefault();
 
       if (event.key === "Escape") {
         // escape key
@@ -74,7 +74,7 @@ export default class Dropdown {
         } else if (event.key === "Escape") {
           // escape key
           this.toggle(false);
-        } else if (event.key === "Enter" || event.key === 32) {
+        } else if (event.key === "Enter" || event.key === "Space") {
           // enter or spacebar key
           setValue(event.target);
           this.sortMedias();
@@ -144,7 +144,7 @@ export default class Dropdown {
         }
       });
       btn.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === 32) {
+        if (event.key === "Enter" || event.key === "Space") {
           switch (index) {
             case 0:
               sortedMediasArray = this.medias.sort((a, b) => {
