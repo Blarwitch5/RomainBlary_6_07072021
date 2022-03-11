@@ -34,7 +34,6 @@ export default class Lightbox {
     mediasArray.forEach((mediaItem, index) =>
       mediaItem.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === "Space") {
-          console.log('hello')
           let mediaContainer = document.querySelector(".lightbox__media-container");
           let source = currentMedia[index];
           let sourceTitle = `<figcaption class="lightbox__media-title">${currentMediaTitle[index]}</figcaption>`;

@@ -228,7 +228,7 @@
         @include flex-flow(column nowrap);
         @include justify-content(space-between);
 
-        a.media {
+        a.media, div.media {
           @include border-radius;
           height: 100%;
           overflow: hidden;

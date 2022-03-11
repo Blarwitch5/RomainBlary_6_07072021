@@ -45,7 +45,6 @@
   height: 100%;
   width: 100%;
   overflow: auto;
-  display: none;
 
   &[aria-hidden="true"] {
     display: none;
@@ -53,7 +52,6 @@
   &[aria-hidden="false"] {
     display: block !important;
   }
-  // display: none;
 
   &__close-btn {
     position: relative;

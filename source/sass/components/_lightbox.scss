@@ -93,6 +93,9 @@
     @include breakpoint(laptop) {
       height: 80vh;
     }
+    div{
+      height: 100%;
+    }
 
     img,
     video {

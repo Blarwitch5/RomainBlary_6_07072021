@@ -262,6 +262,7 @@ export default class Form {
   displayValidationMessage() {
     this.modalBody.insertAdjacentHTML("afterbegin", this.validationMessage);
     this.contactForm.style.display = "none";
+    this.closeBtns[0].focus();
   }
   //
   /**

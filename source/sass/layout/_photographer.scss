@@ -49,6 +49,10 @@
       }
     }
   }
+  &__figure{
+    //safari fix
+    transform: translateZ(0)
+  }
   &__image{
     background-color: $tertiary;
   }

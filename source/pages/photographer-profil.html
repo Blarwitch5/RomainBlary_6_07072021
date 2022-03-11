@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/svg+xml" href="public/img/favicon/favicon.svg" />
-    <link rel="icon" type="image/png" href="public/img/favicon/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/public/img/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" href="/public/img/favicon/favicon.png" />
 
     <!-- SEO -->
     <meta name="description" content="Application FishEye, profil photographe" />
@@ -19,12 +19,14 @@
     <!-- btn go straight to content for accessibility -->
     <a id="skip-to-content" class="btn btn-reverse btn-go-to" href="#content">Passer au contenu</a>
 
-    <header class="container header" role="banner">
-      <a class="header__logo" href="index.html">
-        <img src="public/img/logo.svg" height="50px" width="200px" alt="Logo FishEye, Retour à la page d'accueil" />
-      </a>
+    <header class="container header">
+      <div role='navigation'>
+        <a href="/index.html" class="header__logo"  >
+          <img src="/public/img/logo.svg" height="50" width="200" alt="Logo FishEye, Retour à la page d'accueil" />
+        </a>
+      </div>
     </header>
-    <main class="container main-content" id="content">
+    <main class="container main-content" id="content" tabindex="-1">
       <!-- Photographer's informations-->
       <section class="photographer-profil">
         <!-- Photographer banner infos -->
@@ -33,7 +35,7 @@
       <!-- Photographer's media -->
       <section class="gallery">
         <div class="sorting">
-          <label class="sorting__label" for="sorting-options">Trier par</label>
+          <p class="sorting__label">Trier par</p>
           <div class="dropdown">
             <button class="dropdown__toggle" type="button" aria-haspopup="true">
               <span>Options</span>
@@ -46,7 +48,7 @@
           </div>
         </div>
         <!-- Photographer media gallery -->
-        <div class="gallery__list" aria-label="Galerie photos"></div>
+        <div class="gallery__list"></div>
         <!-- Lightbox -->
         <aside class="lightbox" aria-hidden="true" aria-label="Visionneuse d'image"></aside>
       </section>
@@ -54,11 +56,12 @@
       <div class="likes-price"></div>
 
       <!-- Contact form -->
-      <div class="modal contact-modal" aria-labelledby="form-title">
+      <div id="dialog" role="dialog" aria-label="Contactez-moi via le formaulaire ci-dessous" class="modal contact-modal" aria-labelledby="form-title" aria-hidden="true">
         <div class="modal__content">
           <div class="modal__header">
             <h2 id="form-title" class="modal__title">Contactez-moi<br /><span id="js-photographer-name"></span></h2>
-            <button class="modal__close-btn js-modal-btn-close" title="Fermer la fenêtre formulaire de contact"></button>
+            <p id="dialog-description" class="sr-only">Utilisez le formulaire ci-dessous pour me contacter.</p>
+            <button class="modal__close-btn js-modal-btn-close" aria-label="Fermer la fenêtre formulaire de contact" title="Fermer la fenêtre formulaire de contact"></button>
           </div>
           <div class="modal__body">
             <form id="contact-form" class="form" name="form">
@@ -135,7 +138,6 @@
                 <label class="form__label" for="message" id="label-message">Votre message</label>
                 <textarea
                   class="form__input"
-                  type="text"
                   id="message"
                   name="message"
                   aria-labelledby="label-message"
@@ -189,6 +191,6 @@
         </div>
       </div>
     </main>
-    <script type="module" src="source/js/app.js"></script>
+    <script type="module" src="/source/js/app.js"></script>
   </body>
 </html>
