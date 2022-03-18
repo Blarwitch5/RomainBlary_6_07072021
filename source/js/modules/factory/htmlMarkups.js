@@ -113,7 +113,9 @@ export default class HtmlMarkup {
   }
   //video media markup
   mediaVideoHtmlMarkup({ photographerId, video, altText }) {
-    return `<video loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}"><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>`;
+    return `<video loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}">
+              <source src="public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
+            </video>`;
   }
   photographerPriceAndLikes(price, totalLikes) {
     return `
