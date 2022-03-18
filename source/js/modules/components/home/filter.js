@@ -42,7 +42,6 @@ export default class Filter {
       let dataFilterValue = chosenFilter.getAttribute("data-filter");
       selectedFilters.push(dataFilterValue);
     });
-    console.log(selectedFilters)
     return selectedFilters;
   }
   /**
