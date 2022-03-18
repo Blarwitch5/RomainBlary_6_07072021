@@ -52,7 +52,7 @@
 
   &__next,
   &__prev {
-    background: url("./public/img/chevron-right.svg") center center / 48px 30px no-repeat;
+    background: url("public/img/chevron-right.svg") center center / 48px 30px no-repeat;
     width: 50px;
     height: 100%;
     position: fixed;
@@ -70,7 +70,7 @@
   &__close {
     width: 25px;
     height: 25px;
-    background: url("./public/img/lightbox-cross.svg") center center / 25px 25px no-repeat transparent;
+    background: url("public/img/lightbox-cross.svg") center center / 25px 25px no-repeat transparent;
     position: fixed;
     top: 10%;
     right: 8.5%;
@@ -120,6 +120,6 @@
     width: 2rem;
     height: 2rem;
     opacity: 1;
-    background: url("./public/img/loader.svg");
+    background: url("public/img/loader.svg");
   }
 }
