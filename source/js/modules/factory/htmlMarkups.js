@@ -15,7 +15,7 @@ export default class HtmlMarkup {
     return `
             <a class="photographer__link" href="photographer-profil.html?id=${id}" >
                 <figure class="photographer__figure" role="img" aria-label="Photo de profil du photographe qui se nomme ${name}" >
-                    <img class="photographer__image" src="public/img/photographers/${id}/${portrait}" alt="${altText}"  />
+                    <img class="photographer__image" src="/public/img/photographers/${id}/${portrait}" alt="${altText}"  />
                 </figure>
                 <h2 class="photographer__name">${name}</h2>
             </a>
