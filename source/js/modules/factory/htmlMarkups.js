@@ -135,7 +135,7 @@ export default class HtmlMarkup {
 
   lightboxVideoHtmlMarkup({ photographerId, video, id, title, altText }) {
     return `<video preload="metadata" id=${id} title="${altText}" class="photographer-media" controls>
-              </source src="public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
+              </source src="./public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
             </video>`;
   }
   lightbox() {
