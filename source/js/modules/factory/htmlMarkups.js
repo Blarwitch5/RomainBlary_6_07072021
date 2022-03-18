@@ -44,7 +44,7 @@ export default class HtmlMarkup {
                       .map((tag) => {
                         return `
                         <li class="tags__item">
-                          <a href="/index.html?tag=${tag}"><span class="sr-only">Étiquette </span>#${tag}</a>
+                          <a href="index.html?tag=${tag}"><span class="sr-only">Étiquette </span>#${tag}</a>
                           <!-- Link used if tags in photographer bio are used to filter media by category  -->
                           <!--<a href="photographer-profil.html?id=${id}&tag=${tag}"><span class="sr-only">Étiquette</span>#${tag}</a>-->
                         </li>`;
@@ -105,6 +105,7 @@ export default class HtmlMarkup {
   mediaVideoHtmlMarkup({ photographerId, video, altText }) {
     return `<div class="media">
               <video class="item__video media" controls>
+              hello
                 </source src="public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
                 ${altText}
               </video>
