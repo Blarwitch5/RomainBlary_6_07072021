@@ -13,9 +13,9 @@
 export default class HtmlMarkup {
   photographerCardHtmlMarkup({ name, id, city, country, tags, tagline, price, portrait, altText }) {
     return `
-            <a class="photographer__link" href="source/photographer-profil.html?id=${id}" >
+            <a class="photographer__link" href="/source/photographer-profil.html?id=${id}" >
                 <figure class="photographer__figure" role="img" aria-label="Photo de profil du photographe qui se nomme ${name}" >
-                    <img class="photographer__image" src="public/img/photographers/${id}/${portrait}" alt="${altText}"  />
+                    <img class="photographer__image" src="/public/img/photographers/${id}/${portrait}" alt="${altText}"  />
                 </figure>
                 <h2 class="photographer__name">${name}</h2>
             </a>
@@ -46,7 +46,7 @@ export default class HtmlMarkup {
                         <li class="tags__item">
                           <a href="/index.html?tag=${tag}"><span class="sr-only">Étiquette </span>#${tag}</a>
                           <!-- Link used if tags in photographer bio are used to filter media by category  -->
-                          <!--<a href="source/photographer-profil.html?id=${id}&tag=${tag}"><span class="sr-only">Étiquette</span>#${tag}</a>-->
+                          <!--<a href="/source/photographer-profil.html?id=${id}&tag=${tag}"><span class="sr-only">Étiquette</span>#${tag}</a>-->
                         </li>`;
                       })
                       .join("")}
@@ -57,7 +57,7 @@ export default class HtmlMarkup {
                     aria-controls="dialog">Contactez-moi</button>
                 </div>
                 <div class="photographer-profil__picture" role="img" aria-label="Photo de profil du photographe qui se nomme ${name}">
-                    <img src="public/img/photographers/${id}/${portrait}" alt="${altText}" />
+                    <img src="/public/img/photographers/${id}/${portrait}" alt="${altText}" />
                 </div>
             </div>
 `;
@@ -98,14 +98,14 @@ export default class HtmlMarkup {
   //image media markup
   mediaImageHtmlMarkup({ photographerId, image, altText }) {
     return `<a href="#" class="media">
-              <img loading="lazy" class="item__image" src="public/img/photographers/${photographerId}/media/${image}" alt="${altText}">
+              <img loading="lazy" class="item__image" src="/public/img/photographers/${photographerId}/media/${image}" alt="${altText}">
             </a>`;
   }
   //video media markup
   mediaVideoHtmlMarkup({ photographerId, video, altText }) {
     return `<div class="media">
               <video class="item__video media" controls>
-                <source src="public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
+                </source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
                 ${altText}
               </video>
             </div>`;
@@ -130,12 +130,12 @@ export default class HtmlMarkup {
 
   // lightbox
   lightboxImageHtmlMarkup({ photographerId, image, id, altText }) {
-    return `<img id=${id} class="photographer-media" src="public/img/photographers/${photographerId}/media/${image}" alt="${altText}" />`;
+    return `<img id=${id} class="photographer-media" src="/public/img/photographers/${photographerId}/media/${image}" alt="${altText}" />`;
   }
 
   lightboxVideoHtmlMarkup({ photographerId, video, id, title, altText }) {
     return `<video preload="metadata" id=${id} title="${altText}" class="photographer-media" controls>
-              <source src="public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
+              </source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
             </video>`;
   }
   lightbox() {
