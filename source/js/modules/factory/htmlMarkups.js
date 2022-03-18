@@ -13,7 +13,7 @@
 export default class HtmlMarkup {
   photographerCardHtmlMarkup({ name, id, city, country, tags, tagline, price, portrait, altText }) {
     return `
-            <a class="photographer__link" href="/source/photographer-profil.html?id=${id}" >
+            <a class="photographer__link" href="/photographer-profil.html?id=${id}" >
                 <figure class="photographer__figure" role="img" aria-label="Photo de profil du photographe qui se nomme ${name}" >
                     <img class="photographer__image" src="/public/img/photographers/${id}/${portrait}" alt="${altText}"  />
                 </figure>
@@ -46,7 +46,7 @@ export default class HtmlMarkup {
                         <li class="tags__item">
                           <a href="/index.html?tag=${tag}"><span class="sr-only">Étiquette </span>#${tag}</a>
                           <!-- Link used if tags in photographer bio are used to filter media by category  -->
-                          <!--<a href="/source/photographer-profil.html?id=${id}&tag=${tag}"><span class="sr-only">Étiquette</span>#${tag}</a>-->
+                          <!--<a href="/photographer-profil.html?id=${id}&tag=${tag}"><span class="sr-only">Étiquette</span>#${tag}</a>-->
                         </li>`;
                       })
                       .join("")}
