@@ -105,8 +105,7 @@ export default class HtmlMarkup {
   mediaVideoHtmlMarkup({ photographerId, video, altText }) {
     return `<div class="media">
               <video class="item__video media" controls>
-              hello
-                </source src="public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
+                <source src="public/img/photographers/${photographerId}/media/${video}" type="video/mp4">
                 ${altText}
               </video>
             </div>`;
