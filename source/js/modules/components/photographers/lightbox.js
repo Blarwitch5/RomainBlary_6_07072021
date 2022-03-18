@@ -31,6 +31,7 @@ export default class Lightbox {
         mediaContainer.innerHTML = `${source} ${sourceTitle}`;
       })
     );
+<<<<<<< HEAD
     mediasArray.forEach((mediaItem, index) =>
       mediaItem.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === "Space") {
@@ -48,6 +49,8 @@ export default class Lightbox {
         }
       })
     );
+=======
+>>>>>>> parent of aed1488... Fix: ajout d'un lien sur les medias pour rendre sélectionnable via la touche tab + adaptation css + ouverture de la lightbox avec la touche entrer
     this.goToPrevious(document.querySelector(".previous"), currentMedia, currentMediaTitle);
     this.goToNext(document.querySelector(".next"), currentMedia, currentMediaTitle);
     this.closeLightbox();

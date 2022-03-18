@@ -109,6 +109,11 @@ export default class HtmlMarkup {
                 ${altText}
               </video>
             </div>`;
+    return `<img loading="lazy" class="item__image media" src="../../public/img/photographers/${photographerId}/media/${image}" alt="${altText}">`;
+  }
+  //video media markup
+  mediaVideoHtmlMarkup({ photographerId, video, altText }) {
+    return `<video loading="lazy" class="item__video media" controls="controls" role="button" alt="${altText}"><source src="/public/img/photographers/${photographerId}/media/${video}" type="video/mp4"></video>`;
   }
   photographerPriceAndLikes(price, totalLikes) {
     return `

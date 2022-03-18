@@ -104,7 +104,7 @@
           &.active {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-            color: rgba($white, 0.3);
+            color: rgba($white, .3);
 
             &::after {
               transform: rotate(0deg);
@@ -227,12 +227,15 @@
         @include flexbox;
         @include flex-flow(column nowrap);
         @include justify-content(space-between);
+<<<<<<< HEAD
 
         a.media, div.media {
           @include border-radius;
           height: 100%;
           overflow: hidden;
         }
+=======
+>>>>>>> parent of aed1488... Fix: ajout d'un lien sur les medias pour rendre sélectionnable via la touche tab + adaptation css + ouverture de la lightbox avec la touche entrer
       }
       &__image {
         height: 100%;
